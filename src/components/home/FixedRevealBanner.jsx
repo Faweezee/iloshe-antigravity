@@ -3,25 +3,25 @@ import { ASSETS } from '../../data/assetsManifest';
 
 export default function FixedRevealBanner() {
   return (
-    <div className="relative z-0 overflow-hidden border-t border-b border-[#E5E2DC]">
+    <div className="relative z-0 overflow-hidden border-t border-b border-[#E5E2DC] bg-[#111318]">
       
       {/* 
-        Fixed Background Window:
-        `bg-fixed bg-cover bg-center` locks the image in place relative to the viewport.
-        As the user scrolls, the page content above and below slides over this fixed window.
+        Fixed Parallax Background Reveal Window:
+        Locks the image relative to the viewport.
+        When the user scrolls past the Trust Metrics fold, this full architectural window is revealed cleanly.
       */}
       <div 
-        className="w-full h-[460px] sm:h-[540px] lg:h-[600px] bg-fixed bg-cover bg-center relative flex items-end"
+        className="w-full h-[480px] sm:h-[560px] lg:h-[620px] bg-fixed bg-cover bg-center relative flex items-end"
         style={{ backgroundImage: `url(${ASSETS.brand.heroBg})` }}
       >
-        {/* Subtle Dark Gradient Overlay for Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111318]/80 via-[#111318]/20 to-transparent pointer-events-none" />
+        {/* Subtle Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111318]/85 via-[#111318]/30 to-transparent pointer-events-none" />
 
-        {/* Minimalist Editorial Technical Overlay Tag */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pb-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-[#FAF9F5]">
+        {/* Technical Editorial Caption Overlay */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-[#FAF9F5]">
           <div className="space-y-1">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              Architectural Portfolio Feature
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              02 — FEATURED ESTATE PARCEL
             </span>
             <h3 className="text-2xl sm:text-3xl font-serif-display font-medium text-white">
               Iloshe Imperial Haven — Ketu-Epe Corridor
