@@ -1,0 +1,101 @@
+import React from 'react';
+import { ASSETS } from '../../data/assetsManifest';
+
+export default function Footer({ setActivePage, onOpenInspection }) {
+  const handleNav = (id) => {
+    setActivePage(id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <footer className="bg-[#111318] text-[#FAF9F5] pt-20 pb-12 border-t border-white/10">
+      
+      {/* Top Quiet CTA Strip */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div>
+          <span className="text-xs font-mono-data uppercase tracking-widest text-[#C5A059] block mb-1">
+            Property Advisory
+          </span>
+          <h3 className="text-2xl sm:text-3xl font-serif-display font-medium text-white">
+            Ready to secure your property investment?
+          </h3>
+        </div>
+        <button
+          onClick={() => onOpenInspection()}
+          className="btn-primary whitespace-nowrap"
+        >
+          Book Site Inspection
+        </button>
+      </div>
+
+      {/* Main 4-Column Footer */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-xs font-sans-body">
+        
+        {/* Col 1: Brand Profile */}
+        <div className="space-y-4">
+          <span className="block font-serif-display text-lg text-white font-medium">
+            ILOSHE PROPERTIES
+          </span>
+          <p className="text-slate-400 leading-relaxed max-w-xs">
+            Iloshe Properties & Investment Limited helps buyers and institutional investors acquire verified land opportunities across Nigeria with complete legal transparency.
+          </p>
+        </div>
+
+        {/* Col 2: Navigation */}
+        <div className="space-y-3">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#C5A059] block">
+            Navigation
+          </span>
+          <ul className="space-y-2.5 text-slate-300">
+            {['home', 'about', 'estates', 'services', 'guide', 'contact'].map((id) => (
+              <li key={id}>
+                <button 
+                  onClick={() => handleNav(id)}
+                  className="hover:text-white transition-colors capitalize"
+                >
+                  {id === 'guide' ? 'Investment Guide' : id === 'about' ? 'About Us' : id === 'estates' ? 'Our Estates' : id}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Col 3: Services */}
+        <div className="space-y-3">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#C5A059] block">
+            Advisory Services
+          </span>
+          <ul className="space-y-2.5 text-slate-400">
+            <li>Verified Land Sales</li>
+            <li>Investment Advisory</li>
+            <li>Documentation Support</li>
+            <li>Site Inspection Coordination</li>
+            <li>Physical Plot Pegging</li>
+          </ul>
+        </div>
+
+        {/* Col 4: Contact */}
+        <div className="space-y-3">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#C5A059] block">
+            Headquarters
+          </span>
+          <div className="space-y-2 text-slate-300">
+            <p className="leading-relaxed">{ASSETS.contact.address}</p>
+            <p className="font-mono-data">{ASSETS.contact.phones[0]}</p>
+            <p className="font-mono-data">{ASSETS.contact.email}</p>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 border-t border-white/10 text-[11px] text-slate-500 font-sans-body flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>© {new Date().getFullYear()} ILOSHE PROPERTIES AND INVESTMENT LIMITED. All Rights Reserved.</p>
+        <div className="flex space-x-6 text-slate-400">
+          <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Terms</span>
+          <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Privacy</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
