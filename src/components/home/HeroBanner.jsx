@@ -1,28 +1,31 @@
 import React from 'react';
-import { ASSETS } from '../../data/assetsManifest';
 
 export default function HeroBanner({ setActivePage, onOpenInspection }) {
   return (
-    <section className="bg-[#FAF9F5] text-[#121824] pt-16 pb-24 border-b border-[#E5E2DC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section className="bg-[#FAF9F5] text-[#121824] pt-20 sm:pt-28 pb-20 border-b border-[#E5E2DC] relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+        
+        {/* Asymmetric Editorial Header Block */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           
-          {/* Left Column: Editorial Headline & Copy */}
-          <div className="lg:col-span-6 space-y-8">
-            <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              Iloshe Properties & Investment Limited
+          {/* Main Editorial Headline (8 Columns) */}
+          <div className="lg:col-span-8 space-y-6">
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
+              01 — ILOSHE PROPERTIES & INVESTMENT LIMITED
             </span>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif-display font-medium leading-[1.12] text-[#121824]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif-display font-medium leading-[1.1] text-[#121824] tracking-tight">
               Build Wealth Through Genuine Real Estate
             </h1>
+          </div>
 
-            <p className="text-[#5E6A7B] text-base sm:text-lg leading-relaxed font-sans-body max-w-xl">
-              We help individuals, families, and institutional investors acquire verified land and residential properties across Nigeria with absolute legal transparency and structured payment plans.
+          {/* Editorial Subtext & Action Controls (4 Columns) */}
+          <div className="lg:col-span-4 space-y-6 lg:pb-1">
+            <p className="text-[#5E6A7B] text-sm sm:text-base leading-relaxed font-sans-body">
+              We guide individuals, families, and institutional investors to acquire verified land in Lagos' highest appreciation corridors with 100% legal transparency.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <button
                 onClick={() => {
                   setActivePage('estates');
@@ -30,50 +33,20 @@ export default function HeroBanner({ setActivePage, onOpenInspection }) {
                 }}
                 className="btn-primary"
               >
-                <span>Explore Our Estates</span>
+                <span>Explore Estates</span>
               </button>
 
               <button
                 onClick={() => onOpenInspection()}
                 className="btn-secondary"
               >
-                <span>Book Site Inspection</span>
+                <span>Book Inspection</span>
               </button>
-            </div>
-
-            {/* Minimal Credentials */}
-            <div className="pt-8 border-t border-[#E5E2DC] grid grid-cols-3 gap-6 text-xs text-[#5E6A7B] font-sans-body">
-              <div>
-                <span className="block font-serif-display text-xl text-[#0B3B2B]">100%</span>
-                <span>Verified Titles</span>
-              </div>
-              <div>
-                <span className="block font-serif-display text-xl text-[#D96B27]">₦10B+</span>
-                <span>Land Value Secured</span>
-              </div>
-              <div>
-                <span className="block font-serif-display text-xl text-[#0B3B2B]">1,500+</span>
-                <span>Landowners Allocated</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Clean Architectural Photography */}
-          <div className="lg:col-span-6">
-            <div className="relative overflow-hidden border border-[#E5E2DC]">
-              <img 
-                src={ASSETS.brand.heroBg} 
-                alt="Iloshe Property Development" 
-                className="w-full h-[420px] sm:h-[480px] object-cover filter contrast-[1.02]"
-              />
-              <div className="mt-3 flex justify-between text-xs text-[#5E6A7B] font-mono-data px-1">
-                <span>Featured Property: Imperial Haven</span>
-                <span className="text-[#D96B27]">Ketu-Epe Expressway, Lagos</span>
-              </div>
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );

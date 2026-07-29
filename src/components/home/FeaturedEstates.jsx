@@ -6,17 +6,17 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
   const featuredEstates = ESTATES_DATA.filter(est => est.featured !== false);
 
   return (
-    <section className="py-24 bg-[#FAF9F5] border-b border-[#E5E2DC]">
+    <section className="py-28 bg-[#FAF9F5] border-b border-[#E5E2DC]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="space-y-2">
-            <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              Curated Estates
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
+              03 — CURATED PORTFOLIO
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824]">
-              Featured Property Portfolio
+            <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
+              Featured Property Allocations
             </h2>
           </div>
           <button
@@ -24,9 +24,9 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
               setActivePage('estates');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-2 text-xs font-medium tracking-wider uppercase text-[#121824] hover:text-[#D96B27] group"
+            className="inline-flex items-center gap-2 text-xs font-mono-data uppercase tracking-wider text-[#121824] hover:text-[#D96B27] group transition-colors"
           >
-            <span>View All Properties</span>
+            <span>View Complete Directory</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#D96B27] group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -39,14 +39,14 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
               className="bg-white border border-[#E5E2DC] flex flex-col group transition-all duration-300 hover:border-[#121824] cursor-pointer"
               onClick={() => onSelectEstate && onSelectEstate(est)}
             >
-              {/* Image Frame (Un-badged photo for clean architectural breathing) */}
-              <div className="relative h-56 overflow-hidden bg-[#111318]">
+              {/* Photo Frame */}
+              <div className="relative h-60 overflow-hidden bg-[#111318]">
                 <img 
                   src={est.image} 
                   alt={`${est.name} in ${est.location}`} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2 py-0.5">
+                <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5">
                   {est.category}
                 </div>
               </div>
@@ -70,16 +70,16 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
                 {/* Typography Metadata Grid */}
                 <div className="border-t border-b border-[#E5E2DC] py-3 grid grid-cols-2 gap-3 text-xs font-sans-body">
                   <div>
-                    <span className="text-[10px] text-[#5E6A7B] uppercase block">Legal Title</span>
+                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Legal Title</span>
                     <span className="font-medium text-[#121824]">{est.title}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-[#5E6A7B] uppercase block">Plot Size</span>
+                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Plot Size</span>
                     <span className="font-medium text-[#121824]">{est.plotSize}</span>
                   </div>
                 </div>
 
-                {/* Compact Buttons */}
+                {/* Action Buttons */}
                 <div className="flex items-center gap-3 pt-1" onClick={(e) => e.stopPropagation()}>
                   <button
                     onClick={() => onOpenInspection(est.name)}
