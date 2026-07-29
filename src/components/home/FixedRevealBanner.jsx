@@ -7,15 +7,15 @@ export default function FixedRevealBanner() {
       
       {/* 
         Fixed Parallax Background Reveal Window:
-        Locks the image relative to the viewport.
-        When the user scrolls past the Trust Metrics fold, this full architectural window is revealed cleanly.
+        `bg-fixed` keeps the image fixed in the background as you scroll.
+        `bg-[position:top_center]` ensures the TOP / BEGINNING of the image is shown first when scrolling into view.
       */}
       <div 
-        className="w-full h-[480px] sm:h-[560px] lg:h-[620px] bg-fixed bg-cover bg-center relative flex items-end"
+        className="w-full h-[520px] sm:h-[600px] lg:h-[660px] bg-fixed bg-cover bg-[position:top_center] relative flex items-end"
         style={{ backgroundImage: `url(${ASSETS.brand.heroBg})` }}
       >
         {/* Subtle Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111318]/85 via-[#111318]/30 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111318]/85 via-[#111318]/25 to-transparent pointer-events-none" />
 
         {/* Technical Editorial Caption Overlay */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-[#FAF9F5]">
