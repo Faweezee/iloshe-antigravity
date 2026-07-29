@@ -19,29 +19,20 @@ export default function ContactPage() {
     <div className="py-20 bg-[#FAF9F5] text-[#121824]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* Header & Photo Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
-          <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              Direct Contact
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-serif-display font-medium leading-[1.12] text-[#121824]">
-              Connect With Our Advisory Team
-            </h1>
-            <p className="text-[#5E6A7B] text-base sm:text-lg leading-relaxed font-sans-body">
-              Whether you are acquiring your first land plot or expanding an institutional portfolio, our team is available to assist.
-            </p>
-          </div>
-
-          <div className="lg:col-span-5 border border-[#E5E2DC] overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" 
-              alt="Iloshe Properties Corporate Office Headquarters Lagos" 
-              className="w-full h-72 object-cover filter contrast-[1.02]"
-            />
-          </div>
+        {/* Header (Clean, Image-Free) */}
+        <div className="max-w-3xl mb-16 space-y-4">
+          <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
+            Direct Contact
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-serif-display font-medium leading-[1.12] text-[#121824]">
+            Connect With Our Advisory Team
+          </h1>
+          <p className="text-[#5E6A7B] text-base sm:text-lg leading-relaxed font-sans-body">
+            Whether you are acquiring your first land plot or expanding an institutional portfolio, our team is available to assist.
+          </p>
         </div>
 
+        {/* 2-Column Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 border-t border-[#E5E2DC] pt-12">
           
           {/* Left Column: Direct Info */}

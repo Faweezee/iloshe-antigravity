@@ -54,13 +54,13 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
           </div>
         </div>
 
-        {/* Photography Callout Strip */}
+        {/* Photography Callout Strip - Fitting Land Survey & Investment Blueprint Image */}
         <div className="mb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-b border-[#E5E2DC] py-16 items-center">
           <div className="lg:col-span-6 space-y-4">
             <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">Legal & Title Support</span>
             <h3 className="text-3xl font-serif-display font-medium text-[#121824]">Verified Documentation Guaranteed</h3>
             <p className="text-xs sm:text-sm text-[#5E6A7B] leading-relaxed font-sans-body">
-              Every property in our directory is independently charted with state land registries, ensuring zero omonile disputes and immediate physical allocation.
+              Every property in our directory is independently charted with state land registries, ensuring zero omonile disputes and immediate physical plot pegging.
             </p>
             <button
               onClick={() => onOpenInspection()}
@@ -71,8 +71,8 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
           </div>
           <div className="lg:col-span-6 overflow-hidden border border-[#E5E2DC]">
             <img 
-              src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=80" 
-              alt="Real Estate Document Verification & Legal Consultation" 
+              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" 
+              alt="Architectural masterplan layout and official land survey charting document" 
               className="w-full h-72 object-cover filter contrast-[1.02]"
             />
           </div>

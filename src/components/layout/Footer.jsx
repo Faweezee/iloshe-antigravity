@@ -8,12 +8,12 @@ export default function Footer({ setActivePage, onOpenInspection }) {
   };
 
   return (
-    <footer className="bg-[#111318] text-[#FAF9F5] pt-20 pb-12 border-t border-white/10">
+    <footer className="bg-[#0B3B2B] text-[#FAF9F5] pt-20 pb-12 border-t border-emerald-800/40">
       
       {/* Top Quiet CTA Strip */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 border-b border-emerald-800/60 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
-          <span className="text-xs font-mono-data uppercase tracking-widest text-[#C5A059] block mb-1">
+          <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1">
             Property Advisory
           </span>
           <h3 className="text-2xl sm:text-3xl font-serif-display font-medium text-white">
@@ -22,7 +22,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
         </div>
         <button
           onClick={() => onOpenInspection()}
-          className="btn-primary whitespace-nowrap"
+          className="btn-orange whitespace-nowrap"
         >
           Book Site Inspection
         </button>
@@ -36,22 +36,22 @@ export default function Footer({ setActivePage, onOpenInspection }) {
           <span className="block font-serif-display text-lg text-white font-medium">
             ILOSHE PROPERTIES
           </span>
-          <p className="text-slate-400 leading-relaxed max-w-xs">
+          <p className="text-emerald-100/80 leading-relaxed max-w-xs">
             Iloshe Properties & Investment Limited helps buyers and institutional investors acquire verified land opportunities across Nigeria with complete legal transparency.
           </p>
         </div>
 
         {/* Col 2: Navigation */}
         <div className="space-y-3">
-          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#C5A059] block">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
             Navigation
           </span>
-          <ul className="space-y-2.5 text-slate-300">
+          <ul className="space-y-2.5 text-emerald-100/90">
             {['home', 'about', 'estates', 'services', 'guide', 'contact'].map((id) => (
               <li key={id}>
                 <button 
                   onClick={() => handleNav(id)}
-                  className="hover:text-white transition-colors capitalize"
+                  className="hover:text-[#D96B27] transition-colors capitalize"
                 >
                   {id === 'guide' ? 'Investment Guide' : id === 'about' ? 'About Us' : id === 'estates' ? 'Our Estates' : id}
                 </button>
@@ -62,10 +62,10 @@ export default function Footer({ setActivePage, onOpenInspection }) {
 
         {/* Col 3: Services */}
         <div className="space-y-3">
-          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#C5A059] block">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
             Advisory Services
           </span>
-          <ul className="space-y-2.5 text-slate-400">
+          <ul className="space-y-2.5 text-emerald-100/80">
             <li>Verified Land Sales</li>
             <li>Investment Advisory</li>
             <li>Documentation Support</li>
@@ -76,10 +76,10 @@ export default function Footer({ setActivePage, onOpenInspection }) {
 
         {/* Col 4: Contact */}
         <div className="space-y-3">
-          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#C5A059] block">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
             Headquarters
           </span>
-          <div className="space-y-2 text-slate-300">
+          <div className="space-y-2 text-emerald-100/90">
             <p className="leading-relaxed">{ASSETS.contact.address}</p>
             <p className="font-mono-data">{ASSETS.contact.phones[0]}</p>
             <p className="font-mono-data">{ASSETS.contact.email}</p>
@@ -89,9 +89,9 @@ export default function Footer({ setActivePage, onOpenInspection }) {
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 border-t border-white/10 text-[11px] text-slate-500 font-sans-body flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 border-t border-emerald-800/60 text-[11px] text-emerald-200/60 font-sans-body flex flex-col sm:flex-row justify-between items-center gap-4">
         <p>© {new Date().getFullYear()} ILOSHE PROPERTIES AND INVESTMENT LIMITED. All Rights Reserved.</p>
-        <div className="flex space-x-6 text-slate-400">
+        <div className="flex space-x-6 text-emerald-200/80">
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Terms</span>
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Privacy</span>
         </div>

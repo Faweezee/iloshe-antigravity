@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Calendar, MessageSquare, MapPin } from 'lucide-react';
 import { ASSETS } from '../../data/assetsManifest';
 
 export default function EstateDetailModal({ estate, isOpen, onClose, onOpenInspection }) {
-  if (!isOpen || !estate) return null;
+  const [activePhoto, setActivePhoto] = useState('');
 
-  const [activePhoto, setActivePhoto] = useState(estate.image);
+  useEffect(() => {
+    if (estate) {
+      setActivePhoto(estate.image);
+    }
+  }, [estate]);
+
+  // Handle ESC key press to close modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  if (!isOpen || !estate) return null;
 
   const handleWhatsAppInquiry = () => {
     const text = encodeURIComponent(
@@ -15,8 +32,16 @@ export default function EstateDetailModal({ estate, isOpen, onClose, onOpenInspe
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#111318]/70 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-3xl max-h-[90vh] bg-[#FAF9F5] border border-[#E5E2DC] shadow-2xl overflow-y-auto p-6 sm:p-8 text-[#121824]">
+    /* Outer Backdrop with click-to-close */
+    <div 
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#111318]/70 backdrop-blur-sm animate-fadeIn"
+    >
+      {/* Inner Modal Box with stopPropagation */}
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-3xl max-h-[88vh] bg-[#FAF9F5] border border-[#E5E2DC] shadow-2xl overflow-y-auto p-6 sm:p-8 text-[#121824]"
+      >
         
         {/* Header Bar */}
         <div className="flex justify-between items-start pb-4 border-b border-[#E5E2DC]">
@@ -33,7 +58,7 @@ export default function EstateDetailModal({ estate, isOpen, onClose, onOpenInspe
           </div>
           <button 
             onClick={onClose}
-            className="p-1.5 text-[#5E6A7B] hover:text-[#121824] focus:outline-none"
+            className="p-1.5 text-[#5E6A7B] hover:text-[#121824] focus:outline-none border border-[#E5E2DC] rounded-full hover:border-[#121824]"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -44,7 +69,7 @@ export default function EstateDetailModal({ estate, isOpen, onClose, onOpenInspe
         <div className="mt-6 space-y-3">
           <div className="relative h-64 sm:h-80 overflow-hidden bg-[#111318] border border-[#E5E2DC]">
             <img 
-              src={activePhoto} 
+              src={activePhoto || estate.image} 
               alt={estate.name} 
               className="w-full h-full object-cover"
             />

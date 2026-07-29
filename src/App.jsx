@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import InspectionModal from './components/layout/InspectionModal';
@@ -14,11 +14,39 @@ import GuidePage from './pages/GuidePage';
 import ContactPage from './pages/ContactPage';
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home');
+  // Helper to read initial page from URL hash (e.g. #/estates -> 'estates')
+  const getPageFromHash = () => {
+    const hash = window.location.hash.replace(/^#\/?/, '');
+    const validPages = ['home', 'about', 'estates', 'services', 'guide', 'contact'];
+    return validPages.includes(hash) ? hash : 'home';
+  };
+
+  const [activePage, setActivePageState] = useState(getPageFromHash);
   const [inspectionModalOpen, setInspectionModalOpen] = useState(false);
   const [selectedEstateName, setSelectedEstateName] = useState('');
   const [activeEstateDetail, setActiveEstateDetail] = useState(null);
   const [activeArticleDetail, setActiveArticleDetail] = useState(null);
+
+  // Sync state with URL hash & listen to browser back/forward & reload
+  const setActivePage = (pageId) => {
+    setActivePageState(pageId);
+    window.location.hash = `/${pageId}`;
+  };
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const page = getPageFromHash();
+      setActivePageState(page);
+    };
+
+    // If no hash is set initially, set default #/home
+    if (!window.location.hash) {
+      window.location.hash = `/${activePage}`;
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const handleOpenInspection = (estateName = '') => {
     setSelectedEstateName(estateName);
@@ -79,7 +107,7 @@ export default function App() {
 
       <Footer setActivePage={setActivePage} onOpenInspection={handleOpenInspection} />
       
-      {/* Inspection Modal */}
+      {/* Inspection Booking Modal */}
       <InspectionModal 
         isOpen={inspectionModalOpen} 
         onClose={() => setInspectionModalOpen(false)} 

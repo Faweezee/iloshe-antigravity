@@ -14,7 +14,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
     <div className="py-20 bg-[#FAF9F5] text-[#121824]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* Editorial Title Banner & Photography Split */}
+        {/* Editorial Title Banner & Executive Team Photography Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
           <div className="lg:col-span-7 space-y-4">
             <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
@@ -28,20 +28,20 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
             </p>
           </div>
           
-          <div className="lg:col-span-5 border border-[#E5E2DC] overflow-hidden">
+          <div className="lg:col-span-5 border border-[#E5E2DC] overflow-hidden bg-white shadow-sm">
             <img 
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" 
-              alt="Happy landowners celebrating physical plot allocation" 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+              alt="Iloshe Properties Executive Leadership Team & Property Advisors" 
               className="w-full h-80 object-cover filter contrast-[1.02]"
             />
             <div className="p-3 bg-white text-[11px] text-[#5E6A7B] font-mono-data border-t border-[#E5E2DC] flex justify-between">
-              <span>Client Physical Allocation Ceremony</span>
-              <span className="text-[#D96B27]">100% Genuine Title</span>
+              <span>Executive Leadership & Advisory Team</span>
+              <span className="text-[#D96B27]">Certified Experts</span>
             </div>
           </div>
         </div>
 
-        {/* Story Section with Second Photography Highlight */}
+        {/* Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 py-16 border-t border-b border-[#E5E2DC] items-center">
           <div className="lg:col-span-6 space-y-6">
             <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-[#121824]">

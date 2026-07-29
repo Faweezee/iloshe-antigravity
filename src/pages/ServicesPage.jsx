@@ -14,46 +14,54 @@ export default function ServicesPage({ onOpenInspection }) {
     <div className="py-20 bg-[#FAF9F5] text-[#121824]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* Header & Photo Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
-          <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              Core Advisory & Services
-            </span>
-            <h1 className="text-4xl sm:text-5xl font-serif-display font-medium leading-[1.12] text-[#121824]">
-              Helping You Make Smarter Property Decisions
-            </h1>
-            <p className="text-[#5E6A7B] text-base sm:text-lg leading-relaxed font-sans-body">
-              From initial inquiry through legal due diligence to physical plot pegging, our expert team provides full-spectrum advisory.
-            </p>
-          </div>
+        {/* Main Content Layout with Vertical Photo Sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
+          
+          {/* Left Main Advisory Area (7 Columns) */}
+          <div className="lg:col-span-7 space-y-12">
+            <div className="space-y-4">
+              <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
+                Core Advisory & Services
+              </span>
+              <h1 className="text-4xl sm:text-5xl font-serif-display font-medium leading-[1.12] text-[#121824]">
+                Helping You Make Smarter Property Decisions
+              </h1>
+              <p className="text-[#5E6A7B] text-base sm:text-lg leading-relaxed font-sans-body">
+                From initial inquiry through legal due diligence to physical plot pegging, our expert team provides full-spectrum real estate advisory.
+              </p>
+            </div>
 
-          <div className="lg:col-span-5 border border-[#E5E2DC] overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" 
-              alt="Iloshe Properties Senior Real Estate Consultant Advisory Session" 
-              className="w-full h-80 object-cover filter contrast-[1.02]"
-            />
-            <div className="p-3 bg-white text-[11px] text-[#5E6A7B] font-mono-data border-t border-[#E5E2DC] flex justify-between">
-              <span>Personalized Investment Advisory</span>
-              <span className="text-[#D96B27]">1-on-1 Consultation</span>
+            {/* Services Grid (2 Columns inside left area) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-[#E5E2DC] pt-10">
+              {services.map((s, idx) => (
+                <div key={idx} className="space-y-2 border-t border-[#E5E2DC] pt-4">
+                  <span className="text-xs font-mono-data text-[#D96B27] block">0{idx + 1}</span>
+                  <h3 className="text-lg font-serif-display font-medium text-[#121824]">{s.title}</h3>
+                  <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body">{s.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 border-t border-[#E5E2DC] pt-12">
-          {services.map((s, idx) => (
-            <div key={idx} className="space-y-3">
-              <span className="text-xs font-mono-data text-[#D96B27] block">0{idx + 1}</span>
-              <h3 className="text-xl font-serif-display font-medium text-[#121824]">{s.title}</h3>
-              <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body">{s.desc}</p>
+          {/* Right Vertical Photography Sidebar (5 Columns, Tall & Wide) */}
+          <div className="lg:col-span-5 sticky top-24">
+            <div className="border border-[#E5E2DC] bg-white overflow-hidden shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80" 
+                alt="Two business partners shaking hands on a real estate investment transaction" 
+                className="w-full h-[520px] lg:h-[580px] object-cover filter contrast-[1.02]"
+              />
+              <div className="p-4 bg-white text-xs font-sans-body border-t border-[#E5E2DC] space-y-1">
+                <span className="font-serif-display text-sm font-medium text-[#121824] block">Trusted Real Estate Partnership</span>
+                <span className="text-[#5E6A7B] text-[11px] block">1-on-1 Consultation & Deal Execution</span>
+              </div>
             </div>
-          ))}
+          </div>
+
         </div>
 
         {/* CTA Callout */}
-        <div className="mt-20 border-t border-[#E5E2DC] pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="border-t border-[#E5E2DC] pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
             <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1">
               Consultation
