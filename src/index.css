@@ -5,10 +5,11 @@
     --bg-alabaster: #FAF9F5;
     --bg-charcoal: #111318;
     --color-forest: #0B3B2B;
-    --color-forest-hover: #0F4C38;
+    --color-forest-hover: #0F543F;
+    --color-forest-muted: #1E4D3E;
+    --color-forest-light: #D2E3DB;
     --color-orange: #D96B27;
     --color-orange-hover: #C25B1D;
-    --color-gold: #C5A059;
     --color-ebony: #121824;
     --color-slate-muted: #5E6A7B;
     --color-border: #E5E2DC;
@@ -56,6 +57,18 @@
   border-color: #D96B27;
 }
 
+.text-brand-forest {
+  color: #0B3B2B;
+}
+
+.bg-brand-forest {
+  background-color: #0B3B2B;
+}
+
+.border-brand-forest {
+  border-color: #0B3B2B;
+}
+
 /* Clean Editorial Button System */
 .btn-primary {
   display: inline-flex;
@@ -76,8 +89,8 @@
 }
 
 .btn-primary:hover {
-  background-color: #0F4C38;
-  border-color: #0F4C38;
+  background-color: #0F543F;
+  border-color: #0F543F;
 }
 
 .btn-orange {

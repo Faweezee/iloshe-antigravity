@@ -9,24 +9,24 @@ export default function ProcessSteps({ onOpenInspection }) {
   ];
 
   return (
-    <section className="py-24 bg-[#0B3B2B] text-[#FAF9F5] border-b border-emerald-800/40">
+    <section className="py-24 bg-[#0B3B2B] text-[#FAF9F5] border-b border-[#1E4D3E]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
         {/* Section Header */}
         <div className="max-w-2xl mb-16 space-y-3">
-          <span className="text-xs font-sans-body uppercase tracking-widest text-[#D96B27] block">
-            Acquisition Journey
+          <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
+            03 — ACQUISITION JOURNEY
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#FAF9F5]">
+          <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#FAF9F5] tracking-tight">
             Property Ownership in Four Steps
           </h2>
-          <p className="text-emerald-100/80 text-sm font-sans-body leading-relaxed">
+          <p className="text-[#D2E3DB] text-sm font-sans-body leading-relaxed">
             We have streamlined the acquisition process to ensure legal security from initial inquiry to final pegging.
           </p>
         </div>
 
         {/* Step Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 border-t border-emerald-800/60 pt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 border-t border-[#1E4D3E] pt-10">
           {steps.map((s, idx) => (
             <div key={idx} className="space-y-3">
               <span className="text-2xl font-serif-display text-[#D96B27] block">
@@ -35,7 +35,7 @@ export default function ProcessSteps({ onOpenInspection }) {
               <h3 className="text-lg font-serif-display font-medium text-white">
                 {s.title}
               </h3>
-              <p className="text-xs text-emerald-100/70 leading-relaxed font-sans-body">
+              <p className="text-xs text-[#D2E3DB]/80 leading-relaxed font-sans-body">
                 {s.desc}
               </p>
             </div>

@@ -8,10 +8,10 @@ export default function Footer({ setActivePage, onOpenInspection }) {
   };
 
   return (
-    <footer className="bg-[#0B3B2B] text-[#FAF9F5] pt-20 pb-12 border-t border-emerald-800/40">
+    <footer className="bg-[#0B3B2B] text-[#FAF9F5] pt-20 pb-12 border-t border-[#1E4D3E]">
       
       {/* Top Quiet CTA Strip */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 border-b border-emerald-800/60 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 border-b border-[#1E4D3E] flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
           <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1">
             Property Advisory
@@ -36,7 +36,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
           <span className="block font-serif-display text-lg text-white font-medium">
             ILOSHE PROPERTIES
           </span>
-          <p className="text-emerald-100/80 leading-relaxed max-w-xs">
+          <p className="text-[#D2E3DB] leading-relaxed max-w-xs">
             Iloshe Properties & Investment Limited helps buyers and institutional investors acquire verified land opportunities across Nigeria with complete legal transparency.
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
           <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
             Navigation
           </span>
-          <ul className="space-y-2.5 text-emerald-100/90">
+          <ul className="space-y-2.5 text-[#D2E3DB]">
             {['home', 'about', 'estates', 'services', 'guide', 'contact'].map((id) => (
               <li key={id}>
                 <button 
@@ -65,7 +65,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
           <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
             Advisory Services
           </span>
-          <ul className="space-y-2.5 text-emerald-100/80">
+          <ul className="space-y-2.5 text-[#D2E3DB]">
             <li>Verified Land Sales</li>
             <li>Investment Advisory</li>
             <li>Documentation Support</li>
@@ -79,7 +79,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
           <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
             Headquarters
           </span>
-          <div className="space-y-2 text-emerald-100/90">
+          <div className="space-y-2 text-[#D2E3DB]">
             <p className="leading-relaxed">{ASSETS.contact.address}</p>
             <p className="font-mono-data">{ASSETS.contact.phones[0]}</p>
             <p className="font-mono-data">{ASSETS.contact.email}</p>
@@ -89,9 +89,9 @@ export default function Footer({ setActivePage, onOpenInspection }) {
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 border-t border-emerald-800/60 text-[11px] text-emerald-200/60 font-sans-body flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 border-t border-[#1E4D3E] text-[11px] text-[#D2E3DB]/70 font-sans-body flex flex-col sm:flex-row justify-between items-center gap-4">
         <p>© {new Date().getFullYear()} ILOSHE PROPERTIES AND INVESTMENT LIMITED. All Rights Reserved.</p>
-        <div className="flex space-x-6 text-emerald-200/80">
+        <div className="flex space-x-6 text-[#D2E3DB]">
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Terms</span>
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Privacy</span>
         </div>
