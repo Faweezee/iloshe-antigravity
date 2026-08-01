@@ -16,8 +16,23 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
 
   if (!isOpen) return null;
 
+  // XSS Input Sanitizer Helper
+  const sanitizeInput = (str) => {
+    if (typeof str !== 'string') return '';
+    return str.replace(/</g, '&lt;').replace(/>/g, '&gt;').trim();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cleanData = {
+      estate: sanitizeInput(formData.estate),
+      date: sanitizeInput(formData.date),
+      time: sanitizeInput(formData.time),
+      name: sanitizeInput(formData.name),
+      phone: sanitizeInput(formData.phone),
+      email: sanitizeInput(formData.email),
+    };
+    setFormData(cleanData);
     setSubmitted(true);
   };
 
@@ -40,7 +55,7 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
         {/* Header */}
         <div className="flex justify-between items-start mb-6 border-b border-[#E5E2DC] pb-4">
           <div>
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#C5A059] block">
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
               Inspection Scheduling
             </span>
             <h3 className="text-xl font-serif-display font-medium text-[#121824]">
