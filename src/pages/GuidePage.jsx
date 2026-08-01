@@ -10,7 +10,7 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-24">
         
         {/* Header */}
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-4" id="guides">
           <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
             01 — KNOWLEDGE BASE & ADVISORY
           </span>
@@ -22,12 +22,17 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
           </p>
         </div>
 
-        {/* Featured Guides Section (Clickable Cards) */}
-        <div className="border-t border-[#E5E2DC] pt-12">
+        {/* Featured Guides Section & CMS Blog Hub */}
+        <div className="border-t border-[#E5E2DC] pt-12" id="blog">
           <div className="flex justify-between items-end mb-10">
-            <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-[#121824] tracking-tight">
-              Featured Real Estate Guides
-            </h2>
+            <div>
+              <span className="text-[10px] font-mono-data uppercase text-[#D96B27] tracking-widest block mb-1">
+                02 — MARKET INSIGHTS & BLOG
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-[#121824] tracking-tight">
+                Featured Real Estate Guides
+              </h2>
+            </div>
             <span className="text-[10px] font-mono-data uppercase text-[#5E6A7B] tracking-widest hidden sm:block">
               CLICK ARTICLE TO READ FULL GUIDE
             </span>
@@ -63,7 +68,7 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-b border-[#E5E2DC] py-16 items-center">
           <div className="lg:col-span-6 space-y-5">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              02 — LEGAL TITLE & VERIFICATION SUPPORT
+              03 — LEGAL TITLE & VERIFICATION SUPPORT
             </span>
             <h3 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               Verified Documentation Guaranteed
@@ -100,10 +105,10 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
         </div>
 
         {/* FAQ Accordion Section */}
-        <div className="border-t border-[#E5E2DC] pt-8 max-w-3xl space-y-10">
+        <div className="border-t border-[#E5E2DC] pt-8 max-w-3xl space-y-10" id="faq">
           <div className="space-y-2">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              03 — CLEAR ANSWERS
+              04 — CLEAR ANSWERS
             </span>
             <h2 className="text-3xl font-serif-display font-medium text-[#121824]">Frequently Asked Questions</h2>
           </div>

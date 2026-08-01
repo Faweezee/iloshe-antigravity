@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 
 export default function Navbar({ activePage, setActivePage, onOpenInspection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeHoverDropdown, setActiveHoverDropdown] = useState(null);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -44,21 +45,45 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
     { id: 'contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (pageId, sectionHash = '') => {
-    setActivePage(pageId);
-    setMobileMenuOpen(false);
-    
-    if (sectionHash) {
-      setTimeout(() => {
-        const el = document.getElementById(sectionHash);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }, 100);
+  // Helper to scroll to section with sticky navbar offset
+  const scrollToAnchor = (hash) => {
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = document.getElementById(hash);
+    if (el) {
+      const navbarOffset = 90; // Offset to clear sticky header
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarOffset;
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
+      });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleNavClick = (pageId, sectionHash = '') => {
+    // 1. Force close all dropdowns & blur focus immediately
+    setActiveHoverDropdown(null);
+    setMobileMenuOpen(false);
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
+
+    // 2. Perform page switch & anchor scrolling
+    const pageChanged = activePage !== pageId;
+    setActivePage(pageId);
+
+    if (pageChanged) {
+      // Delay anchor scroll slightly to allow React DOM mounting
+      setTimeout(() => {
+        scrollToAnchor(sectionHash);
+      }, 150);
+    } else {
+      scrollToAnchor(sectionHash);
     }
   };
 
@@ -80,14 +105,20 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
             </span>
           </button>
 
-          {/* Desktop Nav Items — Responsive Scaling (`hidden lg:flex space-x-4 xl:space-x-8`) */}
+          {/* Desktop Nav Items */}
           <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8">
             {navItems.map((item) => {
               const hasSub = item.subsections && item.subsections.length > 0;
               const isActive = activePage === item.id;
+              const isDropdownOpen = activeHoverDropdown === item.id;
 
               return (
-                <div key={item.id} className="relative group py-2">
+                <div 
+                  key={item.id} 
+                  className="relative py-2"
+                  onMouseEnter={() => hasSub && setActiveHoverDropdown(item.id)}
+                  onMouseLeave={() => hasSub && setActiveHoverDropdown(null)}
+                >
                   <button
                     onClick={() => handleNavClick(item.id)}
                     className={`flex items-center gap-1 text-[11px] xl:text-xs font-sans-body tracking-wider uppercase transition-all focus:outline-none ${
@@ -98,13 +129,15 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
                   >
                     <span>{item.label}</span>
                     {hasSub && (
-                      <ChevronDown className="w-3 h-3 text-[#5E6A7B] group-hover:rotate-180 transition-transform duration-200" />
+                      <ChevronDown className={`w-3 h-3 text-[#5E6A7B] transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-[#0B3B2B]' : ''}`} />
                     )}
                   </button>
 
-                  {/* Quiet Luxury Sub-Navigation Dropdown Panel */}
-                  {hasSub && (
-                    <div className="absolute left-0 top-full hidden group-hover:block group-focus-within:block w-52 bg-[#FAF9F5] border border-[#E5E2DC] shadow-xl py-2 z-50 animate-fadeIn">
+                  {/* Dropdown Panel — Opens only when activeHoverDropdown === item.id */}
+                  {hasSub && isDropdownOpen && (
+                    <div 
+                      className="absolute left-0 top-full w-56 bg-[#FAF9F5] border border-[#E5E2DC] shadow-xl py-2 z-50 transition-all duration-150 ease-out"
+                    >
                       {item.subsections.map((sub, idx) => (
                         <button
                           key={idx}
@@ -112,7 +145,7 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
                             e.stopPropagation();
                             handleNavClick(item.id, sub.hash);
                           }}
-                          className="block w-full text-left px-4 py-2 text-xs font-sans-body text-[#5E6A7B] hover:text-[#121824] hover:bg-[#E5E2DC]/40 transition-colors"
+                          className="block w-full text-left px-4 py-2.5 text-xs font-sans-body text-[#5E6A7B] hover:text-[#121824] hover:bg-[#E5E2DC]/50 transition-colors"
                         >
                           {sub.label}
                         </button>

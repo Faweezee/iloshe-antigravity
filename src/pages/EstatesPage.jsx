@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ESTATES_DATA } from '../data/estatesData';
 import { Search, X } from 'lucide-react';
 
@@ -11,6 +11,16 @@ export default function EstatesPage({ onOpenInspection, onSelectEstate }) {
   const regions = ['All', 'Epe', 'Ibeju-Lekki', 'Magboro', 'Ipaja', 'Ikorodu', 'Ota'];
   const categories = ['All', 'Residential', 'Commercial', 'Waterfront'];
 
+  // Listen to hash changes to filter by corridor if clicked from sub-nav
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.includes('epe')) {
+      setSelectedRegion('Epe');
+    } else if (hash.includes('ibeju-lekki')) {
+      setSelectedRegion('Ibeju-Lekki');
+    }
+  }, []);
+
   const filteredEstates = ESTATES_DATA.filter(est => {
     const regionMatch = selectedRegion === 'All' || est.region === selectedRegion;
     const categoryMatch = selectedCategory === 'All' || est.category === selectedCategory;
@@ -22,7 +32,7 @@ export default function EstatesPage({ onOpenInspection, onSelectEstate }) {
   });
 
   return (
-    <div className="py-20 bg-[#FAF9F5]">
+    <div className="py-20 bg-[#FAF9F5]" id="directory">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
         {/* Page Title Header */}
@@ -92,6 +102,7 @@ export default function EstatesPage({ onOpenInspection, onSelectEstate }) {
               {regions.map(r => (
                 <button
                   key={r}
+                  id={r === 'Epe' ? 'epe' : r === 'Ibeju-Lekki' ? 'ibeju-lekki' : undefined}
                   onClick={() => setSelectedRegion(r)}
                   className={`px-3.5 py-1.5 text-xs font-sans-body uppercase tracking-wider transition-colors ${
                     selectedRegion === r 
