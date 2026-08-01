@@ -12,12 +12,13 @@ import EstatesPage from './pages/EstatesPage';
 import ServicesPage from './pages/ServicesPage';
 import GuidePage from './pages/GuidePage';
 import ContactPage from './pages/ContactPage';
+import InspectionPage from './pages/InspectionPage';
 
 export default function App() {
   // Helper to read initial page from URL hash (e.g. #/estates -> 'estates')
   const getPageFromHash = () => {
     const hash = window.location.hash.replace(/^#\/?/, '');
-    const validPages = ['home', 'about', 'estates', 'services', 'guide', 'contact'];
+    const validPages = ['home', 'about', 'estates', 'services', 'guide', 'contact', 'inspection'];
     return validPages.includes(hash) ? hash : 'home';
   };
 
@@ -39,7 +40,6 @@ export default function App() {
       setActivePageState(page);
     };
 
-    // If no hash is set initially, set default #/home
     if (!window.location.hash) {
       window.location.hash = `/${activePage}`;
     }
@@ -102,6 +102,9 @@ export default function App() {
         )}
         {activePage === 'contact' && (
           <ContactPage />
+        )}
+        {activePage === 'inspection' && (
+          <InspectionPage initialEstateName={selectedEstateName} />
         )}
       </main>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Building2 } from 'lucide-react';
+import { ASSETS } from '../../data/assetsManifest';
 
 export default function Navbar({ activePage, setActivePage, onOpenInspection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
       id: 'about', 
       label: 'About Us',
       subsections: [
-        { label: 'Our Story & Ethos', hash: 'story' },
+        { label: 'Our Story', hash: 'story' },
         { label: 'Vision & Mission', hash: 'vision' },
         { label: 'Why Iloshe', hash: 'why-iloshe' }
       ]
@@ -78,7 +79,6 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
     setActivePage(pageId);
 
     if (pageChanged) {
-      // Delay anchor scroll slightly to allow React DOM mounting
       setTimeout(() => {
         scrollToAnchor(sectionHash);
       }, 150);
@@ -92,17 +92,24 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16 sm:h-20">
           
-          {/* Brand Mark */}
+          {/* Brand Mark with Architectural Logo Placeholder Icon */}
           <button 
             onClick={() => handleNavClick('home')} 
-            className="text-left focus:outline-none group shrink-0"
+            className="flex items-center gap-3 text-left focus:outline-none group shrink-0"
           >
-            <span className="block text-base sm:text-lg font-serif-display font-medium tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
-              ILOSHE PROPERTIES
-            </span>
-            <span className="block text-[8px] sm:text-[9px] tracking-widest text-[#5E6A7B] uppercase font-sans-body">
-              & Investment Ltd
-            </span>
+            {/* Brand Logo Icon Badge */}
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#0B3B2B] text-[#D96B27] border border-[#0B3B2B] flex items-center justify-center transition-colors group-hover:bg-[#0F543F]">
+              <Building2 className="w-5 h-5" />
+            </div>
+
+            <div>
+              <span className="block text-base sm:text-lg font-serif-display font-medium tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
+                ILOSHE PROPERTIES
+              </span>
+              <span className="block text-[8px] sm:text-[9px] tracking-widest text-[#5E6A7B] uppercase font-sans-body">
+                & Investment Ltd
+              </span>
+            </div>
           </button>
 
           {/* Desktop Nav Items */}
@@ -133,7 +140,7 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
                     )}
                   </button>
 
-                  {/* Dropdown Panel — Opens only when activeHoverDropdown === item.id */}
+                  {/* Dropdown Panel */}
                   {hasSub && isDropdownOpen && (
                     <div 
                       className="absolute left-0 top-full w-56 bg-[#FAF9F5] border border-[#E5E2DC] shadow-xl py-2 z-50 transition-all duration-150 ease-out"
@@ -157,10 +164,10 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
             })}
           </nav>
 
-          {/* Desktop CTA Button */}
+          {/* Desktop CTA Button — Opens Dedicated Inspection Page */}
           <div className="hidden lg:flex items-center">
             <button
-              onClick={() => onOpenInspection()}
+              onClick={() => handleNavClick('inspection')}
               className="btn-primary whitespace-nowrap text-[11px] xl:text-xs py-2 px-4"
             >
               Book Inspection
@@ -216,7 +223,7 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenInspection();
+                handleNavClick('inspection');
               }}
               className="btn-primary w-full"
             >

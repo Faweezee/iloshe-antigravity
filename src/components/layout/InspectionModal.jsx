@@ -4,10 +4,11 @@ import { ESTATES_DATA } from '../../data/estatesData';
 import { ASSETS } from '../../data/assetsManifest';
 
 export default function InspectionModal({ isOpen, onClose, selectedEstateName = '' }) {
+  const todayStr = new Date().toISOString().split('T')[0];
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     estate: selectedEstateName || ESTATES_DATA[0].name,
-    date: '',
+    date: todayStr,
     time: '10:00 AM',
     name: '',
     phone: '',
@@ -16,7 +17,6 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
 
   if (!isOpen) return null;
 
-  // XSS Input Sanitizer Helper
   const sanitizeInput = (str) => {
     if (typeof str !== 'string') return '';
     return str.replace(/</g, '&lt;').replace(/>/g, '&gt;').trim();
@@ -24,6 +24,10 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.date < todayStr) {
+      alert("Please select a valid future date for your site inspection.");
+      return;
+    }
     const cleanData = {
       estate: sanitizeInput(formData.estate),
       date: sanitizeInput(formData.date),
@@ -38,6 +42,14 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
 
   const handleReset = () => {
     setSubmitted(false);
+    setFormData({
+      estate: ESTATES_DATA[0].name,
+      date: todayStr,
+      time: '10:00 AM',
+      name: '',
+      phone: '',
+      email: '',
+    });
     onClose();
   };
 
@@ -63,7 +75,7 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
             </h3>
           </div>
           <button 
-            onClick={onClose} 
+            onClick={handleReset} 
             className="p-1 text-[#5E6A7B] hover:text-[#121824]"
             aria-label="Close modal"
           >
@@ -90,7 +102,7 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
                 onClick={handleReset}
                 className="btn-secondary w-full"
               >
-                Close Window
+                Book Another Inspection
               </button>
             </div>
           </div>
@@ -121,6 +133,7 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
                 </label>
                 <input
                   type="date"
+                  min={todayStr}
                   value={formData.date}
                   onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                   className="w-full px-3 py-2 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#121824]"
