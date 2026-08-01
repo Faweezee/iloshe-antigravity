@@ -53,7 +53,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
                   onClick={() => handleNav(id)}
                   className="hover:text-[#D96B27] transition-colors capitalize"
                 >
-                  {id === 'guide' ? 'Investment Guide' : id === 'about' ? 'About Us' : id === 'estates' ? 'Our Estates' : id}
+                  {id === 'guide' ? 'Investment Guide & Blog' : id === 'about' ? 'About Us' : id === 'estates' ? 'Our Estates' : id}
                 </button>
               </li>
             ))}
@@ -88,12 +88,20 @@ export default function Footer({ setActivePage, onOpenInspection }) {
 
       </div>
 
-      {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-8 border-t border-[#1E4D3E] text-[11px] text-[#D2E3DB]/70 font-sans-body flex flex-col sm:flex-row justify-between items-center gap-4">
+      {/* Developer Legal Disclaimer Guardrail Note */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 border-t border-[#1E4D3E]/60 text-[10px] text-[#D2E3DB]/50 font-sans-body leading-relaxed">
+        <p>
+          Disclaimer: Property details, pricing, layout coordinates, and document availability displayed on this platform are for informational purposes and subject to contract and official verification at the time of inquiry.
+        </p>
+      </div>
+
+      {/* Bottom Copyright Bar */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-6 border-t border-[#1E4D3E] text-[11px] text-[#D2E3DB]/70 font-sans-body flex flex-col sm:flex-row justify-between items-center gap-4">
         <p>© {new Date().getFullYear()} ILOSHE PROPERTIES AND INVESTMENT LIMITED. All Rights Reserved.</p>
         <div className="flex space-x-6 text-[#D2E3DB]">
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Terms</span>
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Privacy</span>
+          <a href="/admin/" className="hover:text-[#D96B27] transition-colors font-mono-data">Client CMS Login</a>
         </div>
       </div>
     </footer>

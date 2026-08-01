@@ -1,6 +1,15 @@
 import React from 'react';
 
 export default function AboutPage({ setActivePage, onOpenInspection }) {
+  const whyIloshePoints = [
+    { num: "01", title: "Professional Advisory Team", desc: "Expert land coordinators guiding you through survey verification, title search, and plot selection." },
+    { num: "02", title: "Verified Title Documentation", desc: "100% litigation-free land backed by state government survey charting and registered title lineage." },
+    { num: "03", title: "Flexible Payment Options", desc: "Structured 6 to 12-month installment plans designed to protect liquidity and accommodate monthly budgets." },
+    { num: "04", title: "Dedicated Customer Service", desc: "Transparent communication and ongoing post-allocation assistance for building approvals." },
+    { num: "05", title: "Strategic Investment Locations", desc: "Estates situated in rapid capital appreciation corridors including Epe Expressway, Ibeju-Lekki, and Alaro City." },
+    { num: "06", title: "Growing Community", desc: "Join over 1,500 satisfied landowners and institutional investors building real estate equity with Iloshe." },
+  ];
+
   const values = [
     { num: "01", title: "Integrity", desc: "Absolute honesty and truthfulness in every property representation, contract, and price quote." },
     { num: "02", title: "Transparency", desc: "Zero hidden charges or fine prints. Complete clarity on legal documentation and survey fees." },
@@ -15,7 +24,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-24">
         
         {/* Asymmetric Editorial Header & Executive Leadership Photo Frame */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center" id="story">
           <div className="lg:col-span-7 space-y-5">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
               01 — ABOUT ILOSHE PROPERTIES & INVESTMENT LTD
@@ -72,7 +81,6 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
             </div>
           </div>
 
-          {/* Allocation Ceremony Gallery Feature */}
           <div className="lg:col-span-6 border border-[#E5E2DC] overflow-hidden bg-[#111318] group">
             <div className="relative overflow-hidden h-80 sm:h-96">
               <img 
@@ -92,7 +100,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
         </div>
 
         {/* Vision & Mission Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" id="vision">
           <div className="p-8 border border-[#E5E2DC] bg-white space-y-3">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">CORPORATE VISION</span>
             <h3 className="text-2xl font-serif-display font-medium text-[#121824]">Democratizing Real Estate Across Africa</h3>
@@ -109,10 +117,35 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
           </div>
         </div>
 
+        {/* Merged "Why Iloshe" Section (Page 3 of Brief) */}
+        <div className="border-t border-b border-[#E5E2DC] py-16 space-y-12" id="why-iloshe">
+          <div className="max-w-2xl space-y-3">
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
+              03 — WHY CLIENTS CHOOSE US
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
+              More Than Property. We Build Confidence.
+            </h2>
+            <p className="text-[#5E6A7B] text-sm sm:text-base leading-relaxed font-sans-body">
+              The real estate market offers high growth opportunities, but requires careful due diligence. We eliminate risk through legal charting, transparent communication, and dedicated customer support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {whyIloshePoints.map((pt, idx) => (
+              <div key={idx} className="space-y-3 border-t border-[#E5E2DC] pt-6">
+                <span className="text-xs font-mono-data text-[#D96B27] block">{pt.num}</span>
+                <h3 className="text-lg font-serif-display font-medium text-[#121824]">{pt.title}</h3>
+                <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body">{pt.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Core Values Section */}
-        <div className="pt-8">
+        <div>
           <div className="max-w-2xl mb-14 space-y-2">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">03 — OPERATIONAL PRINCIPLES</span>
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">04 — OPERATIONAL PRINCIPLES</span>
             <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824]">Our Core Values</h2>
           </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ASSETS } from '../data/assetsManifest';
 
 export default function ServicesPage({ onOpenInspection }) {
   const services = [
@@ -11,27 +12,73 @@ export default function ServicesPage({ onOpenInspection }) {
   ];
 
   return (
-    <div className="py-20 bg-[#FAF9F5] text-[#121824]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-24">
+    <div className="bg-[#FAF9F5] text-[#121824]">
+      
+      {/* 
+        1. Full-Bleed Autoplay Video Landing Hero
+        Features a muted, looping site inspection background video with transparent text overlay
+      */}
+      <section className="relative w-full h-[520px] sm:h-[600px] lg:h-[660px] overflow-hidden bg-[#111318] flex items-center">
         
-        {/* Main Content Layout with Tall Vertical Photo Sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Main Advisory Area (7 Columns) */}
-          <div className="lg:col-span-7 space-y-12">
-            <div className="space-y-4">
+        {/* Background Video Element with Fallback Poster Image */}
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          poster={ASSETS.hero.inspectionVideo.poster}
+          className="absolute inset-0 w-full h-full object-cover filter contrast-[1.05] brightness-90 pointer-events-none"
+        >
+          <source src={ASSETS.hero.inspectionVideo.src} type="video/mp4" />
+        </video>
+
+        {/* Translucent Dark Architectural Overlay for Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#111318]/90 via-[#111318]/60 to-[#111318]/30 pointer-events-none" />
+
+        {/* Transparent Foreground Text Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full text-[#FAF9F5] space-y-6">
+          <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+            01 — IN-FIELD SITE INSPECTION & ADVISORY
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif-display font-medium leading-[1.12] text-white tracking-tight max-w-3xl">
+            Helping You Make Smarter Property Decisions
+          </h1>
+          <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-sans-body max-w-2xl">
+            Watch our land coordinators conduct physical site inspections, boundary pegging, and state land registry verification in real time.
+          </p>
+          <div className="pt-2 flex flex-wrap gap-4">
+            <button
+              onClick={() => onOpenInspection()}
+              className="btn-orange"
+            >
+              Book Physical Site Visit
+            </button>
+          </div>
+        </div>
+
+        {/* Video Technical Metadata Overlay Strip */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-gradient-to-t from-[#111318] to-transparent text-[11px] font-mono-data text-slate-300">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <span>LIVE RECONNAISSANCE: KETU-EPE CORRIDOR</span>
+            <span className="text-[#D96B27]">MUTED AUTOPLAY REEL</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Core Advisory Services Grid */}
+      <div className="py-24 max-w-7xl mx-auto px-6 lg:px-12 space-y-24">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start" id="advisory">
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-3">
               <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-                01 — CORE ADVISORY & SERVICES
+                02 — CORE ADVISORY SERVICES
               </span>
-              <h1 className="text-4xl sm:text-5xl font-serif-display font-medium leading-[1.12] text-[#121824] tracking-tight">
-                Helping You Make Smarter Property Decisions
-              </h1>
-              <p className="text-[#5E6A7B] text-base sm:text-lg leading-relaxed font-sans-body">
-                From initial inquiry through legal title verification to physical plot pegging, our expert team provides full-spectrum real estate advisory.
-              </p>
+              <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824]">
+                Complete Property Acquisition Support
+              </h2>
             </div>
 
-            {/* Services Grid (2 Columns inside left area) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-[#E5E2DC] pt-10">
               {services.map((s, idx) => (
                 <div key={idx} className="space-y-2 border-t border-[#E5E2DC] pt-4">
@@ -43,7 +90,7 @@ export default function ServicesPage({ onOpenInspection }) {
             </div>
           </div>
 
-          {/* Right Vertical Photography Sidebar (5 Columns, Tall & Wide) */}
+          {/* Vertical Photography Sidebar */}
           <div className="lg:col-span-5 sticky top-24">
             <div className="border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
               <div className="relative h-[520px] lg:h-[580px] overflow-hidden">
@@ -62,18 +109,16 @@ export default function ServicesPage({ onOpenInspection }) {
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Feature Photography Strip (2 Asymmetric Service Frames) */}
-        <div className="border-t border-b border-[#E5E2DC] py-16 space-y-8">
+        {/* 3. In-Field Execution Feature Strip */}
+        <div className="border-t border-b border-[#E5E2DC] py-16 space-y-8" id="execution">
           <div className="max-w-2xl space-y-2">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">02 — IN-FIELD EXECUTION</span>
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">03 — IN-FIELD EXECUTION</span>
             <h2 className="text-3xl font-serif-display font-medium text-[#121824]">Hands-On Property Verification</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Frame 1: Legal Document Verification */}
             <div className="border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
               <div className="relative h-64 overflow-hidden">
                 <img 
@@ -91,7 +136,6 @@ export default function ServicesPage({ onOpenInspection }) {
               </div>
             </div>
 
-            {/* Frame 2: Physical Plot Pegging */}
             <div className="border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
               <div className="relative h-64 overflow-hidden">
                 <img 
@@ -115,7 +159,7 @@ export default function ServicesPage({ onOpenInspection }) {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1">
-              03 — GET STARTED
+              04 — GET STARTED
             </span>
             <h3 className="text-2xl font-serif-display font-medium text-[#121824]">
               Have questions about land acquisition in Lagos?
