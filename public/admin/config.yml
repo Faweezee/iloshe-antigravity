@@ -1,0 +1,63 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update upon publishing content
+
+# Local backend for offline developer testing
+local_backend: true
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  # 1. Estate Listings Collection
+  - name: "estates"
+    label: "Estate Property Listings"
+    folder: "public/content/estates"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Estate Name", name: "name", widget: "string" }
+      - { label: "Tagline", name: "tagline", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Region Corridor", name: "region", widget: "select", options: ["Epe", "Ibeju-Lekki", "Magboro", "Ipaja", "Ikorodu", "Ota"] }
+      - { label: "Category", name: "category", widget: "select", options: ["Residential", "Commercial", "Waterfront"] }
+      - { label: "Display Price", name: "price", widget: "string" }
+      - { label: "Numeric Price (for filters)", name: "numericPrice", widget: "number", value_type: "int" }
+      - { label: "Legal Title", name: "title", widget: "string" }
+      - { label: "Plot Size", name: "plotSize", widget: "string" }
+      - { label: "Payment Plan", name: "paymentPlan", widget: "string" }
+      - { label: "Initial Deposit", name: "initialDeposit", widget: "string" }
+      - { label: "Status Badge", name: "status", widget: "string" }
+      - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
+      - { label: "Cover Image", name: "image", widget: "image" }
+      - { label: "Property Overview", name: "overview", widget: "markdown" }
+      - { label: "Infrastructure List", name: "infrastructure", widget: "list" }
+
+  # 2. Blog & Market Insights Articles Collection
+  - name: "blog"
+    label: "Blog & Market Insights"
+    folder: "public/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Article Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Land Verification", "Legal & Titles", "Payment Strategy", "Market Insights"] }
+      - { label: "Read Time", name: "readTime", widget: "string", default: "5 min read" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Full Body Content", name: "body", widget: "markdown" }
+      - { label: "Key Takeaways", name: "takeaways", widget: "list" }
+      - { label: "Featured Header Image", name: "featuredImage", widget: "image", required: false }
+
+  # 3. Client Testimonials Collection
+  - name: "testimonials"
+    label: "Client Testimonials"
+    folder: "public/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Role & Location", name: "role", widget: "string" }
+      - { label: "Estate Purchased", name: "location", widget: "string" }
+      - { label: "Testimonial Quote", name: "quote", widget: "text" }
+      - { label: "Client Photo", name: "photo", widget: "image", required: false }
