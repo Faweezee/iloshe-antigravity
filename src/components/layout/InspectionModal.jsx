@@ -60,9 +60,22 @@ export default function InspectionModal({ isOpen, onClose, selectedEstateName = 
     window.open(`https://wa.me/${ASSETS.contact.whatsapp}?text=${text}`, '_blank');
   };
 
+  // Backdrop click handler to close modal when clicking outside region
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      handleReset();
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#111318]/70 backdrop-blur-sm">
-      <div className="relative w-full max-w-md bg-[#FAF9F5] border border-[#E5E2DC] shadow-2xl overflow-hidden p-8 text-[#121824]">
+    <div 
+      onClick={handleBackdropClick}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#111318]/70 backdrop-blur-sm animate-fadeIn cursor-pointer"
+    >
+      <div 
+        onClick={(e) => e.stopPropagation()} 
+        className="relative w-full max-w-md bg-[#FAF9F5] border border-[#E5E2DC] shadow-2xl overflow-hidden p-8 text-[#121824] cursor-default"
+      >
         
         {/* Header */}
         <div className="flex justify-between items-start mb-6 border-b border-[#E5E2DC] pb-4">

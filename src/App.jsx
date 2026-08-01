@@ -28,6 +28,15 @@ export default function App() {
   const [activeEstateDetail, setActiveEstateDetail] = useState(null);
   const [activeArticleDetail, setActiveArticleDetail] = useState(null);
 
+  // Redirect to CMS Admin Portal if /admin or #/admin is accessed directly
+  useEffect(() => {
+    const pathname = window.location.pathname;
+    const hash = window.location.hash;
+    if (pathname.includes('/admin') || hash.includes('admin')) {
+      window.location.href = '/admin/index.html';
+    }
+  }, []);
+
   // Sync state with URL hash & listen to browser back/forward & reload
   const setActivePage = (pageId) => {
     setActivePageState(pageId);

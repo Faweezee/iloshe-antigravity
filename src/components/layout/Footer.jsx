@@ -21,7 +21,10 @@ export default function Footer({ setActivePage, onOpenInspection }) {
           </h3>
         </div>
         <button
-          onClick={() => onOpenInspection()}
+          onClick={() => {
+            setActivePage('inspection');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="btn-orange whitespace-nowrap"
         >
           Book Site Inspection
@@ -101,7 +104,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
         <div className="flex space-x-6 text-[#D2E3DB]">
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Terms</span>
           <span className="hover:text-white cursor-pointer" onClick={() => handleNav('guide')}>Privacy</span>
-          <a href="/admin/" className="hover:text-[#D96B27] transition-colors font-mono-data">Client CMS Login</a>
+          <a href="/admin/index.html" className="hover:text-[#D96B27] transition-colors font-mono-data">Client CMS Login</a>
         </div>
       </div>
     </footer>

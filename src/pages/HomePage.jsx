@@ -10,19 +10,21 @@ import TestimonialSlider from '../components/home/TestimonialSlider';
 export default function HomePage({ setActivePage, onOpenInspection, onSelectEstate }) {
   return (
     <div className="relative">
-      {/* 1. First Viewport Fold: Editorial Hero + Pure Typography Trust Metrics */}
+      {/* 1. Hero Banner + Trust Metrics */}
       <div className="relative z-10 bg-[#FAF9F5]">
         <HeroBanner setActivePage={setActivePage} onOpenInspection={onOpenInspection} />
         <TrustMetrics />
+        
+        {/* 2. Featured Estates (Moved above Curated Portfolio section) */}
+        <FeaturedEstates setActivePage={setActivePage} onOpenInspection={onOpenInspection} onSelectEstate={onSelectEstate} />
       </div>
 
-      {/* 2. Parallax Fixed Background Window (Revealed Deliberately On Scroll) */}
+      {/* 3. Parallax Fixed Background Window */}
       <FixedRevealBanner />
 
-      {/* 3. Sliding Content Curtain (Slides over Fixed Background Image on Scroll) */}
+      {/* 4. Sliding Content Curtain */}
       <div className="relative z-10 bg-[#FAF9F5]">
         <PromiseChecklist />
-        <FeaturedEstates setActivePage={setActivePage} onOpenInspection={onOpenInspection} onSelectEstate={onSelectEstate} />
         <ProcessSteps onOpenInspection={onOpenInspection} />
         <TestimonialSlider />
       </div>
