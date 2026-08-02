@@ -30,12 +30,12 @@ export default function WhatsAppWidget() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed right-6 z-30 bg-[#0B3B2B] text-white border border-[#D96B27] hover:bg-[#0F543F] px-4 py-2.5 rounded-full text-xs font-mono-data uppercase tracking-wider shadow-2xl transition-all duration-300 flex items-center gap-2 ${
+      className={`fixed right-6 z-30 bg-[#0B3B2B] text-white border border-white/10 hover:bg-[#0F543F] px-4 py-2.5 rounded-full text-xs font-mono-data uppercase tracking-wider shadow-2xl transition-all duration-300 flex items-center gap-2 ${
         isNearFooter ? 'bottom-24 sm:bottom-28' : 'bottom-6 sm:bottom-8'
       }`}
       aria-label="Contact via WhatsApp"
     >
-      <MessageCircle className="w-4 h-4 text-[#D96B27]" />
+      <MessageCircle className="w-4 h-4 text-white" />
       <span>WhatsApp Inquiry</span>
     </a>
   );

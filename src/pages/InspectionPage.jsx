@@ -91,7 +91,7 @@ export default function InspectionPage({ initialEstateName = '' }) {
         
         {/* Header */}
         <div className="space-y-3">
-          <span className="text-[10px] font-mono-data uppercase tracking-[0.2em] text-[#5E6A7B] border-l-2 border-[#D96B27] pl-2.5 block">
+          <span className="text-[10px] font-mono-data uppercase tracking-[0.2em] text-[#D96B27] block font-semibold">
             SITE VISIT SCHEDULING
           </span>
           <h1 className="text-4xl sm:text-5xl font-serif-display font-medium text-[#121824] tracking-tight">
