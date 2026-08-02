@@ -1,7 +1,7 @@
 import React from 'react';
 import { ASSETS } from '../data/assetsManifest';
 
-export default function ServicesPage({ onOpenInspection }) {
+export default function ServicesPage({ onNavigateToInspection, onOpenConsultation }) {
   const services = [
     { num: "01", title: "Verified Land Sales", desc: "Outright purchase and flexible installment land sales across prime residential and commercial corridors in Lagos." },
     { num: "02", title: "Property Investment Advisory", desc: "Expert market guidance on high-appreciation corridors like Epe Expressway and Alaro City for maximum ROI." },
@@ -14,10 +14,7 @@ export default function ServicesPage({ onOpenInspection }) {
   return (
     <div className="bg-[#FAF9F5] text-[#121824]">
       
-      {/* 
-        1. Full-Bleed Autoplay Video Landing Hero
-        Features a muted, looping site inspection background video with transparent text overlay
-      */}
+      {/* 1. Full-Bleed Autoplay Video Landing Hero */}
       <section className="relative w-full h-[520px] sm:h-[600px] lg:h-[660px] overflow-hidden bg-[#111318] flex items-center">
         
         {/* Background Video Element with Fallback Poster Image */}
@@ -48,10 +45,16 @@ export default function ServicesPage({ onOpenInspection }) {
           </p>
           <div className="pt-2 flex flex-wrap gap-4">
             <button
-              onClick={() => onOpenInspection()}
+              onClick={() => onNavigateToInspection()}
               className="btn-orange"
             >
               Book Physical Site Visit
+            </button>
+            <button
+              onClick={() => onOpenConsultation()}
+              className="btn-secondary text-white border-white/40 hover:bg-white/10"
+            >
+              Request 1-on-1 Consultation
             </button>
           </div>
         </div>
@@ -166,10 +169,10 @@ export default function ServicesPage({ onOpenInspection }) {
             </h3>
           </div>
           <button
-            onClick={() => onOpenInspection()}
+            onClick={() => onOpenConsultation()}
             className="btn-primary whitespace-nowrap"
           >
-            Book Free Consultation
+            Request 1-on-1 Consultation
           </button>
         </div>
 

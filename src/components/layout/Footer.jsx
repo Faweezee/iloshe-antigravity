@@ -1,7 +1,7 @@
 import React from 'react';
 import { ASSETS } from '../../data/assetsManifest';
 
-export default function Footer({ setActivePage, onOpenInspection }) {
+export default function Footer({ setActivePage, onNavigateToInspection }) {
   const handleNav = (id) => {
     setActivePage(id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -21,10 +21,7 @@ export default function Footer({ setActivePage, onOpenInspection }) {
           </h3>
         </div>
         <button
-          onClick={() => {
-            setActivePage('inspection');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+          onClick={() => onNavigateToInspection()}
           className="btn-orange whitespace-nowrap"
         >
           Book Site Inspection

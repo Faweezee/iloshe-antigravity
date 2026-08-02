@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown, Building2 } from 'lucide-react';
-import { ASSETS } from '../../data/assetsManifest';
 
-export default function Navbar({ activePage, setActivePage, onOpenInspection }) {
+export default function Navbar({ activePage, setActivePage, onNavigateToInspection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeHoverDropdown, setActiveHoverDropdown] = useState(null);
 
@@ -67,14 +66,12 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
   };
 
   const handleNavClick = (pageId, sectionHash = '') => {
-    // 1. Force close all dropdowns & blur focus immediately
     setActiveHoverDropdown(null);
     setMobileMenuOpen(false);
     if (document.activeElement && typeof document.activeElement.blur === 'function') {
       document.activeElement.blur();
     }
 
-    // 2. Perform page switch & anchor scrolling
     const pageChanged = activePage !== pageId;
     setActivePage(pageId);
 
@@ -92,12 +89,11 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16 sm:h-20">
           
-          {/* Brand Mark with Architectural Logo Placeholder Icon */}
+          {/* Brand Mark */}
           <button 
             onClick={() => handleNavClick('home')} 
             className="flex items-center gap-3 text-left focus:outline-none group shrink-0"
           >
-            {/* Brand Logo Icon Badge */}
             <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#0B3B2B] text-[#D96B27] border border-[#0B3B2B] flex items-center justify-center transition-colors group-hover:bg-[#0F543F]">
               <Building2 className="w-5 h-5" />
             </div>
@@ -164,10 +160,10 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
             })}
           </nav>
 
-          {/* Desktop CTA Button — Opens Dedicated Inspection Page */}
+          {/* Desktop CTA Button */}
           <div className="hidden lg:flex items-center">
             <button
-              onClick={() => handleNavClick('inspection')}
+              onClick={() => onNavigateToInspection()}
               className="btn-primary whitespace-nowrap text-[11px] xl:text-xs py-2 px-4"
             >
               Book Inspection
@@ -223,7 +219,7 @@ export default function Navbar({ activePage, setActivePage, onOpenInspection }) 
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                handleNavClick('inspection');
+                onNavigateToInspection();
               }}
               className="btn-primary w-full"
             >

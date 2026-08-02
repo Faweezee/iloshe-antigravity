@@ -5,6 +5,7 @@ import InspectionModal from './components/layout/InspectionModal';
 import EstateDetailModal from './components/estates/EstateDetailModal';
 import ArticleDetailModal from './components/ui/ArticleDetailModal';
 import WhatsAppWidget from './components/layout/WhatsAppWidget';
+import { ASSETS } from './data/assetsManifest';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -57,7 +58,26 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const handleOpenInspection = (estateName = '') => {
+  // 1. Direct Page Route Navigation to Dedicated Inspection Booking Page with Pre-Selected Estate
+  const handleNavigateToInspection = (estateName = '') => {
+    setSelectedEstateName(estateName);
+    setActivePage('inspection');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // 2. Consultation Inquiry Trigger (WhatsApp/Email)
+  const handleOpenConsultation = () => {
+    const text = encodeURIComponent("Hello Iloshe Properties, I would like to request a 1-on-1 Real Estate Investment Consultation.");
+    window.open(`https://wa.me/${ASSETS.contact.whatsapp}?text=${text}`, '_blank');
+  };
+
+  // 3. Legal Advisory Inquiry Trigger (WhatsApp/Email)
+  const handleOpenLegalAdvisory = () => {
+    const text = encodeURIComponent("Hello Iloshe Properties, I have an inquiry regarding Property Title Verification & Legal Due Diligence.");
+    window.open(`https://wa.me/${ASSETS.contact.whatsapp}?text=${text}`, '_blank');
+  };
+
+  const handleOpenInspectionModal = (estateName = '') => {
     setSelectedEstateName(estateName);
     setInspectionModalOpen(true);
   };
@@ -75,38 +95,41 @@ export default function App() {
       <Navbar 
         activePage={activePage} 
         setActivePage={setActivePage} 
-        onOpenInspection={handleOpenInspection} 
+        onNavigateToInspection={handleNavigateToInspection}
       />
 
       <main className="flex-1">
         {activePage === 'home' && (
           <HomePage 
             setActivePage={setActivePage} 
-            onOpenInspection={handleOpenInspection}
+            onNavigateToInspection={handleNavigateToInspection}
             onSelectEstate={handleSelectEstate}
           />
         )}
         {activePage === 'about' && (
           <AboutPage 
             setActivePage={setActivePage} 
-            onOpenInspection={handleOpenInspection} 
+            onNavigateToInspection={handleNavigateToInspection}
+            onOpenConsultation={handleOpenConsultation}
           />
         )}
         {activePage === 'estates' && (
           <EstatesPage 
-            onOpenInspection={handleOpenInspection}
+            onNavigateToInspection={handleNavigateToInspection}
             onSelectEstate={handleSelectEstate}
           />
         )}
         {activePage === 'services' && (
           <ServicesPage 
-            onOpenInspection={handleOpenInspection} 
+            onNavigateToInspection={handleNavigateToInspection}
+            onOpenConsultation={handleOpenConsultation} 
           />
         )}
         {activePage === 'guide' && (
           <GuidePage 
-            onOpenInspection={handleOpenInspection}
+            onNavigateToInspection={handleNavigateToInspection}
             onSelectArticle={handleSelectArticle}
+            onOpenLegalAdvisory={handleOpenLegalAdvisory}
           />
         )}
         {activePage === 'contact' && (
@@ -117,21 +140,24 @@ export default function App() {
         )}
       </main>
 
-      <Footer setActivePage={setActivePage} onOpenInspection={handleOpenInspection} />
+      <Footer 
+        setActivePage={setActivePage} 
+        onNavigateToInspection={handleNavigateToInspection} 
+      />
       
-      {/* Inspection Booking Modal */}
+      {/* Inspection Booking Quick Modal */}
       <InspectionModal 
         isOpen={inspectionModalOpen} 
         onClose={() => setInspectionModalOpen(false)} 
         selectedEstateName={selectedEstateName} 
       />
 
-      {/* Estate Detail Modal */}
+      {/* Estate Detail Drawer Modal */}
       <EstateDetailModal 
         estate={activeEstateDetail}
         isOpen={!!activeEstateDetail}
         onClose={() => setActiveEstateDetail(null)}
-        onOpenInspection={handleOpenInspection}
+        onNavigateToInspection={handleNavigateToInspection}
       />
 
       {/* Article Detail Reader Modal */}
@@ -139,7 +165,7 @@ export default function App() {
         article={activeArticleDetail}
         isOpen={!!activeArticleDetail}
         onClose={() => setActiveArticleDetail(null)}
-        onOpenInspection={handleOpenInspection}
+        onOpenLegalAdvisory={handleOpenLegalAdvisory}
       />
 
       <WhatsAppWidget />

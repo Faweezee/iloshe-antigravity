@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ESTATES_DATA } from '../data/estatesData';
 import { Search, X } from 'lucide-react';
 
-export default function EstatesPage({ onOpenInspection, onSelectEstate }) {
+export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) {
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [maxPrice, setMaxPrice] = useState(20000000);
@@ -214,7 +214,7 @@ export default function EstatesPage({ onOpenInspection, onSelectEstate }) {
 
                   <div className="pt-1 flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                     <button
-                      onClick={() => onOpenInspection(est.name)}
+                      onClick={() => onNavigateToInspection(est.name)}
                       className="btn-primary flex-1 text-center"
                     >
                       Book Inspection

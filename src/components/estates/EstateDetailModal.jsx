@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Calendar, MessageSquare, MapPin } from 'lucide-react';
 import { ASSETS } from '../../data/assetsManifest';
 
-export default function EstateDetailModal({ estate, isOpen, onClose, onOpenInspection }) {
+export default function EstateDetailModal({ estate, isOpen, onClose, onNavigateToInspection }) {
   const [activePhoto, setActivePhoto] = useState('');
 
   useEffect(() => {
@@ -144,7 +144,7 @@ export default function EstateDetailModal({ estate, isOpen, onClose, onOpenInspe
           <button
             onClick={() => {
               onClose();
-              onOpenInspection(estate.name);
+              onNavigateToInspection(estate.name);
             }}
             className="btn-primary flex-1 text-center"
           >

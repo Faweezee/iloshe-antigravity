@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ARTICLES_DATA, FAQ_DATA } from '../data/guidesData';
 import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 
-export default function GuidePage({ onOpenInspection, onSelectArticle }) {
+export default function GuidePage({ onNavigateToInspection, onSelectArticle, onOpenLegalAdvisory }) {
   const [activeFaq, setActiveFaq] = useState(0);
 
   return (
@@ -78,10 +78,10 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
             </p>
             <div className="pt-2">
               <button
-                onClick={() => onOpenInspection()}
+                onClick={() => onOpenLegalAdvisory()}
                 className="btn-primary"
               >
-                Consult With Our Legal Team
+                Consult With Legal Team
               </button>
             </div>
           </div>
@@ -140,10 +140,10 @@ export default function GuidePage({ onOpenInspection, onSelectArticle }) {
 
           <div className="pt-4">
             <button
-              onClick={() => onOpenInspection()}
+              onClick={() => onOpenLegalAdvisory()}
               className="btn-primary"
             >
-              Speak With Our Legal Advisors
+              Speak With Legal Advisor
             </button>
           </div>
         </div>
