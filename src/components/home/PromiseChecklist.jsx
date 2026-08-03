@@ -17,8 +17,8 @@ export default function PromiseChecklist() {
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-end">
           <div className="lg:col-span-6 space-y-3">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              02 — OUR COMMITMENT
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              OUR PROMISE & ETHOS
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               Built on Institutional Certainty
@@ -35,7 +35,7 @@ export default function PromiseChecklist() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 pt-4">
           {promises.map((p, idx) => (
             <div key={idx} className="space-y-3 border-t border-[#E5E2DC] pt-8">
-              <span className="text-xs font-mono-data text-[#D96B27] block">{p.num}</span>
+              <span className="text-xs font-mono-data text-[#D96B27] block font-semibold">{p.num}</span>
               <h3 className="text-xl font-serif-display font-medium text-[#121824]">
                 {p.title}
               </h3>

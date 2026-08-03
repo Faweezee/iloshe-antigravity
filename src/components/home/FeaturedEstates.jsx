@@ -1,8 +1,8 @@
 import React from 'react';
 import { ESTATES_DATA } from '../../data/estatesData';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin, ShieldCheck, Layers, CreditCard } from 'lucide-react';
 
-export default function FeaturedEstates({ setActivePage, onNavigateToInspection, onSelectEstate }) {
+export default function FeaturedEstates({ setActivePage, onOpenInspection, onSelectEstate }) {
   const featuredEstates = ESTATES_DATA.filter(est => est.featured !== false);
 
   return (
@@ -13,7 +13,7 @@ export default function FeaturedEstates({ setActivePage, onNavigateToInspection,
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="space-y-2">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
-              CURATED REAL ESTATE PORTFOLIO
+              CURATED PORTFOLIO
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               Featured Property Allocations
@@ -31,7 +31,7 @@ export default function FeaturedEstates({ setActivePage, onNavigateToInspection,
           </button>
         </div>
 
-        {/* Clean Property Cards Grid */}
+        {/* Clean Property Cards Grid with Comprehensive Specs */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {featuredEstates.map((est) => (
             <div 
@@ -46,8 +46,11 @@ export default function FeaturedEstates({ setActivePage, onNavigateToInspection,
                   alt={`${est.name} in ${est.location}`} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5 font-semibold">
+                <div className="absolute top-3 left-3 bg-[#0B3B2B] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5">
                   {est.category}
+                </div>
+                <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5">
+                  {est.status}
                 </div>
               </div>
 
@@ -62,34 +65,50 @@ export default function FeaturedEstates({ setActivePage, onNavigateToInspection,
                       {est.price}
                     </span>
                   </div>
-                  <span className="text-xs text-[#5E6A7B] font-sans-body block">
-                    {est.location}
+                  <span className="text-xs text-[#5E6A7B] font-sans-body flex items-center gap-1">
+                    <MapPin className="w-3 h-3 text-[#D96B27] shrink-0" /> {est.location}
                   </span>
                 </div>
 
                 {/* Typography Metadata Grid */}
-                <div className="border-t border-b border-[#E5E2DC] py-3 grid grid-cols-2 gap-3 text-xs font-sans-body">
+                <div className="border-t border-b border-[#E5E2DC] py-3.5 grid grid-cols-2 gap-3 text-xs font-sans-body">
                   <div>
                     <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Legal Title</span>
-                    <span className="font-medium text-[#121824]">{est.title}</span>
+                    <span className="font-medium text-[#121824] truncate block">{est.title}</span>
                   </div>
                   <div>
                     <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Plot Size</span>
-                    <span className="font-medium text-[#121824]">{est.plotSize}</span>
+                    <span className="font-medium text-[#121824] block">{est.plotSize}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Initial Deposit</span>
+                    <span className="font-medium text-[#D96B27] font-mono-data block">{est.initialDeposit}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Payment Terms</span>
+                    <span className="font-medium text-[#121824] block">{est.paymentPlan}</span>
                   </div>
                 </div>
+
+                {/* Infrastructure Highlights */}
+                {est.infrastructure && (
+                  <div className="text-[11px] text-[#5E6A7B] font-sans-body space-y-1">
+                    <span className="text-[10px] uppercase font-mono-data text-[#5E6A7B] block">Infrastructure</span>
+                    <p className="line-clamp-1">✓ {est.infrastructure.slice(0, 2).join(' • ')}</p>
+                  </div>
+                )}
 
                 {/* Action Buttons */}
                 <div className="flex items-center gap-3 pt-1" onClick={(e) => e.stopPropagation()}>
                   <button
-                    onClick={() => onNavigateToInspection(est.name)}
-                    className="btn-primary flex-1 text-center"
+                    onClick={() => onOpenInspection(est.name)}
+                    className="btn-primary flex-1 text-center text-xs py-2.5"
                   >
                     Book Inspection
                   </button>
                   <button
                     onClick={() => onSelectEstate && onSelectEstate(est)}
-                    className="btn-secondary"
+                    className="btn-secondary text-xs py-2.5 px-4"
                   >
                     Details
                   </button>

@@ -83,27 +83,27 @@ Instead of leaving your monthly savings in a bank account where inflation erodes
 
 export const FAQ_DATA = [
   {
-    question: "How do I verify Iloshe Properties documents before buying?",
-    answer: "We provide copies of our registered survey plans, title documents, and layout charts. You or your lawyer can independently chart these coordinates at the Lagos State Surveyor General's Office or State Ministry of Physical Planning."
+    question: "How do I verify the authenticity of Iloshe Properties titles before buying?",
+    answer: "We provide copies of our registered survey plans, title documents, and layout charts upfront. You or your legal representative can independently chart these coordinates at the Lagos State Surveyor General's Office or State Ministry of Physical Planning."
   },
   {
-    question: "Can I pay for my land plot in flexible installments?",
-    answer: "Yes! We offer flexible payment plans spanning 3, 6, and 12 months with low initial deposits (e.g. ₦200,000 to ₦500,000) across our estates in Epe, Ibeju-Lekki, Magboro, and Ikorodu."
+    question: "What legal documents do I receive upon property purchase?",
+    answer: "Upon completing your land acquisition, you receive: (1) Official Deed of Assignment, (2) Registered Red-Copy Survey Plan in your name, (3) Payment Receipts & Statement of Account, and (4) Contract of Sale & Allocation Letter."
   },
   {
-    question: "How do site inspections work?",
-    answer: "We provide free guided site inspections Monday through Saturday. For diaspora clients, we conduct live 4K video walkthrough inspections with our land coordinators on-site."
+    question: "Can I buy land from outside Nigeria (Diaspora investors)?",
+    answer: "Yes, over 40% of our clients reside in the UK, US, Canada, and UAE. We handle remote due diligence, live 4K video walk-through inspections, digital documentation, and physical plot pegging via video link or designated family representative."
   },
   {
-    question: "What titles are available across your estates?",
-    answer: "Our estate portfolio features 100% verified titles including Certificate of Occupancy (C of O), Governor's Consent, Approved Gazette, and Registered Survey layouts free from government acquisition."
+    question: "How flexible are the payment plans and initial deposits?",
+    answer: "We offer low initial deposits (starting from ₦200,000 for entry plots up to ₦1,000,000 for commercial parcels) and structured payment plans spanning 3, 6, 12, or 18 months."
   },
   {
-    question: "When do I receive physical plot allocation?",
-    answer: "Physical allocation and pegging are carried out upon reaching payment thresholds or full completion. You will receive your physical plot pegging, survey plan, and Deed of Assignment during an official allocation ceremony."
+    question: "When do I get physical allocation of my plot?",
+    answer: "Physical plot allocation and corner beacon pegging are conducted immediately upon reaching the designated payment milestone or upon full payment. You participate in an on-site pegging exercise to confirm your exact boundary lines."
   },
   {
-    question: "Can I buy land from outside Nigeria (Diaspora Buyers)?",
-    answer: "Yes! Over 40% of our clients reside in the UK, US, Canada, and UAE. We handle remote verification, video inspections, digital documentation, and allocate plots via power of attorney or virtual coordination."
+    question: "Are there extra fees like survey or development levies?",
+    answer: "All associated costs (Land Cost, Registered Survey Fee, Deed of Assignment, and Development Levy) are clearly itemized upfront in your offer letter with zero hidden charges."
   }
 ];

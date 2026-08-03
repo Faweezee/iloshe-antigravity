@@ -1,27 +1,27 @@
 import React from 'react';
 
-export default function ProcessSteps({ onNavigateToInspection }) {
+export default function ProcessSteps({ onOpenInspection }) {
   const steps = [
-    { num: "01", title: "Step One: Choose Your Estate", desc: "Select a verified property that matches your long-term wealth goals and preferred location corridor." },
-    { num: "02", title: "Step Two: Schedule Inspection", desc: "Book a guided physical site visit or remote video walkthrough with our dedicated land coordinators." },
-    { num: "03", title: "Step Three: Complete Documentation", desc: "Choose flexible installment options and complete transparent legal title verification." },
-    { num: "04", title: "Step Four: Become a Landowner", desc: "Receive physical plot pegging, registered survey plan, Deed of Assignment, and instant allocation." },
+    { num: "01", title: "Select Preferred Estate", desc: "Choose a verified residential or commercial land parcel that matches your investment budget and location goals." },
+    { num: "02", title: "Schedule Site Visit", desc: "Book a guided physical site inspection or request an interactive live video walk-through with our coordinators." },
+    { num: "03", title: "Legal Due Diligence", desc: "Review survey plans, verify title documentation with state land registries, and select flexible payment terms." },
+    { num: "04", title: "Physical Plot Allocation", desc: "Receive immediate physical plot pegging, corner beacon installation, and registered Deed of Assignment." },
   ];
 
   return (
     <section className="py-24 bg-[#0B3B2B] text-[#FAF9F5] border-b border-[#1E4D3E]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* Section Header matching website-brief.md */}
+        {/* Section Header */}
         <div className="max-w-2xl mb-16 space-y-3">
           <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
-            ACQUISITION JOURNEY
+            INVESTMENT MADE SIMPLE
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#FAF9F5] tracking-tight">
-            Investment Made Simple
+            4-Step Property Acquisition Journey
           </h2>
           <p className="text-[#D2E3DB] text-sm font-sans-body leading-relaxed">
-            Owning genuine property should be simple, secure, and rewarding. Follow four transparent steps from selection to allocation.
+            Acquiring land with Iloshe Properties is structured, transparent, and hassle-free from your first inquiry to physical plot allocation.
           </p>
         </div>
 
@@ -45,10 +45,10 @@ export default function ProcessSteps({ onNavigateToInspection }) {
         {/* Action Button */}
         <div className="mt-16">
           <button
-            onClick={() => onNavigateToInspection()}
+            onClick={() => onOpenInspection()}
             className="btn-orange"
           >
-            Book a Site Inspection
+            Start Your Property Acquisition
           </button>
         </div>
 

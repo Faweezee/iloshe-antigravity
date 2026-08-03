@@ -7,6 +7,8 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ASSETS.contact.address)}`;
+
   return (
     <footer className="bg-[#0B3B2B] text-[#FAF9F5] pt-20 pb-12 border-t border-[#1E4D3E]">
       
@@ -51,7 +53,7 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
               <li key={id}>
                 <button 
                   onClick={() => handleNav(id)}
-                  className="hover:text-[#D96B27] transition-colors capitalize text-left"
+                  className="hover:text-[#D96B27] transition-colors capitalize"
                 >
                   {id === 'guide' ? 'Investment Guide & Blog' : id === 'about' ? 'About Us' : id === 'estates' ? 'Our Estates' : id}
                 </button>
@@ -74,53 +76,47 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
           </ul>
         </div>
 
-        {/* Col 4: Clickable Headquarters Contact Redirects */}
+        {/* Col 4: Contact Headquarters — All Items Clickable with Direct Redirects */}
         <div className="space-y-3">
           <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block font-semibold">
-            Headquarters & Contact
+            Headquarters
           </span>
-          <div className="space-y-3 text-[#D2E3DB]">
-            
-            {/* Clickable Address Redirecting to Google Maps */}
-            <div>
-              <span className="text-[10px] text-[#D96B27] uppercase block font-mono-data">Office Address</span>
-              <a 
-                href="https://maps.google.com/?q=167+Iju+Road+Fagba+Lagos" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="leading-relaxed hover:text-white hover:underline transition-colors block text-xs"
-              >
+          <div className="space-y-2.5 text-[#D2E3DB]">
+            {/* Clickable Address -> Google Maps Redirect */}
+            <a 
+              href={mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block leading-relaxed hover:text-[#D96B27] transition-colors group"
+            >
+              <span className="underline decoration-[#D96B27]/40 underline-offset-4 group-hover:decoration-[#D96B27]">
                 {ASSETS.contact.address}
-              </a>
+              </span>
+              <span className="block text-[10px] text-[#D96B27] font-mono-data mt-0.5">📍 View on Google Maps ↗</span>
+            </a>
+
+            {/* Clickable Telephone Numbers */}
+            <div className="space-y-1 pt-1 font-mono-data">
+              {ASSETS.contact.phones.map((phone, idx) => (
+                <a 
+                  key={idx}
+                  href={`tel:${phone.replace(/\s+/g, '')}`}
+                  className="block hover:text-[#D96B27] transition-colors"
+                >
+                  📞 {phone}
+                </a>
+              ))}
             </div>
 
-            {/* Clickable Phone Lines */}
-            <div>
-              <span className="text-[10px] text-[#D96B27] uppercase block font-mono-data">Telephone Lines</span>
-              <div className="space-y-1 font-mono-data text-xs pt-0.5">
-                {ASSETS.contact.phones.map((phoneNum, idx) => (
-                  <a 
-                    key={idx} 
-                    href={`tel:${phoneNum.replace(/\s+/g, '')}`} 
-                    className="block hover:text-[#D96B27] transition-colors"
-                  >
-                    {phoneNum}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Clickable Email Redirect */}
-            <div>
-              <span className="text-[10px] text-[#D96B27] uppercase block font-mono-data">Email Inquiries</span>
+            {/* Clickable Email Address */}
+            <div className="pt-1 font-mono-data">
               <a 
-                href={`mailto:${ASSETS.contact.email}`} 
-                className="font-mono-data text-xs block hover:text-[#D96B27] transition-colors"
+                href={`mailto:${ASSETS.contact.email}`}
+                className="block hover:text-[#D96B27] transition-colors"
               >
-                {ASSETS.contact.email}
+                ✉️ {ASSETS.contact.email}
               </a>
             </div>
-
           </div>
         </div>
 

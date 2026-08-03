@@ -10,8 +10,8 @@ The platform consists of 6 primary top-level navigation routes with quiet dropdo
 
 | Primary Nav Route | URL Hash | Included Subsections / Merged Pages | Key Content & Copy Specs |
 | :--- | :--- | :--- | :--- |
-| **Home** | `/#/home` | Hero Banner, Parallax Reveal, Pure Typography Trust Metrics, Promise, Featured Estates, **Investment Made Simple** (`ProcessSteps`), Testimonial Slider | Official Headline: *"Build Wealth Through Smart Real Estate Investments"*. Focus on legal security, C of O verification, and physical pegging. |
-| **About Us** | `/#/about` | Our Story, Vision & Mission, **Our Ethos** (`#story`), Core Values + **Merged "Why Iloshe" Confidence Grid** (`#why-iloshe`) | Story: Founded to make genuine land ownership accessible and transparent. Zero omonile risk guarantee. |
+| **Home** | `/#/home` | Hero Banner, Parallax Reveal, Pure Typography Trust Metrics, Promise, Featured Estates, Process, Testimonial Slider | Official Headline: *"Build Wealth Through Smart Real Estate Investments"*. Focus on legal security, C of O verification, and physical pegging. |
+| **About Us** | `/#/about` | Our Story, Vision & Mission, Core Values + **Merged "Why Iloshe" Confidence Grid** (`#why-iloshe`) | Story: Founded to make genuine land ownership accessible and transparent. Zero omonile risk guarantee. |
 | **Our Estates** | `/#/estates` | Catalog Directory, Filter Bar, Interactive Estate Detail Drawer | Displays verified plots with pricing, legal title, plot size, deposit, infrastructure checklist, and WhatsApp inquiry. |
 | **Services** | `/#/services` | Autoplay Inspection Video Hero, Core Advisory Grid, In-Field Execution Strip | **Landing Video Hero:** Full-bleed muted looping background video (`/assets/hero/inspection-video.mp4`) with transparent overlay text. |
 | **Investment Guide & Blog** | `/#/guide` | Property Guides, **CMS Blog Hub** (`#blog`), **Searchable FAQ Accordion** (`#faq`) | Guides & articles on land titles, survey charting, and micro-installments + CMS Blog Reader. |
@@ -19,29 +19,11 @@ The platform consists of 6 primary top-level navigation routes with quiet dropdo
 
 ---
 
-## 2. Estate Card Specifications (`website-brief.md` Page 4 Compliance)
-
-Each estate card in `FeaturedEstates.jsx`, `EstatesPage.jsx`, and `EstateDetailModal.jsx` contains the following 11 required properties:
-
-1. **Estate Name**: Displayed in Playfair Display serif typography (e.g. *Iloshe Imperial Haven*).
-2. **Location / Corridor**: Specific address and growth region (e.g. *Ketu-Epe Expressway, Lagos State*).
-3. **Display Price**: Formatted currency string (e.g. *₦5,500,000*).
-4. **Legal Title**: State government verification level (e.g. *Certificate of Occupancy (C of O)*, *Governor's Consent*, *Approved Gazette*).
-5. **Plot Size**: Land measurement (e.g. *500 SQM*, *600 SQM*).
-6. **Payment Plan & Initial Deposit**: Structured installment options (e.g. *Up to 12 Months / ₦500k Initial Deposit*).
-7. **Category Tag**: Property classification (*Residential*, *Commercial*, *Waterfront*).
-8. **Infrastructure Highlights**: Checklist including *Perimeter Fencing*, *Paved Roads*, *Solar Lighting*, and *Instant Allocation*.
-9. **Cover Photo**: High-resolution property image.
-10. **Details Button**: Opens the interactive detail drawer modal.
-11. **Book Inspection CTA Button**: Navigates to `/#/inspection` with the estate name pre-selected.
-
----
-
-## 3. Asset Pipeline Directory & Folder Structure
+## 2. Asset Pipeline Directory & Folder Structure
 
 Client image assets should be placed in `public/assets/` using the following folder structure:
 
-```text
+```
 public/assets/
 ├── brand/           # Official Logo (PNG/SVG), Favicon (32x32px & 512x512px PNG)
 ├── hero/            # Hero Background (1920x1080px) & Inspection Video (inspection-video.mp4)
@@ -57,7 +39,7 @@ public/assets/
 
 ---
 
-## 4. Pre-Defined CMS Collections (`/public/admin/config.yml`)
+## 3. Pre-Defined CMS Collections (`/public/admin/config.yml`)
 
 The platform includes **Decap CMS** embedded at `/admin`. The fields below define the CMS collection schemas:
 
@@ -97,11 +79,11 @@ The platform includes **Decap CMS** embedded at `/admin`. The fields below defin
 
 ---
 
-## 5. Developer Legal Protection & Guardrails
+## 4. Developer Legal Protection & Guardrails
 
 To protect developers and the client from legal liability:
 
 1. **No Unauthorized Financial Guarantees:** Never state "100% money back guarantee", "guaranteed 50% returns", or binding financial promises unless explicitly authorized in official corporate documentation.
-2. **Process-Oriented Claims Only:** Frame credibility on verifiable processes (e.g. *"Independent land registry survey charting"*, *"Litigated-free land titles"*, *"Structured payment plans"*).
+2. **Process-Oriented Claims Only:** Frame credibility on verifiable processes (e.g. *"Independent land registry survey charting"*, *" Litigated-free land titles"*, *"Structured payment plans"*).
 3. **Legal Disclaimer Footer:** Every page includes the standard disclaimer:
    > *"Property details, pricing, and document availability are subject to contract and official verification at the time of inquiry."*

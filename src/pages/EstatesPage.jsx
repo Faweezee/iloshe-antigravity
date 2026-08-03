@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ESTATES_DATA } from '../data/estatesData';
-import { Search, X } from 'lucide-react';
+import { Search, X, MapPin } from 'lucide-react';
 
 export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) {
   const [selectedRegion, setSelectedRegion] = useState('All');
@@ -37,7 +37,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
         
         {/* Page Title Header */}
         <div className="max-w-2xl mb-14 space-y-3">
-          <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block">
+          <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
             Property Directory
           </span>
           <h1 className="text-4xl sm:text-5xl font-serif-display font-medium text-[#121824] tracking-tight">
@@ -141,7 +141,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
             {(selectedRegion !== 'All' || selectedCategory !== 'All' || searchQuery !== '' || maxPrice < 20000000) && (
               <button
                 onClick={() => { setSelectedRegion('All'); setSelectedCategory('All'); setMaxPrice(20000000); setSearchQuery(''); }}
-                className="text-[#D96B27] hover:underline"
+                className="text-[#D96B27] hover:underline font-semibold"
               >
                 Clear all filters
               </button>
@@ -156,7 +156,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
             <p className="text-xs text-[#5E6A7B] font-sans-body">No properties match your selected filter parameters.</p>
             <button 
               onClick={() => { setSelectedRegion('All'); setSelectedCategory('All'); setMaxPrice(20000000); setSearchQuery(''); }}
-              className="btn-secondary"
+              className="btn-secondary text-xs py-2 px-4"
             >
               Reset Search Filters
             </button>
@@ -176,8 +176,11 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
                     alt={est.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
-                  <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2 py-0.5">
+                  <div className="absolute top-3 left-3 bg-[#0B3B2B] text-white text-[10px] font-mono-data uppercase tracking-widest px-2 py-0.5">
                     {est.category}
+                  </div>
+                  <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2 py-0.5">
+                    {est.status}
                   </div>
                 </div>
 
@@ -192,36 +195,49 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
                         {est.price}
                       </span>
                     </div>
-                    <span className="text-xs text-[#5E6A7B] font-sans-body block">
-                      {est.location}
+                    <span className="text-xs text-[#5E6A7B] font-sans-body flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-[#D96B27] shrink-0" /> {est.location}
                     </span>
                   </div>
 
-                  <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body line-clamp-2">
-                    {est.overview}
-                  </p>
-
-                  <div className="border-t border-b border-[#E5E2DC] py-3 grid grid-cols-2 gap-3 text-xs font-sans-body">
+                  {/* Comprehensive Specifications Grid */}
+                  <div className="border-t border-b border-[#E5E2DC] py-3.5 grid grid-cols-2 gap-3 text-xs font-sans-body">
                     <div>
-                      <span className="text-[10px] text-[#5E6A7B] uppercase block">Legal Title</span>
-                      <span className="font-medium text-[#121824]">{est.title}</span>
+                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Legal Title</span>
+                      <span className="font-medium text-[#121824] truncate block">{est.title}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#5E6A7B] uppercase block">Plot Size</span>
-                      <span className="font-medium text-[#121824]">{est.plotSize}</span>
+                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Plot Size</span>
+                      <span className="font-medium text-[#121824] block">{est.plotSize}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Initial Deposit</span>
+                      <span className="font-medium text-[#D96B27] font-mono-data block">{est.initialDeposit}</span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Payment Terms</span>
+                      <span className="font-medium text-[#121824] block">{est.paymentPlan}</span>
                     </div>
                   </div>
+
+                  {/* Infrastructure Highlights */}
+                  {est.infrastructure && (
+                    <div className="text-[11px] text-[#5E6A7B] font-sans-body space-y-1">
+                      <span className="text-[10px] uppercase font-mono-data text-[#5E6A7B] block">Infrastructure</span>
+                      <p className="line-clamp-1">✓ {est.infrastructure.slice(0, 2).join(' • ')}</p>
+                    </div>
+                  )}
 
                   <div className="pt-1 flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                     <button
                       onClick={() => onNavigateToInspection(est.name)}
-                      className="btn-primary flex-1 text-center"
+                      className="btn-primary flex-1 text-center text-xs py-2.5"
                     >
                       Book Inspection
                     </button>
                     <button
                       onClick={() => onSelectEstate && onSelectEstate(est)}
-                      className="btn-secondary"
+                      className="btn-secondary text-xs py-2.5 px-4"
                     >
                       Details
                     </button>

@@ -21,7 +21,7 @@ export default function FixedRevealBanner() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-[#FAF9F5]">
           <div className="space-y-1">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
-              02 — FEATURED ESTATE PARCEL
+              FEATURED ESTATE PARCEL
             </span>
             <h3 className="text-2xl sm:text-3xl font-serif-display font-medium text-white">
               Iloshe Imperial Haven — Ketu-Epe Corridor

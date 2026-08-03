@@ -30,7 +30,7 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
         </video>
 
         {/* Translucent Dark Architectural Overlay for Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#111318]/90 via-[#111318]/60 to-[#111318]/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#111318]/90 via-[#111318]/65 to-[#111318]/40 pointer-events-none" />
 
         {/* Transparent Foreground Text Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full text-[#FAF9F5] space-y-6">
@@ -43,25 +43,21 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
           <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-sans-body max-w-2xl">
             Watch our land coordinators conduct physical site inspections, boundary pegging, and state land registry verification in real time.
           </p>
-
-          {/* High-Contrast Action Buttons */}
-          <div className="pt-2 flex flex-wrap gap-4 items-center">
+          <div className="pt-2 flex flex-wrap gap-4">
             <button
               onClick={() => onNavigateToInspection()}
               className="btn-orange text-xs py-3.5 px-7 shadow-md"
             >
               Book Physical Site Visit
             </button>
-            
             <button
               onClick={() => onOpenConsultation()}
-              className="bg-white/15 backdrop-blur-md text-white border border-white/40 hover:bg-white hover:text-[#121824] transition-all py-3.5 px-7 text-xs font-mono-data uppercase tracking-wider font-semibold shadow-lg"
+              className="btn-primary bg-[#0B3B2B] text-white border border-white/30 hover:bg-[#0F543F] text-xs py-3.5 px-7 shadow-md"
             >
               Request 1-on-1 Consultation
             </button>
           </div>
         </div>
-
       </section>
 
       {/* 2. Core Advisory Services Grid */}
@@ -157,7 +153,7 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
         {/* CTA Callout */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1 font-semibold">
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold mb-1">
               GET STARTED
             </span>
             <h3 className="text-2xl font-serif-display font-medium text-[#121824]">

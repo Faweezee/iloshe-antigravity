@@ -7,25 +7,23 @@ import FeaturedEstates from '../components/home/FeaturedEstates';
 import ProcessSteps from '../components/home/ProcessSteps';
 import TestimonialSlider from '../components/home/TestimonialSlider';
 
-export default function HomePage({ setActivePage, onOpenInspection, onSelectEstate }) {
+export default function HomePage({ setActivePage, onNavigateToInspection, onSelectEstate }) {
   return (
     <div className="relative">
       {/* 1. Hero Banner + Trust Metrics */}
       <div className="relative z-10 bg-[#FAF9F5]">
-        <HeroBanner setActivePage={setActivePage} onOpenInspection={onOpenInspection} />
+        <HeroBanner setActivePage={setActivePage} onNavigateToInspection={onNavigateToInspection} />
         <TrustMetrics />
-        
-        {/* 2. Featured Estates (Moved above Curated Portfolio section) */}
-        <FeaturedEstates setActivePage={setActivePage} onOpenInspection={onOpenInspection} onSelectEstate={onSelectEstate} />
       </div>
 
-      {/* 3. Parallax Fixed Background Window */}
+      {/* 2. Parallax Fixed Background Window — Featured Estate Parcel (Moved above Curated Portfolio) */}
       <FixedRevealBanner />
 
-      {/* 4. Sliding Content Curtain */}
+      {/* 3. Sliding Content Curtain */}
       <div className="relative z-10 bg-[#FAF9F5]">
+        <FeaturedEstates setActivePage={setActivePage} onOpenInspection={onNavigateToInspection} onSelectEstate={onSelectEstate} />
         <PromiseChecklist />
-        <ProcessSteps onOpenInspection={onOpenInspection} />
+        <ProcessSteps onOpenInspection={onNavigateToInspection} />
         <TestimonialSlider />
       </div>
     </div>
