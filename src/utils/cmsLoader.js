@@ -19,9 +19,14 @@ function parseFrontmatter(rawContent) {
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith('#')) return;
 
-    // List item: - "Value"
+    // List item: - "Value" or - photo: "Value"
     if (trimmed.startsWith('- ') && currentKey && isList) {
-      const listVal = trimmed.replace(/^-\s*/, '').replace(/^["']|["']$/g, '');
+      let listVal = trimmed.replace(/^-\s*/, '');
+      if (listVal.startsWith('photo:')) {
+        listVal = listVal.replace(/^photo:\s*/, '');
+      }
+      listVal = listVal.replace(/^["']|["']$/g, '');
+
       if (Array.isArray(data[currentKey])) {
         data[currentKey].push(listVal);
       }
@@ -65,6 +70,11 @@ export function getCMSEstates() {
     const cmsEstates = Object.entries(modules).map(([path, content]) => {
       const { data, body } = parseFrontmatter(content);
       const filename = path.split('/').pop().replace(/\.md$/, '');
+
+      const parsedGallery = Array.isArray(data.gallery) && data.gallery.length > 0
+        ? data.gallery.map(item => typeof item === 'object' && item?.photo ? item.photo : item)
+        : [data.image];
+
       return {
         id: data.id || filename,
         name: data.name || filename,
@@ -82,7 +92,7 @@ export function getCMSEstates() {
         status: data.status || 'Selling Fast',
         featured: data.featured !== undefined ? data.featured : true,
         image: data.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-        gallery: Array.isArray(data.gallery) && data.gallery.length > 0 ? data.gallery : [data.image],
+        gallery: parsedGallery,
         overview: body || data.overview || '',
         infrastructure: Array.isArray(data.infrastructure) ? data.infrastructure : ["Instant Physical Allocation", "Verified Survey"]
       };

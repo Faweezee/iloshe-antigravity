@@ -31,7 +31,7 @@ collections:
       - { label: "Status Badge", name: "status", widget: "string" }
       - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
       - { label: "Cover Image", name: "image", widget: "image" }
-      - { label: "Gallery Images", name: "gallery", widget: "list", required: false }
+      - { label: "Gallery Images", name: "gallery", widget: "list", field: { label: "Photo", name: "photo", widget: "image" }, required: false }
       - { label: "Property Overview", name: "overview", widget: "markdown" }
       - { label: "Infrastructure List", name: "infrastructure", widget: "list" }
 
