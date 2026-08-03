@@ -35,7 +35,7 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
         {/* Transparent Foreground Text Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full text-[#FAF9F5] space-y-6">
           <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
-            01 — IN-FIELD SITE INSPECTION & ADVISORY
+            IN-FIELD SITE INSPECTION & ADVISORY
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif-display font-medium leading-[1.12] text-white tracking-tight max-w-3xl">
             Helping You Make Smarter Property Decisions
@@ -43,29 +43,25 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
           <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-sans-body max-w-2xl">
             Watch our land coordinators conduct physical site inspections, boundary pegging, and state land registry verification in real time.
           </p>
-          <div className="pt-2 flex flex-wrap gap-4">
+
+          {/* High-Contrast Action Buttons */}
+          <div className="pt-2 flex flex-wrap gap-4 items-center">
             <button
               onClick={() => onNavigateToInspection()}
-              className="btn-orange"
+              className="btn-orange text-xs py-3.5 px-7 shadow-md"
             >
               Book Physical Site Visit
             </button>
+            
             <button
               onClick={() => onOpenConsultation()}
-              className="btn-secondary text-white border-white/40 hover:bg-white/10"
+              className="bg-white/15 backdrop-blur-md text-white border border-white/40 hover:bg-white hover:text-[#121824] transition-all py-3.5 px-7 text-xs font-mono-data uppercase tracking-wider font-semibold shadow-lg"
             >
               Request 1-on-1 Consultation
             </button>
           </div>
         </div>
 
-        {/* Video Technical Metadata Overlay Strip */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 p-4 bg-gradient-to-t from-[#111318] to-transparent text-[11px] font-mono-data text-slate-300">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-            <span>LIVE RECONNAISSANCE: KETU-EPE CORRIDOR</span>
-            <span className="text-[#D96B27]">MUTED AUTOPLAY REEL</span>
-          </div>
-        </div>
       </section>
 
       {/* 2. Core Advisory Services Grid */}
@@ -74,8 +70,8 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start" id="advisory">
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
-              <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-                02 — CORE ADVISORY SERVICES
+              <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+                CORE ADVISORY SERVICES
               </span>
               <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824]">
                 Complete Property Acquisition Support
@@ -117,7 +113,7 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
         {/* 3. In-Field Execution Feature Strip */}
         <div className="border-t border-b border-[#E5E2DC] py-16 space-y-8" id="execution">
           <div className="max-w-2xl space-y-2">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">03 — IN-FIELD EXECUTION</span>
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">IN-FIELD EXECUTION</span>
             <h2 className="text-3xl font-serif-display font-medium text-[#121824]">Hands-On Property Verification</h2>
           </div>
 
@@ -161,8 +157,8 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
         {/* CTA Callout */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1">
-              04 — GET STARTED
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1 font-semibold">
+              GET STARTED
             </span>
             <h3 className="text-2xl font-serif-display font-medium text-[#121824]">
               Have questions about land acquisition in Lagos?

@@ -13,7 +13,7 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
       {/* Top Quiet CTA Strip */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 border-b border-[#1E4D3E] flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
-          <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1">
+          <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block mb-1 font-semibold">
             Property Advisory
           </span>
           <h3 className="text-2xl sm:text-3xl font-serif-display font-medium text-white">
@@ -43,7 +43,7 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
 
         {/* Col 2: Navigation */}
         <div className="space-y-3">
-          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block font-semibold">
             Navigation
           </span>
           <ul className="space-y-2.5 text-[#D2E3DB]">
@@ -51,7 +51,7 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
               <li key={id}>
                 <button 
                   onClick={() => handleNav(id)}
-                  className="hover:text-[#D96B27] transition-colors capitalize"
+                  className="hover:text-[#D96B27] transition-colors capitalize text-left"
                 >
                   {id === 'guide' ? 'Investment Guide & Blog' : id === 'about' ? 'About Us' : id === 'estates' ? 'Our Estates' : id}
                 </button>
@@ -62,7 +62,7 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
 
         {/* Col 3: Services */}
         <div className="space-y-3">
-          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block font-semibold">
             Advisory Services
           </span>
           <ul className="space-y-2.5 text-[#D2E3DB]">
@@ -74,15 +74,53 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
           </ul>
         </div>
 
-        {/* Col 4: Contact */}
+        {/* Col 4: Clickable Headquarters Contact Redirects */}
         <div className="space-y-3">
-          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block">
-            Headquarters
+          <span className="text-[10px] uppercase font-mono-data tracking-widest text-[#D96B27] block font-semibold">
+            Headquarters & Contact
           </span>
-          <div className="space-y-2 text-[#D2E3DB]">
-            <p className="leading-relaxed">{ASSETS.contact.address}</p>
-            <p className="font-mono-data">{ASSETS.contact.phones[0]}</p>
-            <p className="font-mono-data">{ASSETS.contact.email}</p>
+          <div className="space-y-3 text-[#D2E3DB]">
+            
+            {/* Clickable Address Redirecting to Google Maps */}
+            <div>
+              <span className="text-[10px] text-[#D96B27] uppercase block font-mono-data">Office Address</span>
+              <a 
+                href="https://maps.google.com/?q=167+Iju+Road+Fagba+Lagos" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="leading-relaxed hover:text-white hover:underline transition-colors block text-xs"
+              >
+                {ASSETS.contact.address}
+              </a>
+            </div>
+
+            {/* Clickable Phone Lines */}
+            <div>
+              <span className="text-[10px] text-[#D96B27] uppercase block font-mono-data">Telephone Lines</span>
+              <div className="space-y-1 font-mono-data text-xs pt-0.5">
+                {ASSETS.contact.phones.map((phoneNum, idx) => (
+                  <a 
+                    key={idx} 
+                    href={`tel:${phoneNum.replace(/\s+/g, '')}`} 
+                    className="block hover:text-[#D96B27] transition-colors"
+                  >
+                    {phoneNum}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Clickable Email Redirect */}
+            <div>
+              <span className="text-[10px] text-[#D96B27] uppercase block font-mono-data">Email Inquiries</span>
+              <a 
+                href={`mailto:${ASSETS.contact.email}`} 
+                className="font-mono-data text-xs block hover:text-[#D96B27] transition-colors"
+              >
+                {ASSETS.contact.email}
+              </a>
+            </div>
+
           </div>
         </div>
 

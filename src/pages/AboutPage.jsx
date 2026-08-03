@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AboutPage({ setActivePage, onOpenInspection }) {
+export default function AboutPage({ setActivePage, onNavigateToInspection, onOpenConsultation }) {
   const whyIloshePoints = [
     { num: "01", title: "Professional Advisory Team", desc: "Expert land coordinators guiding you through survey verification, title search, and plot selection." },
     { num: "02", title: "Verified Title Documentation", desc: "100% litigation-free land backed by state government survey charting and registered title lineage." },
@@ -26,8 +26,8 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
         {/* Asymmetric Editorial Header & Executive Leadership Photo Frame */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center" id="story">
           <div className="lg:col-span-7 space-y-5">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              01 — ABOUT ILOSHE PROPERTIES & INVESTMENT LTD
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              ABOUT ILOSHE PROPERTIES & INVESTMENT LTD
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif-display font-medium leading-[1.12] text-[#121824] tracking-tight">
               Every Great Investment Begins With Trust
@@ -59,8 +59,8 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
         {/* Story Section & Allocation Ceremony Gallery Frame */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 py-16 border-t border-b border-[#E5E2DC] items-center">
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              02 — OUR ETHOS
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              OUR ETHOS
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               Under-Promise & Over-Deliver
@@ -71,14 +71,6 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
             <p className="text-[#5E6A7B] text-sm sm:text-base leading-relaxed font-sans-body">
               That's why we combine deep industry expertise with strict legal title verification, ensuring every client receives guidance they can trust from initial inquiry to physical plot pegging.
             </p>
-            <div className="pt-2">
-              <button
-                onClick={() => onOpenInspection()}
-                className="btn-primary"
-              >
-                Schedule Site Inspection
-              </button>
-            </div>
           </div>
 
           <div className="lg:col-span-6 border border-[#E5E2DC] overflow-hidden bg-[#111318] group">
@@ -102,14 +94,14 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
         {/* Vision & Mission Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8" id="vision">
           <div className="p-8 border border-[#E5E2DC] bg-white space-y-3">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">CORPORATE VISION</span>
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">CORPORATE VISION</span>
             <h3 className="text-2xl font-serif-display font-medium text-[#121824]">Democratizing Real Estate Across Africa</h3>
             <p className="text-xs sm:text-sm text-[#5E6A7B] leading-relaxed font-sans-body">
-              To become Nigeria's most trusted real estate investment company by empowering 1,000,000 families to build wealth through genuine property ownership by 2050.
+              To become Nigeria's most trusted real estate investment company by helping people build wealth through genuine property ownership.
             </p>
           </div>
           <div className="p-8 border border-[#E5E2DC] bg-white space-y-3">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">CORPORATE MISSION</span>
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">CORPORATE MISSION</span>
             <h3 className="text-2xl font-serif-display font-medium text-[#121824]">Transparent & Accessible Land Banking</h3>
             <p className="text-xs sm:text-sm text-[#5E6A7B] leading-relaxed font-sans-body">
               To deliver secure, transparent, and rewarding real estate solutions while creating lasting value for our clients, Diaspora investors, and institutional partners.
@@ -120,8 +112,8 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
         {/* Merged "Why Iloshe" Section (Page 3 of Brief) */}
         <div className="border-t border-b border-[#E5E2DC] py-16 space-y-12" id="why-iloshe">
           <div className="max-w-2xl space-y-3">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              03 — WHY CLIENTS CHOOSE US
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              WHY CLIENTS CHOOSE US
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               More Than Property. We Build Confidence.
@@ -134,7 +126,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {whyIloshePoints.map((pt, idx) => (
               <div key={idx} className="space-y-3 border-t border-[#E5E2DC] pt-6">
-                <span className="text-xs font-mono-data text-[#D96B27] block">{pt.num}</span>
+                <span className="text-xs font-mono-data text-[#D96B27] block font-semibold">{pt.num}</span>
                 <h3 className="text-lg font-serif-display font-medium text-[#121824]">{pt.title}</h3>
                 <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body">{pt.desc}</p>
               </div>
@@ -145,14 +137,14 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
         {/* Core Values Section */}
         <div>
           <div className="max-w-2xl mb-14 space-y-2">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">04 — OPERATIONAL PRINCIPLES</span>
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">OPERATIONAL PRINCIPLES</span>
             <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824]">Our Core Values</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {values.map((v, idx) => (
               <div key={idx} className="space-y-3 border-t border-[#E5E2DC] pt-6">
-                <span className="text-xs font-mono-data text-[#D96B27] block">{v.num}</span>
+                <span className="text-xs font-mono-data text-[#D96B27] block font-semibold">{v.num}</span>
                 <h3 className="text-lg font-serif-display font-medium text-[#121824]">{v.title}</h3>
                 <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body">{v.desc}</p>
               </div>

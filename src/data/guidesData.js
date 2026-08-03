@@ -88,18 +88,22 @@ export const FAQ_DATA = [
   },
   {
     question: "Can I pay for my land plot in flexible installments?",
-    answer: "Yes! We offer flexible payment plans spanning 3, 6, and 12 months across our estates in Epe, Ibeju-Lekki, Magboro, and Ikorodu."
+    answer: "Yes! We offer flexible payment plans spanning 3, 6, and 12 months with low initial deposits (e.g. ₦200,000 to ₦500,000) across our estates in Epe, Ibeju-Lekki, Magboro, and Ikorodu."
+  },
+  {
+    question: "How do site inspections work?",
+    answer: "We provide free guided site inspections Monday through Saturday. For diaspora clients, we conduct live 4K video walkthrough inspections with our land coordinators on-site."
+  },
+  {
+    question: "What titles are available across your estates?",
+    answer: "Our estate portfolio features 100% verified titles including Certificate of Occupancy (C of O), Governor's Consent, Approved Gazette, and Registered Survey layouts free from government acquisition."
   },
   {
     question: "When do I receive physical plot allocation?",
     answer: "Physical allocation and pegging are carried out upon reaching payment thresholds or full completion. You will receive your physical plot pegging, survey plan, and Deed of Assignment during an official allocation ceremony."
   },
   {
-    question: "How do site inspections work?",
-    answer: "We provide free guided site inspections Monday through Saturday. For diaspora clients, we conduct live 4K video inspections with our land coordinators on-site."
-  },
-  {
     question: "Can I buy land from outside Nigeria (Diaspora Buyers)?",
-    answer: "Yes, over 40% of our clients reside in the UK, US, Canada, and UAE. We handle remote verification, video inspections, digital documentation, and allocate plots via power of attorney or virtual coordination."
+    answer: "Yes! Over 40% of our clients reside in the UK, US, Canada, and UAE. We handle remote verification, video inspections, digital documentation, and allocate plots via power of attorney or virtual coordination."
   }
 ];

@@ -2,7 +2,7 @@ import React from 'react';
 import { ESTATES_DATA } from '../../data/estatesData';
 import { ArrowRight } from 'lucide-react';
 
-export default function FeaturedEstates({ setActivePage, onOpenInspection, onSelectEstate }) {
+export default function FeaturedEstates({ setActivePage, onNavigateToInspection, onSelectEstate }) {
   const featuredEstates = ESTATES_DATA.filter(est => est.featured !== false);
 
   return (
@@ -12,8 +12,8 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="space-y-2">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              03 — CURATED PORTFOLIO
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              CURATED REAL ESTATE PORTFOLIO
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               Featured Property Allocations
@@ -46,7 +46,7 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
                   alt={`${est.name} in ${est.location}`} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5">
+                <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5 font-semibold">
                   {est.category}
                 </div>
               </div>
@@ -82,7 +82,7 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
                 {/* Action Buttons */}
                 <div className="flex items-center gap-3 pt-1" onClick={(e) => e.stopPropagation()}>
                   <button
-                    onClick={() => onOpenInspection(est.name)}
+                    onClick={() => onNavigateToInspection(est.name)}
                     className="btn-primary flex-1 text-center"
                   >
                     Book Inspection
