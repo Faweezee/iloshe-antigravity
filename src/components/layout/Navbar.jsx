@@ -16,15 +16,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
         { label: 'Why Iloshe', hash: 'why-iloshe' }
       ]
     },
-    { 
-      id: 'estates', 
-      label: 'Our Estates',
-      subsections: [
-        { label: 'Property Directory', hash: 'directory' },
-        { label: 'Epe Corridor', hash: 'epe' },
-        { label: 'Ibeju-Lekki Corridor', hash: 'ibeju-lekki' }
-      ]
-    },
+    { id: 'estates', label: 'Our Estates' },
     { 
       id: 'services', 
       label: 'Services',
