@@ -7,102 +7,101 @@ Welcome to your **Iloshe Properties Content Management System (CMS)**. This comp
 ## 1. Accessing the CMS Admin Portal & Account Setup
 
 ### A. Accessing the Portal
-1. Open your web browser and navigate to:
-   ```text
-   https://ilosheproperties.com.ng/admin/
-   ```
-   *(For local development testing: `http://localhost:5173/admin/index.html`)*
+Navigate to:
+```text
+https://ilosheproperties.com.ng/admin/
+```
+*(Or your active deployment URL: `https://ilosheproperties.netlify.app/admin/`)*
 
-### B. Setting Up Admin User Accounts (Netlify Identity Authentication)
-When your website is deployed on Netlify / Vercel, access is secured via **Netlify Identity**:
+### B. Decap CMS Publishing Buttons Explained
 
-1. **Step 1 — Enable Netlify Identity:**
-   - Log into your Netlify Admin Dashboard at [app.netlify.com](https://app.netlify.com).
-   - Select the `iloshe-properties` site project.
-   - Navigate to **Site Configuration** → **Identity** and click **Enable Identity**.
+When creating or editing content in Decap CMS, you will see a top **Publish** dropdown with three options:
 
-2. **Step 2 — Configure Git Gateway:**
-   - In **Identity Services**, scroll to **Services** → **Git Gateway** and click **Enable Git Gateway**. This authorizes Decap CMS to publish changes directly to your site repository.
-
-3. **Step 3 — Invite Team Members & Create Accounts:**
-   - Go to the **Identity** tab in your Netlify dashboard and click **Invite Users**.
-   - Enter your company email addresses (e.g. `info@ilosheproperties.com.ng`, `admin@ilosheproperties.com.ng`).
-   - Invited team members will receive an automated email with an **Accept Invite & Set Password** link.
-   - Once a team member sets their password, they can immediately log into `https://ilosheproperties.com.ng/admin/`!
-
-### C. Local Development Login (`local_backend: true`)
-During local development, Decap CMS automatically runs in **Local Backend Mode**:
-- Access `http://localhost:5173/admin/index.html` in your browser.
-- Click the **Login** button. It will automatically authorize local editing without requiring an internet connection or password!
+1. **Publish Now**:
+   - Immediately saves the entry, commits it to GitHub, and publishes it live to the website.
+2. **Publish and Create New**:
+   - Saves and publishes the current entry, then opens a fresh blank form so you can immediately add another property listing, blog post, or testimonial.
+3. **Publish and Duplicate**:
+   - Saves and publishes the current entry, then creates an exact duplicate copy of it — ideal for quickly adding another estate listing in the same region without re-typing infrastructure or legal details!
 
 ---
 
-## 2. Managing Estate Property Listings
+## 2. Managing Content Collections (Estates, Blog, Testimonials)
 
-### How to Add a New Estate Listing:
-1. Click **Estate Property Listings** on the left sidebar menu.
-2. Click the green **New Estates** button at the top right.
-3. Fill in the property details:
-   - **Estate Name**: (e.g. *Iloshe Imperial Haven*)
-   - **Location**: (e.g. *Ketu-Epe Expressway, Lagos State*)
-   - **Region Corridor**: Select *Epe*, *Ibeju-Lekki*, *Magboro*, etc.
-   - **Category**: Select *Residential*, *Commercial*, or *Waterfront*.
-   - **Display Price**: (e.g. *₦5,500,000 / plot*)
-   - **Numeric Price**: (e.g. *5500000* for the budget range slider)
-   - **Legal Title**: (e.g. *Certificate of Occupancy (C of O)*)
-   - **Plot Size**: (e.g. *500 SQM*)
-   - **Initial Deposit**: (e.g. *₦500,000*)
-   - **Cover Image**: Upload a high-resolution property photograph.
-   - **Infrastructure List**: Add key features (*Perimeter Fencing*, *Solar Lighting*, *Instant Physical Allocation*).
-4. Click **Publish** (or **Save as Draft**). The website will automatically update live in 1–2 minutes!
+### A. Estate Property Listings (`estates`)
 
----
+#### How to Add / Edit an Estate Listing:
+1. Click **Estate Property Listings** on the left menu.
+2. Click **+ New Estates** (or select an existing estate to edit).
+3. **Field Examples:**
+   - **Estate Name**: `Iloshe Imperial Haven`
+   - **Tagline**: `High-Yield Residential & Investment Plots in Fast-Growing Epe Corridor`
+   - **Location**: `Ketu-Epe Expressway, Lagos State`
+   - **Region Corridor**: Select `Epe`
+   - **Category**: Select `Residential`
+   - **Display Price**: `₦5,500,000`
+   - **Numeric Price (for filters)**: `5500000`
+   - **Legal Title**: `Certificate of Occupancy (C of O)`
+   - **Verification Badge**: `Verified C of O`
+   - **Plot Size**: `500 SQM`
+   - **Payment Plan**: `Up to 12 Months Flexible Plan`
+   - **Initial Deposit**: `₦500,000`
+   - **Status Badge**: `Selling Fast`
+   - **Cover Image**: Upload property photograph (`.jpg`, `.png`, or `.webp`)
+   - **Infrastructure List**: Add items (`Perimeter Fencing & Gatehouse`, `Interlocked Roads`, `Instant Physical Allocation`)
+4. Click **Publish Now**.
 
-## 3. Managing Form Submissions & Site Inspection Requests
-
-### How Site Inspection Requests Are Received & Managed:
-
-1. **Instant WhatsApp Notifications (Primary for Client Coordinators):**
-   - Whenever an investor submits a site inspection request on `/#/inspection` or books via WhatsApp, a pre-formatted message is automatically generated and sent directly to Iloshe's official WhatsApp line (`+234 911 277 7778`).
-   - **Notification Format:**
-     ```text
-     📌 Estate: Iloshe Imperial Haven
-     📅 Preferred Date: 2026-08-15 (10:00 AM Morning)
-     👤 Name: Chief Adeleke Johnson
-     📞 Phone: +234 801 234 5678
-     ✉️ Email: adeleke@investor.com
-     ```
-
-2. **Data Backup Logs:**
-   - Every submitted booking is logged into local browser storage (`iloshe_inspection_bookings`) and can be exported as a JSON/CSV spreadsheet for record keeping.
-
-3. **Time Slot & Availability Management:**
-   - Site inspection dates enforcement (`min={today}`) prevents past-date submissions.
-   - Coordinators receive preferred time slots (*10:00 AM*, *01:00 PM*, *04:00 PM*) as requests and confirm driver/plot coordinator availability directly with the client.
+#### How to Delete an Estate Listing:
+- Select the estate listing, click **Delete entry** at the top right. It will be removed live from the site!
 
 ---
 
-## 4. Publishing Blog & Market Insights Articles
+### B. Blog & Market Insights (`blog`)
 
-### How to Write a New Article:
+#### How to Add / Edit a Blog Article:
 1. Click **Blog & Market Insights** on the left menu.
-2. Click **New Blog**.
-3. Fill in the fields:
-   - **Article Title**: (e.g. *5 Critical Questions Before Buying Land in Epe*)
-   - **Category**: Select *Land Verification*, *Legal & Titles*, etc.
-   - **Read Time**: (e.g. *4 min read*)
-   - **Publish Date**: Choose date and time.
-   - **Summary**: Enter a short 2-sentence summary.
-   - **Full Body Content**: Write or paste your article text. Supports bold text, headings, and bullet points.
-4. Click **Publish**.
+2. Click **+ New Blog & Market Insights**.
+3. **Field Examples:**
+   - **Article Title**: `5 Critical Questions Before Buying Land in Epe`
+   - **Category**: Select `Land Verification`
+   - **Read Time**: `5 min read`
+   - **Publish Date**: Select current date
+   - **Summary**: `A practical guide for everyday buyers on inspecting land coordinates...`
+   - **Full Body Content**: Write or paste article text. Supports `# Headings`, `**bold text**`, and `- bullet points`.
+   - **Key Takeaways**: Add key bullet points for the summary box.
+4. Click **Publish Now**.
 
 ---
 
-## 5. Technical Support & Image Guidelines
+### C. Client Testimonials (`testimonials`)
+
+#### How to Add / Edit a Client Review:
+1. Click **Client Testimonials** on the left menu.
+2. Click **+ New Client Testimonials**.
+3. **Field Examples:**
+   - **Client Name**: `Dr. Emmanuel Adeleke`
+   - **Role & Location**: `Diaspora Investor (United Kingdom)`
+   - **Estate Purchased**: `Iloshe Imperial Haven, Epe`
+   - **Testimonial Quote**: `"Buying land in Lagos from London used to carry immense risk. Iloshe Properties managed everything with legal clarity..."`
+   - **Client Photo**: Upload square headshot (`400 x 400 px`).
+4. Click **Publish Now**.
+
+---
+
+## 3. Hosting & Domain Setup (Netlify / Vercel / Hostinger)
+
+### Will the CMS work if we deploy to Vercel or connect a custom Hostinger domain (`ilosheproperties.com.ng`)?
+- **YES!**
+- Decap CMS operates directly via your GitHub repository (`Faweezee/iloshe-antigravity`).
+- Even if you host your domain (`ilosheproperties.com.ng`) on Vercel or Hostinger, your Decap CMS admin portal at `https://ilosheproperties.com.ng/admin/` will authenticate securely and push updates directly to GitHub, automatically updating your live site!
+
+---
+
+## 4. Technical Support & Image Guidelines
 
 - **Image Formats**: Use `.jpg`, `.png`, or `.webp`.
 - **Recommended Resolutions**:
   - Property Cover Photos: `800 x 600 px`
   - Blog Header Images: `1200 x 800 px`
   - Client Testimonial Headshots: `400 x 400 px` (Square)
-- **Automatic Site Deployment**: Every time you click **Publish**, the website automatically commits the changes to GitHub and deploys the live update!
+- **Automatic Live Updates**: Every time you click **Publish**, the website automatically commits the changes to GitHub and updates your live site within 1–2 minutes!

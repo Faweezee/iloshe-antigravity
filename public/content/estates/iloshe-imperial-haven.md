@@ -1,4 +1,5 @@
 ---
+id: "iloshe-imperial-haven-epe"
 name: "Iloshe Imperial Haven"
 tagline: "High-Yield Residential & Investment Plots in Fast-Growing Epe Corridor"
 location: "Ketu-Epe Expressway, Lagos State"
@@ -7,6 +8,7 @@ category: "Residential"
 price: "₦5,500,000"
 numericPrice: 5500000
 title: "Certificate of Occupancy (C of O)"
+verificationBadge: "Verified C of O"
 plotSize: "500 SQM"
 paymentPlan: "Up to 12 Months Flexible Plan"
 initialDeposit: "₦500,000"

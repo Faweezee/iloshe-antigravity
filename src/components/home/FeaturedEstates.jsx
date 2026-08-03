@@ -1,9 +1,10 @@
 import React from 'react';
-import { ESTATES_DATA } from '../../data/estatesData';
-import { ArrowRight, MapPin, ShieldCheck, Layers, CreditCard } from 'lucide-react';
+import { getCMSEstates } from '../../utils/cmsLoader';
+import { ArrowRight, MapPin } from 'lucide-react';
 
 export default function FeaturedEstates({ setActivePage, onOpenInspection, onSelectEstate }) {
-  const featuredEstates = ESTATES_DATA.filter(est => est.featured !== false);
+  const allEstates = getCMSEstates();
+  const featuredEstates = allEstates.filter(est => est.featured !== false);
 
   return (
     <section className="py-28 bg-[#FAF9F5] border-b border-[#E5E2DC]">

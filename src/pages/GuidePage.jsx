@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { ARTICLES_DATA, FAQ_DATA } from '../data/guidesData';
+import { getCMSArticles } from '../utils/cmsLoader';
+import { FAQ_DATA } from '../data/guidesData';
 import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 
 export default function GuidePage({ onNavigateToInspection, onSelectArticle, onOpenLegalAdvisory }) {
+  const articlesData = getCMSArticles();
   const [activeFaq, setActiveFaq] = useState(0);
 
   return (
@@ -11,8 +13,8 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
         
         {/* Header */}
         <div className="max-w-3xl space-y-4" id="guides">
-          <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-            01 — KNOWLEDGE BASE & ADVISORY
+          <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+            KNOWLEDGE BASE & ADVISORY
           </span>
           <h1 className="text-4xl sm:text-5xl font-serif-display font-medium leading-[1.12] text-[#121824] tracking-tight">
             Smart Property Investments Start With Knowledge
@@ -26,8 +28,8 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
         <div className="border-t border-[#E5E2DC] pt-12" id="blog">
           <div className="flex justify-between items-end mb-10">
             <div>
-              <span className="text-[10px] font-mono-data uppercase text-[#D96B27] tracking-widest block mb-1">
-                02 — MARKET INSIGHTS & BLOG
+              <span className="text-[10px] font-mono-data uppercase text-[#D96B27] tracking-widest block font-semibold mb-1">
+                MARKET INSIGHTS & BLOG
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif-display font-medium text-[#121824] tracking-tight">
                 Featured Real Estate Guides
@@ -39,7 +41,7 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {ARTICLES_DATA.map((art) => (
+            {articlesData.map((art) => (
               <div 
                 key={art.id} 
                 onClick={() => onSelectArticle && onSelectArticle(art)}
@@ -52,7 +54,7 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
                 <h3 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors leading-snug">
                   {art.title}
                 </h3>
-                <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body">
+                <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body line-clamp-3">
                   {art.summary}
                 </p>
                 <div className="pt-1 flex items-center gap-1.5 text-xs text-[#0B3B2B] font-mono-data font-medium uppercase tracking-wider group-hover:text-[#D96B27] transition-colors">
@@ -67,8 +69,8 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
         {/* Technical Masterplan Photography Callout Strip */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-b border-[#E5E2DC] py-16 items-center">
           <div className="lg:col-span-6 space-y-5">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              03 — LEGAL TITLE & VERIFICATION SUPPORT
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              LEGAL TITLE & VERIFICATION SUPPORT
             </span>
             <h3 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               Verified Documentation Guaranteed
@@ -107,8 +109,8 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
         {/* FAQ Accordion Section */}
         <div className="border-t border-[#E5E2DC] pt-8 max-w-3xl space-y-10" id="faq">
           <div className="space-y-2">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
-              04 — CLEAR ANSWERS
+            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+              CLEAR ANSWERS
             </span>
             <h2 className="text-3xl font-serif-display font-medium text-[#121824]">Frequently Asked Questions</h2>
           </div>

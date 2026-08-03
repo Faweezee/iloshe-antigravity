@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ESTATES_DATA } from '../data/estatesData';
+import { getCMSEstates } from '../utils/cmsLoader';
 import { Search, X, MapPin } from 'lucide-react';
 
 export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) {
+  const estatesData = getCMSEstates();
+
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [maxPrice, setMaxPrice] = useState(20000000);
@@ -21,7 +23,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
     }
   }, []);
 
-  const filteredEstates = ESTATES_DATA.filter(est => {
+  const filteredEstates = estatesData.filter(est => {
     const regionMatch = selectedRegion === 'All' || est.region === selectedRegion;
     const categoryMatch = selectedCategory === 'All' || est.category === selectedCategory;
     const priceMatch = est.numericPrice <= maxPrice;
