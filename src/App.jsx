@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import InspectionModal from './components/layout/InspectionModal';
-import EstateDetailModal from './components/estates/EstateDetailModal';
-import ArticleDetailModal from './components/ui/ArticleDetailModal';
 import WhatsAppWidget from './components/layout/WhatsAppWidget';
 import { ASSETS } from './data/assetsManifest';
 
@@ -14,12 +12,14 @@ import ServicesPage from './pages/ServicesPage';
 import GuidePage from './pages/GuidePage';
 import ContactPage from './pages/ContactPage';
 import InspectionPage from './pages/InspectionPage';
+import EstateDetailPage from './pages/EstateDetailPage';
+import ArticleDetailPage from './pages/ArticleDetailPage';
 
 export default function App() {
   // Helper to read initial page from URL hash (e.g. #/estates -> 'estates')
   const getPageFromHash = () => {
     const hash = window.location.hash.replace(/^#\/?/, '');
-    const validPages = ['home', 'about', 'estates', 'services', 'guide', 'contact', 'inspection'];
+    const validPages = ['home', 'about', 'estates', 'services', 'guide', 'contact', 'inspection', 'estate-detail', 'article-detail'];
     return validPages.includes(hash) ? hash : 'home';
   };
 
@@ -58,36 +58,36 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // 1. Direct Page Route Navigation to Dedicated Inspection Booking Page with Pre-Selected Estate
+  // 1. Direct Page Route Navigation to Dedicated Inspection Booking Page
   const handleNavigateToInspection = (estateName = '') => {
     setSelectedEstateName(estateName);
     setActivePage('inspection');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 2. Consultation Inquiry Trigger (WhatsApp/Email)
+  // 2. Direct Dedicated Page Route Navigation for Property Detail View
+  const handleSelectEstate = (estate) => {
+    setActiveEstateDetail(estate);
+    setActivePage('estate-detail');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // 3. Direct Dedicated Page Route Navigation for Article Reader View
+  const handleSelectArticle = (article) => {
+    setActiveArticleDetail(article);
+    setActivePage('article-detail');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // 4. Consultation & Legal Advisory Triggers (WhatsApp/Email)
   const handleOpenConsultation = () => {
     const text = encodeURIComponent("Hello Iloshe Properties, I would like to request a 1-on-1 Real Estate Investment Consultation.");
     window.open(`https://wa.me/${ASSETS.contact.whatsapp}?text=${text}`, '_blank');
   };
 
-  // 3. Legal Advisory Inquiry Trigger (WhatsApp/Email)
   const handleOpenLegalAdvisory = () => {
     const text = encodeURIComponent("Hello Iloshe Properties, I have an inquiry regarding Property Title Verification & Legal Due Diligence.");
     window.open(`https://wa.me/${ASSETS.contact.whatsapp}?text=${text}`, '_blank');
-  };
-
-  const handleOpenInspectionModal = (estateName = '') => {
-    setSelectedEstateName(estateName);
-    setInspectionModalOpen(true);
-  };
-
-  const handleSelectEstate = (estate) => {
-    setActiveEstateDetail(estate);
-  };
-
-  const handleSelectArticle = (article) => {
-    setActiveArticleDetail(article);
   };
 
   return (
@@ -138,6 +138,20 @@ export default function App() {
         {activePage === 'inspection' && (
           <InspectionPage initialEstateName={selectedEstateName} />
         )}
+        {activePage === 'estate-detail' && (
+          <EstateDetailPage 
+            estate={activeEstateDetail}
+            onNavigateToInspection={handleNavigateToInspection}
+            setActivePage={setActivePage}
+          />
+        )}
+        {activePage === 'article-detail' && (
+          <ArticleDetailPage 
+            article={activeArticleDetail}
+            onOpenLegalAdvisory={handleOpenLegalAdvisory}
+            setActivePage={setActivePage}
+          />
+        )}
       </main>
 
       <Footer 
@@ -150,22 +164,6 @@ export default function App() {
         isOpen={inspectionModalOpen} 
         onClose={() => setInspectionModalOpen(false)} 
         selectedEstateName={selectedEstateName} 
-      />
-
-      {/* Estate Detail Drawer Modal */}
-      <EstateDetailModal 
-        estate={activeEstateDetail}
-        isOpen={!!activeEstateDetail}
-        onClose={() => setActiveEstateDetail(null)}
-        onNavigateToInspection={handleNavigateToInspection}
-      />
-
-      {/* Article Detail Reader Modal */}
-      <ArticleDetailModal
-        article={activeArticleDetail}
-        isOpen={!!activeArticleDetail}
-        onClose={() => setActiveArticleDetail(null)}
-        onOpenLegalAdvisory={handleOpenLegalAdvisory}
       />
 
       <WhatsAppWidget />

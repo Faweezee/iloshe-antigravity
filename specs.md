@@ -6,16 +6,19 @@ This document serves as the developer specifications, content mapping, asset pip
 
 ## 1. Executive Content & Page Architecture
 
-The platform consists of 6 primary top-level navigation routes with quiet dropdown sub-menus mapping to all 10 pages in `website-brief.md`:
+The platform consists of 6 primary top-level navigation routes with quiet dropdown sub-menus, plus 3 dedicated full-page detail routes, mapping to all 10 pages in `website-brief.md`:
 
-| Primary Nav Route | URL Hash | Included Subsections / Merged Pages | Key Content & Copy Specs |
+| Primary Nav / Route | URL Hash | Included Subsections / Merged Pages | Key Content & Copy Specs |
 | :--- | :--- | :--- | :--- |
-| **Home** | `/#/home` | Hero Banner, Parallax Reveal, Pure Typography Trust Metrics, Promise, Featured Estates, Process, Testimonial Slider | Official Headline: *"Build Wealth Through Smart Real Estate Investments"*. Focus on legal security, C of O verification, and physical pegging. |
+| **Home** | `/#/home` | Hero Banner, Parallax Reveal (`FEATURED ESTATE PARCEL`), Pure Typography Trust Metrics, Promise, Featured Estates (`CURATED PORTFOLIO`), Process (`INVESTMENT MADE SIMPLE`), Testimonial Slider | Official Headline: *"Build Wealth Through Genuine Real Estate"*. Focus on legal security, C of O verification, and physical plot pegging. |
 | **About Us** | `/#/about` | Our Story, Vision & Mission, Core Values + **Merged "Why Iloshe" Confidence Grid** (`#why-iloshe`) | Story: Founded to make genuine land ownership accessible and transparent. Zero omonile risk guarantee. |
-| **Our Estates** | `/#/estates` | Catalog Directory, Filter Bar, Interactive Estate Detail Drawer | Displays verified plots with pricing, legal title, plot size, deposit, infrastructure checklist, and WhatsApp inquiry. |
+| **Our Estates** | `/#/estates` | Catalog Directory, Filter Bar, Dedicated Estate Detail Page Route | Displays verified plots with pricing, legal title, plot size, deposit, infrastructure checklist, and WhatsApp inquiry. |
 | **Services** | `/#/services` | Autoplay Inspection Video Hero, Core Advisory Grid, In-Field Execution Strip | **Landing Video Hero:** Full-bleed muted looping background video (`/assets/hero/inspection-video.mp4`) with transparent overlay text. |
-| **Investment Guide & Blog** | `/#/guide` | Property Guides, **CMS Blog Hub** (`#blog`), **Searchable FAQ Accordion** (`#faq`) | Guides & articles on land titles, survey charting, and micro-installments + CMS Blog Reader. |
+| **Investment Guide & Blog** | `/#/guide` | Property Guides, **CMS Blog Hub** (`#blog`), **Searchable FAQ Accordion** (`#faq`) | Guides & articles on land titles, survey charting, and micro-installments + Dedicated Article Reader Page Route. |
 | **Contact** | `/#/contact` | Office Info, Phone Lines, Direct WhatsApp Trigger, Contact Form | Headquarters: 167 Iju Road, Fagba Bus Stop, Lagos, Nigeria. Phone: +234 911 277 7778. |
+| **Dedicated Inspection Page** | `/#/inspection` | Full-Page Inspection Scheduling Form | Enforces `min={today}` date validation, property pre-selection state, and direct WhatsApp dispatch. |
+| **Dedicated Estate Detail Page** | `/#/estate-detail` | Full-Page Property Showcase (`EstateDetailPage.jsx`) | Replaces modal overlays. Full-width photo gallery, specifications matrix, infrastructure checklist, and reserve CTAs. |
+| **Dedicated Article Reader Page** | `/#/article-detail` | Full-Page Article Reader (`ArticleDetailPage.jsx`) | Replaces modal overlays. Clean typography, category badge, read time, key takeaways box, and legal advisory CTA. |
 
 ---
 
@@ -23,7 +26,7 @@ The platform consists of 6 primary top-level navigation routes with quiet dropdo
 
 Client image assets should be placed in `public/assets/` using the following folder structure:
 
-```
+```text
 public/assets/
 ├── brand/           # Official Logo (PNG/SVG), Favicon (32x32px & 512x512px PNG)
 ├── hero/            # Hero Background (1920x1080px) & Inspection Video (inspection-video.mp4)
@@ -52,9 +55,12 @@ The platform includes **Decap CMS** embedded at `/admin`. The fields below defin
 - `price` (String, e.g. "₦5,500,000")
 - `numericPrice` (Number, for search filter slider)
 - `title` (String, e.g. "Certificate of Occupancy (C of O)")
+- `verificationBadge` (String, e.g. "100% Charted & Verified")
 - `plotSize` (String, e.g. "500 SQM")
+- `paymentPlan` (String, e.g. "Up to 12 Months Flexible Plan")
 - `initialDeposit` (String, e.g. "₦500,000")
 - `status` (String, e.g. "Selling Fast")
+- `featured` (Boolean, default: true)
 - `image` (Image Upload)
 - `gallery` (List of Image Uploads)
 - `overview` (Markdown Text)
@@ -84,6 +90,6 @@ The platform includes **Decap CMS** embedded at `/admin`. The fields below defin
 To protect developers and the client from legal liability:
 
 1. **No Unauthorized Financial Guarantees:** Never state "100% money back guarantee", "guaranteed 50% returns", or binding financial promises unless explicitly authorized in official corporate documentation.
-2. **Process-Oriented Claims Only:** Frame credibility on verifiable processes (e.g. *"Independent land registry survey charting"*, *" Litigated-free land titles"*, *"Structured payment plans"*).
+2. **Process-Oriented Claims Only:** Frame credibility on verifiable processes (e.g. *"Independent land registry survey charting"*, *"Litigation-free land titles"*, *"Structured payment plans"*).
 3. **Legal Disclaimer Footer:** Every page includes the standard disclaimer:
-   > *"Property details, pricing, and document availability are subject to contract and official verification at the time of inquiry."*
+   > *"Property details, pricing, layout coordinates, and document availability are subject to contract and official verification at the time of inquiry."*

@@ -24,12 +24,14 @@ collections:
       - { label: "Display Price", name: "price", widget: "string" }
       - { label: "Numeric Price (for filters)", name: "numericPrice", widget: "number", value_type: "int" }
       - { label: "Legal Title", name: "title", widget: "string" }
+      - { label: "Verification Badge", name: "verificationBadge", widget: "string", default: "100% Charted & Verified" }
       - { label: "Plot Size", name: "plotSize", widget: "string" }
       - { label: "Payment Plan", name: "paymentPlan", widget: "string" }
       - { label: "Initial Deposit", name: "initialDeposit", widget: "string" }
       - { label: "Status Badge", name: "status", widget: "string" }
       - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
       - { label: "Cover Image", name: "image", widget: "image" }
+      - { label: "Gallery Images", name: "gallery", widget: "list", required: false }
       - { label: "Property Overview", name: "overview", widget: "markdown" }
       - { label: "Infrastructure List", name: "infrastructure", widget: "list" }
 
