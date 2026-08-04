@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { ASSETS } from '../../data/assetsManifest';
+import BrandLogo from '../common/BrandLogo';
 
 export default function Navbar({ activePage, setActivePage, onNavigateToInspection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -87,11 +87,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
             onClick={() => handleNavClick('home')} 
             className="flex items-center gap-3 text-left focus:outline-none group shrink-0"
           >
-            <img 
-              src={ASSETS.brand.logo.src} 
-              alt={ASSETS.brand.logo.alt} 
-              className="h-10 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105" 
-            />
+            <BrandLogo className="h-9 sm:h-10 w-auto transition-transform group-hover:scale-105" />
 
             <div>
               <span className="block text-base sm:text-lg font-serif-display font-semibold tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors">

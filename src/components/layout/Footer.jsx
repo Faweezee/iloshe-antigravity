@@ -1,5 +1,6 @@
 import React from 'react';
 import { ASSETS } from '../../data/assetsManifest';
+import BrandLogo from '../common/BrandLogo';
 
 export default function Footer({ setActivePage, onNavigateToInspection }) {
   const handleNav = (id) => {
@@ -37,11 +38,7 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="p-1.5 bg-white/10 rounded border border-white/20">
-              <img 
-                src={ASSETS.brand.logo.src} 
-                alt={ASSETS.brand.logo.alt} 
-                className="h-9 w-auto object-contain" 
-              />
+              <BrandLogo className="h-8 w-auto" />
             </div>
             <div>
               <span className="block font-serif-display text-lg text-white font-medium">

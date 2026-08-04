@@ -11,13 +11,13 @@
 export const ASSETS = {
   brand: {
     logo: {
-      src: "/assets/brand/logo.png",
-      fallback: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=300&q=80",
+      src: "/assets/brand/logo.svg",
+      fallback: "/assets/brand/logo.svg",
       alt: "Iloshe Properties & Investment Ltd Official Logo"
     },
     favicon: {
-      src: "/assets/brand/favicon.png",
-      fallback: "/favicon.ico",
+      src: "/favicon/favicon-32x32.png",
+      fallback: "/favicon/favicon.ico",
       alt: "Iloshe Properties Favicon"
     }
   },
