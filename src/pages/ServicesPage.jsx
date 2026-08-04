@@ -90,7 +90,7 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
             <div className="border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
               <div className="relative h-[520px] lg:h-[580px] overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80" 
+                  src="../../assets/team/advisory.jpeg" 
                   alt="Two business partners shaking hands on a real estate investment transaction" 
                   className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
                 />

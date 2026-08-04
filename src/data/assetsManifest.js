@@ -79,7 +79,7 @@ export const ASSETS = {
       alt: "Iloshe Properties Executive Leadership Team"
     },
     advisory: {
-      src: "/assets/team/advisory.jpg",
+      src: "/assets/team/advisory.jpeg",
       fallback: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80",
       alt: "Client Real Estate Advisory Session"
     }
