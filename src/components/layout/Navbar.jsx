@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown, Building2 } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { ASSETS } from '../../data/assetsManifest';
 
 export default function Navbar({ activePage, setActivePage, onNavigateToInspection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -81,20 +82,22 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="flex justify-between items-center h-16 sm:h-20">
           
-          {/* Brand Mark */}
+          {/* Official Brand Logo & Typography */}
           <button 
             onClick={() => handleNavClick('home')} 
             className="flex items-center gap-3 text-left focus:outline-none group shrink-0"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#0B3B2B] text-[#D96B27] border border-[#0B3B2B] flex items-center justify-center transition-colors group-hover:bg-[#0F543F]">
-              <Building2 className="w-5 h-5" />
-            </div>
+            <img 
+              src={ASSETS.brand.logo.src} 
+              alt={ASSETS.brand.logo.alt} 
+              className="h-10 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105" 
+            />
 
             <div>
-              <span className="block text-base sm:text-lg font-serif-display font-medium tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
+              <span className="block text-base sm:text-lg font-serif-display font-semibold tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
                 ILOSHE PROPERTIES
               </span>
-              <span className="block text-[8px] sm:text-[9px] tracking-widest text-[#5E6A7B] uppercase font-sans-body">
+              <span className="block text-[8px] sm:text-[9px] tracking-widest text-[#5E6A7B] uppercase font-sans-body font-medium">
                 & Investment Ltd
               </span>
             </div>

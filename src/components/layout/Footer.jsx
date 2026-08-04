@@ -35,10 +35,25 @@ export default function Footer({ setActivePage, onNavigateToInspection }) {
         
         {/* Col 1: Brand Profile */}
         <div className="space-y-4">
-          <span className="block font-serif-display text-lg text-white font-medium">
-            ILOSHE PROPERTIES
-          </span>
-          <p className="text-[#D2E3DB] leading-relaxed max-w-xs">
+          <div className="flex items-center gap-3">
+            <div className="p-1.5 bg-white/10 rounded border border-white/20">
+              <img 
+                src={ASSETS.brand.logo.src} 
+                alt={ASSETS.brand.logo.alt} 
+                className="h-9 w-auto object-contain" 
+              />
+            </div>
+            <div>
+              <span className="block font-serif-display text-lg text-white font-medium">
+                ILOSHE PROPERTIES
+              </span>
+              <span className="block text-[8px] tracking-widest text-[#D2E3DB] uppercase font-sans-body">
+                & Investment Ltd
+              </span>
+            </div>
+          </div>
+
+          <p className="text-[#D2E3DB] leading-relaxed max-w-xs pt-1">
             Iloshe Properties & Investment Limited helps buyers and institutional investors acquire verified land opportunities across Nigeria with complete legal transparency.
           </p>
         </div>
