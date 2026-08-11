@@ -99,59 +99,15 @@ export default function ServicesPage({ onNavigateToInspection, onOpenConsultatio
                 </div>
               </div>
               <div className="p-4 bg-white text-xs font-mono-data text-[#5E6A7B] border-t border-[#E5E2DC] flex justify-between items-center">
-                <span>CLIENT ADVISORY & EXECUTION</span>
+                <span>CLIENT ADVISORY & CONSULTATION</span>
                 <span className="text-[#0B3B2B] font-semibold">VERIFIED DEALS</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* 3. In-Field Execution Feature Strip */}
-        <div className="border-t border-b border-[#E5E2DC] py-16 space-y-8" id="execution">
-          <div className="max-w-2xl space-y-2">
-            <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">IN-FIELD EXECUTION</span>
-            <h2 className="text-3xl font-serif-display font-medium text-[#121824]">Hands-On Property Verification</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80" 
-                  alt="Legal Document Charting & Land Title Search" 
-                  className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-3 left-3 bg-[#111318]/90 text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-1">
-                  TITLE CHARTING
-                </div>
-              </div>
-              <div className="p-3.5 bg-white text-xs font-mono-data text-[#5E6A7B] border-t border-[#E5E2DC] flex justify-between items-center">
-                <span>LAGOS SURVEYOR GENERAL SEARCH</span>
-                <span className="text-[#D96B27]">100% C OF O / GAZETTE</span>
-              </div>
-            </div>
-
-            <div className="border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" 
-                  alt="On-Site Land Survey Pegging & Boundary Inspection" 
-                  className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-3 left-3 bg-[#0B3B2B] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-1">
-                  PHYSICAL PEGGING
-                </div>
-              </div>
-              <div className="p-3.5 bg-white text-xs font-mono-data text-[#5E6A7B] border-t border-[#E5E2DC] flex justify-between items-center">
-                <span>ON-SITE BOUNDARY DEMARCATION</span>
-                <span className="text-[#0B3B2B] font-semibold">INSTANT ALLOCATION</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* CTA Callout */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="border-t border-[#E5E2DC] pt-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold mb-1">
               GET STARTED

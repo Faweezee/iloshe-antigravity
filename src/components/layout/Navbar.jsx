@@ -18,14 +18,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
       ]
     },
     { id: 'estates', label: 'Our Estates' },
-    { 
-      id: 'services', 
-      label: 'Services',
-      subsections: [
-        { label: 'Core Advisory', hash: 'advisory' },
-        { label: 'In-Field Execution', hash: 'execution' }
-      ]
-    },
+    { id: 'services', label: 'Services' },
     { 
       id: 'guide', 
       label: 'Investment Guide',
@@ -99,7 +92,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
             </div>
           </button>
 
-          {/* Desktop Nav Items (lg:flex restored with responsive gap scaling) */}
+          {/* Desktop Nav Items */}
           <nav className="hidden lg:flex items-center space-x-3 xl:space-x-7 shrink-0">
             {navItems.map((item) => {
               const hasSub = item.subsections && item.subsections.length > 0;
