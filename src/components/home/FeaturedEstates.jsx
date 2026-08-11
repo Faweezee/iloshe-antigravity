@@ -7,11 +7,11 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
   const featuredEstates = allEstates.filter(est => est.featured !== false);
 
   return (
-    <section className="py-28 bg-[#FAF9F5] border-b border-[#E5E2DC]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="py-20 sm:py-28 bg-[#FAF9F5] border-b border-[#E5E2DC]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="space-y-2">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
               CURATED PORTFOLIO
@@ -25,23 +25,23 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
               setActivePage('estates');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-2 text-xs font-mono-data uppercase tracking-wider text-[#121824] hover:text-[#D96B27] group transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono-data uppercase tracking-wider text-[#121824] hover:text-[#D96B27] group transition-colors self-start md:self-auto"
           >
             <span>View Complete Directory</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#D96B27] group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
-        {/* Clean Property Cards Grid with Comprehensive Specs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        {/* Clean Property Cards Grid with Responsive Non-Overlapping Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {featuredEstates.map((est) => (
             <div 
               key={est.id} 
-              className="bg-white border border-[#E5E2DC] flex flex-col group transition-all duration-300 hover:border-[#121824] cursor-pointer"
+              className="bg-white border border-[#E5E2DC] flex flex-col group transition-all duration-300 hover:border-[#121824] cursor-pointer shadow-sm hover:shadow-md"
               onClick={() => onSelectEstate && onSelectEstate(est)}
             >
               {/* Photo Frame */}
-              <div className="relative h-60 overflow-hidden bg-[#111318]">
+              <div className="relative h-56 sm:h-60 overflow-hidden bg-[#111318]">
                 <img 
                   src={est.image} 
                   alt={`${est.name} in ${est.location}`} 
@@ -57,12 +57,14 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
 
               {/* Card Meta Content */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
-                <div>
-                  <div className="flex justify-between items-baseline gap-2 mb-1">
-                    <h3 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
+                
+                {/* Header: Title & Price Stacked Responsive Layout */}
+                <div className="space-y-2">
+                  <div className="flex flex-col xl:flex-row xl:items-baseline justify-between gap-1 border-b border-[#E5E2DC]/50 pb-2">
+                    <h3 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors leading-snug">
                       {est.name}
                     </h3>
-                    <span className="text-base font-serif-display font-semibold text-[#121824] whitespace-nowrap">
+                    <span className="text-sm xl:text-base font-serif-display font-semibold text-[#0B3B2B] shrink-0 font-mono-data">
                       {est.price}
                     </span>
                   </div>
@@ -82,12 +84,12 @@ export default function FeaturedEstates({ setActivePage, onOpenInspection, onSel
                     <span className="font-medium text-[#121824] block">{est.plotSize}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Initial Deposit</span>
-                    <span className="font-medium text-[#D96B27] font-mono-data block">{est.initialDeposit}</span>
+                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Payment Terms</span>
+                    <span className="font-medium text-[#D96B27] font-mono-data block truncate">{est.paymentPlan}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Payment Terms</span>
-                    <span className="font-medium text-[#121824] block">{est.paymentPlan}</span>
+                    <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Verification</span>
+                    <span className="font-medium text-[#0B3B2B] block truncate">{est.verificationBadge}</span>
                   </div>
                 </div>
 

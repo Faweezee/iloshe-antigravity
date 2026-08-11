@@ -34,15 +34,15 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
   });
 
   return (
-    <div className="py-20 bg-[#FAF9F5]" id="directory">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <div className="py-16 sm:py-20 bg-[#FAF9F5]" id="directory">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Page Title Header */}
-        <div className="max-w-2xl mb-14 space-y-3">
+        <div className="max-w-2xl mb-12 sm:mb-14 space-y-3">
           <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
             Official Property Directory
           </span>
-          <h1 className="text-4xl sm:text-5xl font-serif-display font-medium text-[#121824] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif-display font-medium text-[#121824] tracking-tight">
             Available Estates & Land Allocations
           </h1>
           <p className="text-[#5E6A7B] text-sm sm:text-base leading-relaxed font-sans-body">
@@ -51,7 +51,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
         </div>
 
         {/* Clean Search & Filter Bar */}
-        <div className="border-t border-b border-[#E5E2DC] py-8 mb-16 space-y-6">
+        <div className="border-t border-b border-[#E5E2DC] py-6 sm:py-8 mb-12 sm:mb-16 space-y-6">
           
           {/* Row 1: Search Input & Price Slider */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
@@ -167,32 +167,34 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
             {filteredEstates.map(est => (
               <div 
                 key={est.id} 
-                className="bg-white border border-[#E5E2DC] flex flex-col group transition-all duration-300 hover:border-[#121824] cursor-pointer"
+                className="bg-white border border-[#E5E2DC] flex flex-col group transition-all duration-300 hover:border-[#121824] cursor-pointer shadow-sm hover:shadow-md"
                 onClick={() => onSelectEstate && onSelectEstate(est)}
               >
                 {/* Image Frame */}
-                <div className="relative h-56 overflow-hidden bg-[#111318]">
+                <div className="relative h-56 sm:h-60 overflow-hidden bg-[#111318]">
                   <img 
                     src={est.image} 
                     alt={est.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
-                  <div className="absolute top-3 left-3 bg-[#0B3B2B] text-white text-[10px] font-mono-data uppercase tracking-widest px-2 py-0.5">
+                  <div className="absolute top-3 left-3 bg-[#0B3B2B] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5">
                     {est.category}
                   </div>
-                  <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2 py-0.5">
+                  <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5">
                     {est.status}
                   </div>
                 </div>
 
                 {/* Card Info */}
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
-                  <div>
-                    <div className="flex justify-between items-baseline gap-2 mb-1">
-                      <h3 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
+                  
+                  {/* Header: Title & Price Stacked Responsive Layout */}
+                  <div className="space-y-2">
+                    <div className="flex flex-col xl:flex-row xl:items-baseline justify-between gap-1 border-b border-[#E5E2DC]/50 pb-2">
+                      <h3 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors leading-snug">
                         {est.name}
                       </h3>
-                      <span className="text-sm font-serif-display font-semibold text-[#121824] whitespace-nowrap">
+                      <span className="text-sm xl:text-base font-serif-display font-semibold text-[#0B3B2B] shrink-0 font-mono-data">
                         {est.price}
                       </span>
                     </div>

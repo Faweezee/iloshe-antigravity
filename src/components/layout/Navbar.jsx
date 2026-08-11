@@ -85,22 +85,22 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
           {/* Official Brand Logo & Typography */}
           <button 
             onClick={() => handleNavClick('home')} 
-            className="flex items-center gap-3 text-left focus:outline-none group shrink-0"
+            className="flex items-center gap-2.5 sm:gap-3 text-left focus:outline-none group shrink-0"
           >
-            <BrandLogo className="h-9 sm:h-10 w-auto transition-transform group-hover:scale-105" />
+            <BrandLogo className="h-8 sm:h-10 w-auto transition-transform group-hover:scale-105" />
 
             <div>
-              <span className="block text-base sm:text-lg font-serif-display font-semibold tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
+              <span className="block text-sm sm:text-base xl:text-lg font-serif-display font-semibold tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors whitespace-nowrap">
                 ILOSHE PROPERTIES
               </span>
-              <span className="block text-[8px] sm:text-[9px] tracking-widest text-[#5E6A7B] uppercase font-sans-body font-medium">
+              <span className="block text-[7px] sm:text-[8px] xl:text-[9px] tracking-widest text-[#5E6A7B] uppercase font-sans-body font-medium whitespace-nowrap">
                 & Investment Ltd
               </span>
             </div>
           </button>
 
-          {/* Desktop Nav Items */}
-          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-8">
+          {/* Desktop Nav Items (xl breakpoint for clean horizontal spacing) */}
+          <nav className="hidden xl:flex items-center space-x-6">
             {navItems.map((item) => {
               const hasSub = item.subsections && item.subsections.length > 0;
               const isActive = activePage === item.id;
@@ -115,7 +115,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
                 >
                   <button
                     onClick={() => handleNavClick(item.id)}
-                    className={`flex items-center gap-1 text-[11px] xl:text-xs font-sans-body tracking-wider uppercase transition-all focus:outline-none ${
+                    className={`flex items-center gap-1 text-xs font-sans-body tracking-wider uppercase transition-all focus:outline-none whitespace-nowrap ${
                       isActive
                         ? 'text-[#0B3B2B] font-semibold border-b border-[#0B3B2B] pb-0.5'
                         : 'text-[#5E6A7B] hover:text-[#121824]'
@@ -152,20 +152,20 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden xl:flex items-center">
             <button
               onClick={() => onNavigateToInspection()}
-              className="btn-primary whitespace-nowrap text-[11px] xl:text-xs py-2 px-4"
+              className="btn-primary whitespace-nowrap text-xs py-2.5 px-5 shadow-sm"
             >
               Book Inspection
             </button>
           </div>
 
-          {/* Mobile/Tablet Menu Toggle */}
-          <div className="lg:hidden flex items-center">
+          {/* Mobile/Tablet Menu Toggle (for screens under 1280px) */}
+          <div className="xl:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#121824] focus:outline-none"
+              className="p-2 text-[#121824] focus:outline-none hover:text-[#0B3B2B]"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -177,7 +177,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
 
       {/* Mobile/Tablet Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#E5E2DC] bg-[#FAF9F5] px-6 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
+        <div className="xl:hidden border-t border-[#E5E2DC] bg-[#FAF9F5] px-6 py-6 space-y-4 max-h-[85vh] overflow-y-auto shadow-xl">
           {navItems.map((item) => (
             <div key={item.id} className="space-y-2 border-b border-[#E5E2DC]/50 pb-3">
               <button
@@ -212,7 +212,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
                 setMobileMenuOpen(false);
                 onNavigateToInspection();
               }}
-              className="btn-primary w-full"
+              className="btn-primary w-full text-center py-3"
             >
               Book Inspection
             </button>
