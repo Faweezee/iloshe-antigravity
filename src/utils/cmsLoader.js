@@ -76,6 +76,25 @@ export function getCMSEstates() {
         ? data.gallery.map(item => typeof item === 'object' && item?.photo ? item.photo : item)
         : defaultMatch.gallery || [data.image];
 
+      const hasValidPricingGrid = Array.isArray(data.pricingGrid) && 
+        data.pricingGrid.length > 0 && 
+        typeof data.pricingGrid[0] === 'object' && 
+        data.pricingGrid[0]?.size && 
+        data.pricingGrid[0]?.outright;
+
+      const validPricingGrid = hasValidPricingGrid
+        ? data.pricingGrid
+        : (defaultMatch.pricingGrid || null);
+
+      const hasValidFaqs = Array.isArray(data.faqs) && 
+        data.faqs.length > 0 && 
+        typeof data.faqs[0] === 'object' && 
+        data.faqs[0]?.question;
+
+      const validFaqs = hasValidFaqs
+        ? data.faqs
+        : (defaultMatch.faqs || null);
+
       return {
         id: data.id || filename,
         name: data.name || defaultMatch.name || filename,
@@ -94,8 +113,8 @@ export function getCMSEstates() {
         featured: data.featured !== undefined ? data.featured : (defaultMatch.featured !== undefined ? defaultMatch.featured : true),
         image: data.image || defaultMatch.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
         gallery: parsedGallery,
-        pricingGrid: data.pricingGrid || defaultMatch.pricingGrid || null,
-        faqs: data.faqs || defaultMatch.faqs || null,
+        pricingGrid: validPricingGrid,
+        faqs: validFaqs,
         overview: body || data.overview || defaultMatch.overview || '',
         infrastructure: Array.isArray(data.infrastructure) ? data.infrastructure : (defaultMatch.infrastructure || ["Instant Physical Allocation", "Verified Survey"])
       };

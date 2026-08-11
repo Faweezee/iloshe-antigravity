@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ESTATES_DATA } from '../data/estatesData';
 import { ASSETS } from '../data/assetsManifest';
-import { MapPin, CheckCircle2, Calendar, MessageSquare, ArrowLeft, ShieldCheck, ChevronDown, ChevronUp, CreditCard, Building2 } from 'lucide-react';
+import { MapPin, CheckCircle2, Calendar, MessageSquare, ArrowLeft, ShieldCheck, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function EstateDetailPage({ estateId, estate: propEstate, onNavigateToInspection, setActivePage }) {
   // Find estate by prop or estateId
@@ -140,11 +140,10 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
             {/* Official Payment Breakdown Matrix Table */}
             {estate.pricingGrid && estate.pricingGrid.length > 0 && (
               <div className="bg-white border border-[#E5E2DC] p-8 space-y-4 shadow-sm">
-                <div className="flex justify-between items-center border-b border-[#E5E2DC] pb-3">
+                <div className="border-b border-[#E5E2DC] pb-3">
                   <h3 className="text-xs font-mono-data text-[#0B3B2B] uppercase tracking-widest font-semibold">
                     Official Pricing & Installment Payment Schedule
                   </h3>
-                  <span className="text-[10px] font-mono-data text-[#5E6A7B] uppercase">PLOT SIZES: 500 SQM & 300 SQM</span>
                 </div>
 
                 <div className="overflow-x-auto">
@@ -237,7 +236,7 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
 
           </div>
 
-          {/* Right Column: Sticky Action Box & Official Payment Bank Accounts */}
+          {/* Right Column: Sticky Action Box */}
           <div className="lg:col-span-4 space-y-6">
             
             {/* Action Box */}
@@ -268,31 +267,6 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
                 >
                   <MessageSquare className="w-4 h-4 text-[#25D366]" /> Inquire via WhatsApp
                 </button>
-              </div>
-
-              {/* Official Company Bank Accounts Display */}
-              <div className="p-5 bg-[#FAF9F5] border border-[#E5E2DC] space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono-data text-[#0B3B2B] font-semibold border-b border-[#E5E2DC] pb-2">
-                  <CreditCard className="w-4 h-4 text-[#D96B27]" />
-                  <span>OFFICIAL BANK ACCOUNTS</span>
-                </div>
-                <p className="text-[11px] text-[#5E6A7B] leading-relaxed font-sans-body">
-                  All payments must be made in favour of <strong>ILOSHE PROPERTIES AND INVESTMENT LIMITED</strong>:
-                </p>
-                <div className="space-y-2 text-xs font-mono-data text-[#121824] pt-1">
-                  <div className="flex justify-between items-center bg-white p-2 border border-[#E5E2DC]">
-                    <span className="text-[#5E6A7B]">Zenith Bank:</span>
-                    <span className="font-semibold text-[#0B3B2B]">1015165546</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-white p-2 border border-[#E5E2DC]">
-                    <span className="text-[#5E6A7B]">UBA Bank:</span>
-                    <span className="font-semibold text-[#0B3B2B]">1020874246</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-white p-2 border border-[#E5E2DC]">
-                    <span className="text-[#5E6A7B]">Keystone Bank:</span>
-                    <span className="font-semibold text-[#0B3B2B]">1012409032</span>
-                  </div>
-                </div>
               </div>
 
               <div className="p-4 bg-[#FAF9F5] border border-[#E5E2DC] text-[11px] font-mono-data text-[#5E6A7B] space-y-1">
