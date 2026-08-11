@@ -7,17 +7,17 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
 
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [maxPrice, setMaxPrice] = useState(20000000);
+  const [maxPrice, setMaxPrice] = useState(70000000);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const regions = ['All', 'Epe', 'Ibeju-Lekki', 'Magboro', 'Ipaja', 'Ikorodu', 'Ota'];
-  const categories = ['All', 'Residential', 'Commercial', 'Waterfront'];
+  const regions = ['All', 'Magboro', 'Ibeju-Lekki'];
+  const categories = ['All', 'Residential', 'Commercial'];
 
   // Listen to hash changes to filter by corridor if clicked from sub-nav
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash.includes('epe')) {
-      setSelectedRegion('Epe');
+    if (hash.includes('magboro')) {
+      setSelectedRegion('Magboro');
     } else if (hash.includes('ibeju-lekki')) {
       setSelectedRegion('Ibeju-Lekki');
     }
@@ -40,13 +40,13 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
         {/* Page Title Header */}
         <div className="max-w-2xl mb-14 space-y-3">
           <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
-            Property Directory
+            Official Property Directory
           </span>
           <h1 className="text-4xl sm:text-5xl font-serif-display font-medium text-[#121824] tracking-tight">
-            Available Estates & Allocations
+            Available Estates & Land Allocations
           </h1>
           <p className="text-[#5E6A7B] text-sm sm:text-base leading-relaxed font-sans-body">
-            Explore our curated selection of verified land plots and commercial parcels in Lagos and Ogun state growth corridors.
+            Explore our official portfolio of verified land plots and commercial parcels in Lagos and Ogun state growth corridors.
           </p>
         </div>
 
@@ -85,8 +85,8 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
               <input
                 type="range"
                 min="2000000"
-                max="20000000"
-                step="500000"
+                max="70000000"
+                step="1000000"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="w-full accent-[#0B3B2B] cursor-pointer"
@@ -104,7 +104,6 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
               {regions.map(r => (
                 <button
                   key={r}
-                  id={r === 'Epe' ? 'epe' : r === 'Ibeju-Lekki' ? 'ibeju-lekki' : undefined}
                   onClick={() => setSelectedRegion(r)}
                   className={`px-3.5 py-1.5 text-xs font-sans-body uppercase tracking-wider transition-colors ${
                     selectedRegion === r 
@@ -140,9 +139,9 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
           {/* Results Summary */}
           <div className="flex justify-between items-center text-xs font-mono-data text-[#5E6A7B] pt-2">
             <span>Showing {filteredEstates.length} {filteredEstates.length === 1 ? 'estate' : 'estates'}</span>
-            {(selectedRegion !== 'All' || selectedCategory !== 'All' || searchQuery !== '' || maxPrice < 20000000) && (
+            {(selectedRegion !== 'All' || selectedCategory !== 'All' || searchQuery !== '' || maxPrice < 70000000) && (
               <button
-                onClick={() => { setSelectedRegion('All'); setSelectedCategory('All'); setMaxPrice(20000000); setSearchQuery(''); }}
+                onClick={() => { setSelectedRegion('All'); setSelectedCategory('All'); setMaxPrice(70000000); setSearchQuery(''); }}
                 className="text-[#D96B27] hover:underline font-semibold"
               >
                 Clear all filters
@@ -157,7 +156,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
           <div className="py-20 text-center border border-[#E5E2DC] bg-white space-y-3">
             <p className="text-xs text-[#5E6A7B] font-sans-body">No properties match your selected filter parameters.</p>
             <button 
-              onClick={() => { setSelectedRegion('All'); setSelectedCategory('All'); setMaxPrice(20000000); setSearchQuery(''); }}
+              onClick={() => { setSelectedRegion('All'); setSelectedCategory('All'); setMaxPrice(70000000); setSearchQuery(''); }}
               className="btn-secondary text-xs py-2 px-4"
             >
               Reset Search Filters
@@ -193,7 +192,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
                       <h3 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors">
                         {est.name}
                       </h3>
-                      <span className="text-base font-serif-display font-semibold text-[#121824] whitespace-nowrap">
+                      <span className="text-sm font-serif-display font-semibold text-[#121824] whitespace-nowrap">
                         {est.price}
                       </span>
                     </div>
@@ -213,12 +212,12 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
                       <span className="font-medium text-[#121824] block">{est.plotSize}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Initial Deposit</span>
-                      <span className="font-medium text-[#D96B27] font-mono-data block">{est.initialDeposit}</span>
+                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Payment Terms</span>
+                      <span className="font-medium text-[#D96B27] font-mono-data block truncate">{est.paymentPlan}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Payment Terms</span>
-                      <span className="font-medium text-[#121824] block">{est.paymentPlan}</span>
+                      <span className="text-[10px] text-[#5E6A7B] uppercase block font-mono-data">Verification</span>
+                      <span className="font-medium text-[#0B3B2B] block truncate">{est.verificationBadge}</span>
                     </div>
                   </div>
 

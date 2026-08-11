@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ESTATES_DATA } from '../data/estatesData';
 import { ASSETS } from '../data/assetsManifest';
-import { MapPin, CheckCircle2, Calendar, MessageSquare, ArrowLeft, ShieldCheck, Layers, CreditCard, Clock } from 'lucide-react';
+import { MapPin, CheckCircle2, Calendar, MessageSquare, ArrowLeft, ShieldCheck, ChevronDown, ChevronUp, CreditCard, Building2 } from 'lucide-react';
 
 export default function EstateDetailPage({ estateId, estate: propEstate, onNavigateToInspection, setActivePage }) {
   // Find estate by prop or estateId
   const estate = propEstate || ESTATES_DATA.find(e => e.id === estateId) || ESTATES_DATA[0];
   const [activePhoto, setActivePhoto] = useState(estate?.image || '');
+  const [activeFaq, setActiveFaq] = useState(0);
 
   useEffect(() => {
     if (estate) {
@@ -68,8 +69,8 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
           {/* Pricing Box */}
           <div className="bg-white border border-[#E5E2DC] p-6 text-left lg:text-right min-w-[260px] shadow-sm">
             <span className="text-[10px] uppercase font-mono-data text-[#5E6A7B] block">Plot Selling Price</span>
-            <span className="text-3xl font-serif-display font-semibold text-[#121824] block my-0.5">{estate.price}</span>
-            <span className="text-xs font-mono-data text-[#D96B27] block">Initial Deposit: {estate.initialDeposit}</span>
+            <span className="text-2xl sm:text-3xl font-serif-display font-semibold text-[#121824] block my-0.5">{estate.price}</span>
+            <span className="text-xs font-mono-data text-[#D96B27] block">Terms: {estate.paymentPlan}</span>
           </div>
         </div>
 
@@ -136,6 +137,41 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
               </div>
             </div>
 
+            {/* Official Payment Breakdown Matrix Table */}
+            {estate.pricingGrid && estate.pricingGrid.length > 0 && (
+              <div className="bg-white border border-[#E5E2DC] p-8 space-y-4 shadow-sm">
+                <div className="flex justify-between items-center border-b border-[#E5E2DC] pb-3">
+                  <h3 className="text-xs font-mono-data text-[#0B3B2B] uppercase tracking-widest font-semibold">
+                    Official Pricing & Installment Payment Schedule
+                  </h3>
+                  <span className="text-[10px] font-mono-data text-[#5E6A7B] uppercase">PLOT SIZES: 500 SQM & 300 SQM</span>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs font-sans-body border-collapse">
+                    <thead>
+                      <tr className="bg-[#FAF9F5] border-b border-[#E5E2DC] text-[#5E6A7B] font-mono-data text-[11px]">
+                        <th className="py-3 px-4 uppercase">Plot Size</th>
+                        <th className="py-3 px-4 uppercase">1 - 3 Months (Outright)</th>
+                        <th className="py-3 px-4 uppercase">6 Months Plan</th>
+                        <th className="py-3 px-4 uppercase">12 Months Plan</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-[#E5E2DC]">
+                      {estate.pricingGrid.map((row, idx) => (
+                        <tr key={idx} className="hover:bg-[#FAF9F5]/50 transition-colors">
+                          <td className="py-3.5 px-4 font-serif-display font-medium text-[#121824] text-sm">{row.size}</td>
+                          <td className="py-3.5 px-4 font-mono-data font-semibold text-[#0B3B2B]">{row.outright}</td>
+                          <td className="py-3.5 px-4 font-mono-data text-[#121824]">{row.sixMonths}</td>
+                          <td className="py-3.5 px-4 font-mono-data text-[#D96B27]">{row.twelveMonths}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
             {/* Overview & Investment Potential */}
             <div className="space-y-4">
               <h3 className="text-xl font-serif-display font-medium text-[#121824]">
@@ -163,10 +199,48 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
               </div>
             )}
 
+            {/* Estate Specific FAQs Section */}
+            {estate.faqs && estate.faqs.length > 0 && (
+              <div className="space-y-6 bg-white border border-[#E5E2DC] p-8 shadow-sm">
+                <div className="border-b border-[#E5E2DC] pb-3 space-y-1">
+                  <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+                    ESTATE SPECIFIC QUESTIONS
+                  </span>
+                  <h3 className="text-xl font-serif-display font-medium text-[#121824]">
+                    {estate.name} Frequently Asked Questions
+                  </h3>
+                </div>
+
+                <div className="space-y-3">
+                  {estate.faqs.map((faq, idx) => {
+                    const isOpen = activeFaq === idx;
+                    return (
+                      <div key={idx} className="border-b border-[#E5E2DC]/70 pb-3">
+                        <button
+                          onClick={() => setActiveFaq(isOpen ? -1 : idx)}
+                          className="w-full text-left py-2 flex justify-between items-center font-serif-display text-base text-[#121824] focus:outline-none"
+                        >
+                          <span>{faq.question}</span>
+                          {isOpen ? <ChevronUp className="w-4 h-4 text-[#0B3B2B]" /> : <ChevronDown className="w-4 h-4 text-[#5E6A7B]" />}
+                        </button>
+                        {isOpen && (
+                          <div className="pt-1.5 text-xs text-[#5E6A7B] leading-relaxed font-sans-body">
+                            {faq.answer}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
           </div>
 
-          {/* Right Column: Sticky Action Box */}
-          <div className="lg:col-span-4">
+          {/* Right Column: Sticky Action Box & Official Payment Bank Accounts */}
+          <div className="lg:col-span-4 space-y-6">
+            
+            {/* Action Box */}
             <div className="sticky top-24 bg-white border border-[#E5E2DC] p-8 space-y-6 shadow-md">
               <div className="space-y-2 border-b border-[#E5E2DC] pb-4">
                 <span className="text-[10px] font-mono-data text-[#D96B27] uppercase tracking-widest block font-semibold">
@@ -196,11 +270,37 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
                 </button>
               </div>
 
+              {/* Official Company Bank Accounts Display */}
+              <div className="p-5 bg-[#FAF9F5] border border-[#E5E2DC] space-y-3">
+                <div className="flex items-center gap-2 text-xs font-mono-data text-[#0B3B2B] font-semibold border-b border-[#E5E2DC] pb-2">
+                  <CreditCard className="w-4 h-4 text-[#D96B27]" />
+                  <span>OFFICIAL BANK ACCOUNTS</span>
+                </div>
+                <p className="text-[11px] text-[#5E6A7B] leading-relaxed font-sans-body">
+                  All payments must be made in favour of <strong>ILOSHE PROPERTIES AND INVESTMENT LIMITED</strong>:
+                </p>
+                <div className="space-y-2 text-xs font-mono-data text-[#121824] pt-1">
+                  <div className="flex justify-between items-center bg-white p-2 border border-[#E5E2DC]">
+                    <span className="text-[#5E6A7B]">Zenith Bank:</span>
+                    <span className="font-semibold text-[#0B3B2B]">1015165546</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-white p-2 border border-[#E5E2DC]">
+                    <span className="text-[#5E6A7B]">UBA Bank:</span>
+                    <span className="font-semibold text-[#0B3B2B]">1020874246</span>
+                  </div>
+                  <div className="flex justify-between items-center bg-white p-2 border border-[#E5E2DC]">
+                    <span className="text-[#5E6A7B]">Keystone Bank:</span>
+                    <span className="font-semibold text-[#0B3B2B]">1012409032</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="p-4 bg-[#FAF9F5] border border-[#E5E2DC] text-[11px] font-mono-data text-[#5E6A7B] space-y-1">
                 <span className="text-[#0B3B2B] font-semibold block">INSTANT ALLOCATION GUARANTEE:</span>
                 <p className="leading-relaxed">All coordinates are charted and ready for immediate physical pegging upon contract execution.</p>
               </div>
             </div>
+
           </div>
 
         </div>

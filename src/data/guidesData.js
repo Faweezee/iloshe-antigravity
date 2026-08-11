@@ -63,19 +63,19 @@ Properties with C of O, Governor's Consent, or Gazette are 100% safe for immedia
     category: "Payment Strategy",
     readTime: "4 min read",
     summary: "Discover how salary earners and small business owners can build real estate wealth using micro-installments.",
-    body: `A common myth in Nigeria is that you need tens of millions of Naira in cash before you can buy property. At Iloshe Properties, we have democratized land ownership through structured 6 to 12-month installment plans.
+    body: `A common myth in Nigeria is that you need tens of millions of Naira in cash before you can buy property. At Iloshe Properties, we have democratized land ownership through structured 3, 6, and 12-month installment plans.
 
 ### How Micro-Installment Land Buying Works:
-1. **Low Initial Deposit:** Lock down a verified plot with a modest deposit (e.g. ₦200,000 to ₦500,000).
-2. **Fixed Monthly Payments:** Spread the remaining balance across 6, 9, or 12 months with zero interest or transparent terms.
+1. **Low Initial Deposit:** Lock down a verified plot with a modest deposit.
+2. **Fixed Monthly Payments:** Spread the remaining balance across 3, 6, or 12 months with transparent terms.
 3. **Price Protection:** Once you pay your initial deposit, your land price is locked against inflation and market price hikes.
 4. **Allocation at Milestone:** Receive physical plot allocation once key payment thresholds are reached.
 
 ### Why This Strategy Works for Salary Earners:
-Instead of leaving your monthly savings in a bank account where inflation erodes value, allocating a fixed portion of income to land installment payments builds equity in high-appreciation corridors like Epe and Ibeju-Lekki.`,
+Instead of leaving your monthly savings in a bank account where inflation erodes value, allocating a fixed portion of income to land installment payments builds equity in high-appreciation corridors.`,
     takeaways: [
       "Initial deposit locks in property price against inflation.",
-      "Spread payments over 6 to 12 months without disrupting business cash flow.",
+      "Spread payments over 3, 6, or 12 months without disrupting business cash flow.",
       "Build real estate equity gradually while working or running your business."
     ]
   }
@@ -83,27 +83,35 @@ Instead of leaving your monthly savings in a bank account where inflation erodes
 
 export const FAQ_DATA = [
   {
+    question: "Can I pay cash to an agent or sales representative?",
+    answer: "No. Cash should NEVER be paid to any agent or staff member. All payments must be made directly into official company bank accounts for ILOSHE PROPERTIES AND INVESTMENT LIMITED (Zenith Bank: 1015165546, UBA Bank: 1020874246, Keystone Bank: 1012409032) or via company cheque. The company accepts no liability for cash paid outside these official channels."
+  },
+  {
+    question: "What documents do I receive upon completion of payment for land?",
+    answer: "Upon completing full payment for your land, you receive: (1) Sales Invoice, (2) Official Payment Receipt, (3) Contract of Sale, and (4) Land Agreement & Deed of Assignment."
+  },
+  {
+    question: "When is physical plot allocation done?",
+    answer: "Physical plot allocation and corner beacon pegging are conducted immediately after 100% payment for the land, land agreement documentation, survey fee, and development levy are processed."
+  },
+  {
+    question: "Can I resell my plot or transfer property ownership in the future?",
+    answer: "Yes, a subscriber can resell or transfer ownership of their property at any time. A formal letter of notice of ownership transfer must be written to ILOSHE PROPERTIES & INVESTMENT LIMITED, and standard administrative transfer fees apply."
+  },
+  {
+    question: "How are installment payment plans managed and are there late charges?",
+    answer: "After paying the initial deposit, balance payments are expected monthly according to your selected plan (3, 6, or 12 months). Non-payment when due constitutes a fundamental breach of contract resulting in a 5% monthly late charge and possible plot relocation."
+  },
+  {
+    question: "Are corner piece plots or commercial plots subject to additional fees?",
+    answer: "Yes, corner piece plots attract a 30% premium on the land value due to dual road frontage and increased plot footprint. Commercial plots are available upon request subject to layout availability."
+  },
+  {
     question: "How do I verify the authenticity of Iloshe Properties titles before buying?",
     answer: "We provide copies of our registered survey plans, title documents, and layout charts upfront. You or your legal representative can independently chart these coordinates at the Lagos State Surveyor General's Office or State Ministry of Physical Planning."
   },
   {
-    question: "What legal documents do I receive upon property purchase?",
-    answer: "Upon completing your land acquisition, you receive: (1) Official Deed of Assignment, (2) Registered Red-Copy Survey Plan in your name, (3) Payment Receipts & Statement of Account, and (4) Contract of Sale & Allocation Letter."
-  },
-  {
     question: "Can I buy land from outside Nigeria (Diaspora investors)?",
     answer: "Yes, over 40% of our clients reside in the UK, US, Canada, and UAE. We handle remote due diligence, live 4K video walk-through inspections, digital documentation, and physical plot pegging via video link or designated family representative."
-  },
-  {
-    question: "How flexible are the payment plans and initial deposits?",
-    answer: "We offer low initial deposits (starting from ₦200,000 for entry plots up to ₦1,000,000 for commercial parcels) and structured payment plans spanning 3, 6, 12, or 18 months."
-  },
-  {
-    question: "When do I get physical allocation of my plot?",
-    answer: "Physical plot allocation and corner beacon pegging are conducted immediately upon reaching the designated payment milestone or upon full payment. You participate in an on-site pegging exercise to confirm your exact boundary lines."
-  },
-  {
-    question: "Are there extra fees like survey or development levies?",
-    answer: "All associated costs (Land Cost, Registered Survey Fee, Deed of Assignment, and Development Levy) are clearly itemized upfront in your offer letter with zero hidden charges."
   }
 ];

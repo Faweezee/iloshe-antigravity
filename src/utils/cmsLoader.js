@@ -70,31 +70,34 @@ export function getCMSEstates() {
     const cmsEstates = Object.entries(modules).map(([path, content]) => {
       const { data, body } = parseFrontmatter(content);
       const filename = path.split('/').pop().replace(/\.md$/, '');
+      const defaultMatch = defaultEstates.find(e => e.id === data.id || e.id === filename) || {};
 
       const parsedGallery = Array.isArray(data.gallery) && data.gallery.length > 0
         ? data.gallery.map(item => typeof item === 'object' && item?.photo ? item.photo : item)
-        : [data.image];
+        : defaultMatch.gallery || [data.image];
 
       return {
         id: data.id || filename,
-        name: data.name || filename,
-        tagline: data.tagline || '',
-        location: data.location || '',
-        region: data.region || 'Epe',
-        category: data.category || 'Residential',
-        price: data.price || '₦5,000,000',
-        numericPrice: data.numericPrice || 5000000,
-        title: data.title || 'Certificate of Occupancy',
-        verificationBadge: data.verificationBadge || '100% Charted & Verified',
-        plotSize: data.plotSize || '500 SQM',
-        paymentPlan: data.paymentPlan || 'Up to 12 Months Flexible Plan',
-        initialDeposit: data.initialDeposit || '₦500,000',
-        status: data.status || 'Selling Fast',
-        featured: data.featured !== undefined ? data.featured : true,
-        image: data.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+        name: data.name || defaultMatch.name || filename,
+        tagline: data.tagline || defaultMatch.tagline || '',
+        location: data.location || defaultMatch.location || '',
+        region: data.region || defaultMatch.region || 'Epe',
+        category: data.category || defaultMatch.category || 'Residential',
+        price: data.price || defaultMatch.price || '₦5,000,000',
+        numericPrice: data.numericPrice || defaultMatch.numericPrice || 5000000,
+        title: data.title || defaultMatch.title || 'Certificate of Occupancy',
+        verificationBadge: data.verificationBadge || defaultMatch.verificationBadge || '100% Charted & Verified',
+        plotSize: data.plotSize || defaultMatch.plotSize || '500 SQM',
+        paymentPlan: data.paymentPlan || defaultMatch.paymentPlan || 'Up to 12 Months Flexible Plan',
+        initialDeposit: data.initialDeposit || defaultMatch.initialDeposit || '₦500,000',
+        status: data.status || defaultMatch.status || 'Selling Fast',
+        featured: data.featured !== undefined ? data.featured : (defaultMatch.featured !== undefined ? defaultMatch.featured : true),
+        image: data.image || defaultMatch.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
         gallery: parsedGallery,
-        overview: body || data.overview || '',
-        infrastructure: Array.isArray(data.infrastructure) ? data.infrastructure : ["Instant Physical Allocation", "Verified Survey"]
+        pricingGrid: data.pricingGrid || defaultMatch.pricingGrid || null,
+        faqs: data.faqs || defaultMatch.faqs || null,
+        overview: body || data.overview || defaultMatch.overview || '',
+        infrastructure: Array.isArray(data.infrastructure) ? data.infrastructure : (defaultMatch.infrastructure || ["Instant Physical Allocation", "Verified Survey"])
       };
     });
 
@@ -152,21 +155,21 @@ export function getCMSTestimonials() {
         name: "Dr. Emmanuel Adeleke",
         role: "Diaspora Investor (United Kingdom)",
         text: "Buying land in Lagos from London used to carry immense risk. Iloshe Properties managed everything with legal clarity. The site inspection was detailed, and my plot was allocated on schedule.",
-        location: "Iloshe Imperial Haven, Epe",
+        location: "Zenith Gardens, Magboro",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
       },
       {
         name: "Mrs. Blessing Okonkwo",
         role: "Commercial Enterprise CEO",
         text: "What set Iloshe apart was their flexible 12-month payment structure. I didn't have to strain business liquidity. Today I hold verified title documents safely.",
-        location: "Iloshe Crest Court, Ibeju-Lekki",
+        location: "Garden Of Praise, Eleko Ibeju-Lekki",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
       },
       {
         name: "Engr. Tunde Bakare",
         role: "Infrastructure Consultant",
         text: "Their documentation team walked me through verifying land coordinates directly with the Lagos Surveyor General's office. Professionalism at its peak with zero hidden fees.",
-        location: "Iloshe Sovereign Bay, Alaro Axis",
+        location: "Iloshe's Garden, Abule-Panu",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
       }
     ];

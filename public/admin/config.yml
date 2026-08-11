@@ -19,7 +19,7 @@ collections:
       - { label: "Estate Name", name: "name", widget: "string" }
       - { label: "Tagline", name: "tagline", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
-      - { label: "Region Corridor", name: "region", widget: "select", options: ["Epe", "Ibeju-Lekki", "Magboro", "Ipaja", "Ikorodu", "Ota"] }
+      - { label: "Region Corridor", name: "region", widget: "select", options: ["Magboro", "Ibeju-Lekki", "Epe", "Ipaja", "Ikorodu", "Ota"] }
       - { label: "Category", name: "category", widget: "select", options: ["Residential", "Commercial", "Waterfront"] }
       - { label: "Display Price", name: "price", widget: "string" }
       - { label: "Numeric Price (for filters)", name: "numericPrice", widget: "number", value_type: "int" }
@@ -32,6 +32,16 @@ collections:
       - { label: "Featured on Homepage", name: "featured", widget: "boolean", default: true }
       - { label: "Cover Image", name: "image", widget: "image" }
       - { label: "Gallery Images", name: "gallery", widget: "list", field: { label: "Photo", name: "photo", widget: "image" }, required: false }
+      - { label: "Pricing Breakdown Grid", name: "pricingGrid", widget: "list", required: false, fields: [
+          { label: "Plot Size", name: "size", widget: "string" },
+          { label: "1 - 3 Months (Outright)", name: "outright", widget: "string" },
+          { label: "6 Months Plan", name: "sixMonths", widget: "string" },
+          { label: "12 Months Plan", name: "twelveMonths", widget: "string" }
+        ]}
+      - { label: "Estate Specific FAQs", name: "faqs", widget: "list", required: false, fields: [
+          { label: "Question", name: "question", widget: "string" },
+          { label: "Answer", name: "text", widget: "text" }
+        ]}
       - { label: "Property Overview", name: "overview", widget: "markdown" }
       - { label: "Infrastructure List", name: "infrastructure", widget: "list" }
 
