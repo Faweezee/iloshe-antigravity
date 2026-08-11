@@ -80,17 +80,17 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
   return (
     <header className="sticky top-0 z-40 bg-[#FAF9F5]/95 backdrop-blur-md border-b border-[#E5E2DC] text-[#121824]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex justify-between items-center h-16 sm:h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20 gap-2">
           
           {/* Official Brand Logo & Typography */}
           <button 
             onClick={() => handleNavClick('home')} 
-            className="flex items-center gap-2.5 sm:gap-3 text-left focus:outline-none group shrink-0"
+            className="flex items-center gap-2.5 text-left focus:outline-none group shrink-0"
           >
-            <BrandLogo className="h-8 sm:h-10 w-auto transition-transform group-hover:scale-105" />
+            <BrandLogo className="h-8 sm:h-9 lg:h-10 w-auto transition-transform group-hover:scale-105" />
 
             <div>
-              <span className="block text-sm sm:text-base xl:text-lg font-serif-display font-semibold tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors whitespace-nowrap">
+              <span className="block text-sm sm:text-base lg:text-base xl:text-lg font-serif-display font-semibold tracking-tight text-[#121824] group-hover:text-[#0B3B2B] transition-colors whitespace-nowrap">
                 ILOSHE PROPERTIES
               </span>
               <span className="block text-[7px] sm:text-[8px] xl:text-[9px] tracking-widest text-[#5E6A7B] uppercase font-sans-body font-medium whitespace-nowrap">
@@ -99,8 +99,8 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
             </div>
           </button>
 
-          {/* Desktop Nav Items (xl breakpoint for clean horizontal spacing) */}
-          <nav className="hidden xl:flex items-center space-x-6">
+          {/* Desktop Nav Items (lg:flex restored with responsive gap scaling) */}
+          <nav className="hidden lg:flex items-center space-x-3 xl:space-x-7 shrink-0">
             {navItems.map((item) => {
               const hasSub = item.subsections && item.subsections.length > 0;
               const isActive = activePage === item.id;
@@ -115,7 +115,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
                 >
                   <button
                     onClick={() => handleNavClick(item.id)}
-                    className={`flex items-center gap-1 text-xs font-sans-body tracking-wider uppercase transition-all focus:outline-none whitespace-nowrap ${
+                    className={`flex items-center gap-0.5 lg:gap-1 text-[11px] xl:text-xs font-sans-body tracking-wider uppercase transition-all focus:outline-none whitespace-nowrap ${
                       isActive
                         ? 'text-[#0B3B2B] font-semibold border-b border-[#0B3B2B] pb-0.5'
                         : 'text-[#5E6A7B] hover:text-[#121824]'
@@ -130,7 +130,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
                   {/* Dropdown Panel */}
                   {hasSub && isDropdownOpen && (
                     <div 
-                      className="absolute left-0 top-full w-56 bg-[#FAF9F5] border border-[#E5E2DC] shadow-xl py-2 z-50 transition-all duration-150 ease-out"
+                      className="absolute left-0 top-full w-52 bg-[#FAF9F5] border border-[#E5E2DC] shadow-xl py-2 z-50 transition-all duration-150 ease-out"
                     >
                       {item.subsections.map((sub, idx) => (
                         <button
@@ -139,7 +139,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
                             e.stopPropagation();
                             handleNavClick(item.id, sub.hash);
                           }}
-                          className="block w-full text-left px-4 py-2.5 text-xs font-sans-body text-[#5E6A7B] hover:text-[#121824] hover:bg-[#E5E2DC]/50 transition-colors"
+                          className="block w-full text-left px-4 py-2 text-xs font-sans-body text-[#5E6A7B] hover:text-[#121824] hover:bg-[#E5E2DC]/50 transition-colors"
                         >
                           {sub.label}
                         </button>
@@ -152,17 +152,17 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
           </nav>
 
           {/* Desktop CTA Button */}
-          <div className="hidden xl:flex items-center">
+          <div className="hidden lg:flex items-center shrink-0">
             <button
               onClick={() => onNavigateToInspection()}
-              className="btn-primary whitespace-nowrap text-xs py-2.5 px-5 shadow-sm"
+              className="btn-primary whitespace-nowrap text-[11px] xl:text-xs py-2 px-3.5 xl:px-5 shadow-sm"
             >
               Book Inspection
             </button>
           </div>
 
-          {/* Mobile/Tablet Menu Toggle (for screens under 1280px) */}
-          <div className="xl:hidden flex items-center">
+          {/* Mobile/Tablet Menu Toggle (for screens under 1024px) */}
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-[#121824] focus:outline-none hover:text-[#0B3B2B]"
@@ -177,7 +177,7 @@ export default function Navbar({ activePage, setActivePage, onNavigateToInspecti
 
       {/* Mobile/Tablet Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-[#E5E2DC] bg-[#FAF9F5] px-6 py-6 space-y-4 max-h-[85vh] overflow-y-auto shadow-xl">
+        <div className="lg:hidden border-t border-[#E5E2DC] bg-[#FAF9F5] px-6 py-6 space-y-4 max-h-[85vh] overflow-y-auto shadow-xl">
           {navItems.map((item) => (
             <div key={item.id} className="space-y-2 border-b border-[#E5E2DC]/50 pb-3">
               <button

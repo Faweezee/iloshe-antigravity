@@ -4,9 +4,9 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
   const whyIloshePoints = [
     { num: "01", title: "Professional Advisory Team", desc: "Expert land coordinators guiding you through survey verification, title search, and plot selection." },
     { num: "02", title: "Verified Title Documentation", desc: "100% litigation-free land backed by state government survey charting and registered title lineage." },
-    { num: "03", title: "Flexible Payment Options", desc: "Structured 6 to 12-month installment plans designed to protect liquidity and accommodate monthly budgets." },
+    { num: "03", title: "Flexible Payment Options", desc: "Structured 3, 6 to 12-month installment plans designed to protect liquidity and accommodate monthly budgets." },
     { num: "04", title: "Dedicated Customer Service", desc: "Transparent communication and ongoing post-allocation assistance for building approvals." },
-    { num: "05", title: "Strategic Investment Locations", desc: "Estates situated in rapid capital appreciation corridors including Epe Expressway, Ibeju-Lekki, and Alaro City." },
+    { num: "05", title: "Strategic Investment Locations", desc: "Estates situated in rapid capital appreciation corridors including Eleko Ibeju Lekki, Magboro, and Abule Pan." },
     { num: "06", title: "Growing Community", desc: "Join over 1,500 satisfied landowners and institutional investors building real estate equity with Iloshe." },
   ];
 
@@ -16,7 +16,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
     { num: "03", title: "Professionalism", desc: "Expert guidance from certified real estate consultants throughout your property acquisition journey." },
     { num: "04", title: "Innovation", desc: "Modern digital property solutions, remote diaspora purchasing, and streamlined allocation pegging." },
     { num: "05", title: "Customer Focus", desc: "Your long-term financial security and peace of mind are at the heart of everything we build." },
-    { num: "06", title: "Excellence", desc: "Consistently delivering high-value, verified estates in Lagos' prime growth corridors." },
+    { num: "06", title: "Excellence", desc: "Consistently delivering high-value, verified estates in Lagos and Ogun state growth corridors." },
   ];
 
   return (
@@ -56,7 +56,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
           </div>
         </div>
 
-        {/* Story Section & Allocation Ceremony Gallery Frame */}
+        {/* Story Section & Allocation Ceremony Gallery Frame — Floating Orange Badge Removed */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 py-16 border-t border-b border-[#E5E2DC] items-center">
           <div className="lg:col-span-6 space-y-6">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">
@@ -88,9 +88,6 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
                 alt="Client Physical Plot Allocation Ceremony" 
                 className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute top-3 left-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-1">
-                VERIFIED ALLOCATION
-              </div>
             </div>
             <div className="p-3.5 bg-white text-xs font-mono-data text-[#5E6A7B] border-t border-[#E5E2DC] flex justify-between items-center">
               <span>PHYSICAL PLOT PEGGING CEREMONY</span>
@@ -117,7 +114,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
           </div>
         </div>
 
-        {/* Merged "Why Iloshe" Section (Page 3 of Brief) */}
+        {/* Merged "Why Iloshe" Section */}
         <div className="border-t border-b border-[#E5E2DC] py-16 space-y-12" id="why-iloshe">
           <div className="max-w-2xl space-y-3">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block">

@@ -1,8 +1,8 @@
 ---
 id: "garden-of-praise-eleko"
 name: "Garden Of Praise"
-tagline: "Premium High-Yield Land Beside Palm Africa, Eleko Ibeju-Lekki"
-location: "Eleko Junction, Beside Palm Africa, Ibeju-Lekki, Lagos State"
+tagline: "Premium High-Yield Land Eleko Junction By Pan African, Ibeju-Lekki"
+location: "Eleko Junction, By Pan African, Ibeju-Lekki, Lagos State"
 region: "Ibeju-Lekki"
 category: "Commercial"
 price: "₦21,000,000 - ₦63,000,000"
@@ -26,10 +26,10 @@ pricingGrid:
     twelveMonths: "₦37,800,000"
 infrastructure:
   - "Commercial & High-Density Residential Zoning"
-  - "Located Beside Palm Africa at Eleko Junction"
+  - "Located By Pan African at Eleko Junction"
   - "Government Allocation Title Documentation"
   - "Instant Pegging & Physical Plot Allocation"
   - "Direct Expressway Proximity to Dangote Refinery & Deep Sea Port"
 ---
 
-Garden Of Praise is an elite real estate development located at Eleko Junction, beside Palm Africa in Ibeju-Lekki, Lagos State. Backed by official Government Allocation title, it sits right at the commercial nerve center of the Lekki Free Trade Zone corridor.
+Garden Of Praise is an elite real estate development located at Eleko Junction, By Pan African in Ibeju-Lekki, Lagos State. Backed by official Government Allocation title, it sits right at the commercial nerve center of the Lekki Free Trade Zone corridor.

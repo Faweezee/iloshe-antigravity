@@ -21,9 +21,9 @@ export default function TestimonialSlider() {
           CLIENT SUCCESS STORIES
         </span>
 
-        {/* Client Headshot Avatar */}
+        {/* Client Headshot Avatar — Green border removed */}
         {testimonials[activeIndex].image && (
-          <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-[#0B3B2B] shadow-md">
+          <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden shadow-md border border-[#E5E2DC]">
             <img 
               src={testimonials[activeIndex].image} 
               alt={testimonials[activeIndex].name} 

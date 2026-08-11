@@ -1,8 +1,8 @@
 ---
-id: "iloshe-garden-abule-panu"
+id: "iloshe-garden-abule-pan"
 name: "Iloshe's Garden"
-tagline: "Prime Residential Plots in Abule-Panu with Verified Excision Title"
-location: "Abule-Panu, Lagos State"
+tagline: "Prime Residential Plots in Abule Pan with Verified Excision Title"
+location: "Abule Pan, Lagos State"
 region: "Ibeju-Lekki"
 category: "Residential"
 price: "₦6,000,000 - ₦18,000,000"
@@ -31,4 +31,4 @@ infrastructure:
   - "Central Electricity & Solar Street Lighting"
 ---
 
-Iloshe's Garden is a prime residential community situated at Abule-Panu, Lagos State. Featuring verified Excision title documentation, high elevation dry ground, and flexible 3, 6, and 12-month installment payment options.
+Iloshe's Garden is a prime residential community situated at Abule Pan, Lagos State. Featuring verified Excision title documentation, high elevation dry ground, and flexible 3, 6, and 12-month installment payment options.
