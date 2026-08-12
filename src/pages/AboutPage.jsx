@@ -41,7 +41,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
           <div className="lg:col-span-5 border border-[#E5E2DC] overflow-hidden bg-[#111318] group">
             <div className="relative overflow-hidden h-80 sm:h-96">
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+                src="../assets/team/executiveleadership.jpeg" 
                 alt="Iloshe Properties Executive Leadership Team" 
                 className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
               />
@@ -84,7 +84,7 @@ export default function AboutPage({ setActivePage, onOpenInspection }) {
           <div className="lg:col-span-6 border border-[#E5E2DC] overflow-hidden bg-[#111318] group">
             <div className="relative overflow-hidden h-80 sm:h-96">
               <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80" 
+                src="../assets/team/landpeggingexercise.jpeg"
                 alt="Client Physical Plot Allocation Ceremony" 
                 className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
               />
