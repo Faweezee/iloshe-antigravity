@@ -17,8 +17,8 @@ export const ESTATES_DATA = [
     featured: true,
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
     gallery: [
-      "/assets/team/landpeggingexercise.jpeg",
-      "https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=1200&q=80"
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
     ],
     pricingGrid: [
       {
@@ -94,7 +94,7 @@ Zenith Gardens, Magboro. Own your ground. Build your future. Grow with the city.
     featured: true,
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
     gallery: [
-      "/assets/team/iloshe_pegging.jpg",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
     ],
     pricingGrid: [
@@ -147,7 +147,7 @@ Iloshe Gardens, Abule Pan. Own today. Grow with tomorrow.`,
     featured: true,
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
     gallery: [
-      "/assets/team/physical_plot_allocation_ceremony.jpg",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80"
     ],
     pricingGrid: [

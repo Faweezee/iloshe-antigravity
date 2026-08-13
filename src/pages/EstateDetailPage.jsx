@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { ESTATES_DATA } from '../data/estatesData';
 import { ASSETS } from '../data/assetsManifest';
+import { getCMSEstates } from '../utils/cmsLoader';
 import { MapPin, CheckCircle2, Calendar, MessageSquare, ArrowLeft, ShieldCheck, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function EstateDetailPage({ estateId, estate: propEstate, onNavigateToInspection, setActivePage }) {
   // Find estate by prop or estateId
-  const estate = propEstate || ESTATES_DATA.find(e => e.id === estateId) || ESTATES_DATA[0];
+  const allEstates = getCMSEstates();
+  const estate = propEstate || allEstates.find(e => e.id === estateId) || ESTATES_DATA.find(e => e.id === estateId) || ESTATES_DATA[0];
+  
+  // Consolidate default image and gallery array without duplicates
+  const galleryList = Array.from(new Set([estate?.image, ...(estate?.gallery || [])].filter(Boolean)));
+
   const [activePhoto, setActivePhoto] = useState(estate?.image || '');
   const [activeFaq, setActiveFaq] = useState(0);
 
@@ -87,19 +93,24 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
             </div>
           </div>
 
-          {/* Photo Thumbnails */}
-          {estate.gallery && estate.gallery.length > 0 && (
-            <div className="flex gap-3 overflow-x-auto pb-2">
-              {estate.gallery.map((img, idx) => (
+          {/* Photo Thumbnails — Thumbnail #1 is always the Default Main Cover Photo */}
+          {galleryList.length > 0 && (
+            <div className="flex items-center gap-3 overflow-x-auto pb-2">
+              {galleryList.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActivePhoto(img)}
                   aria-label={`View photo thumbnail ${idx + 1}`}
-                  className={`w-28 h-20 shrink-0 overflow-hidden border-2 transition-all ${
-                    activePhoto === img ? 'border-[#0B3B2B] opacity-100 scale-95' : 'border-[#E5E2DC] opacity-70 hover:opacity-100'
+                  className={`w-28 h-20 shrink-0 overflow-hidden border-2 transition-all relative ${
+                    activePhoto === img ? 'border-[#0B3B2B] opacity-100 scale-95 ring-2 ring-[#0B3B2B]/30' : 'border-[#E5E2DC] opacity-70 hover:opacity-100'
                   }`}
                 >
                   <img src={img} alt={`Gallery snapshot ${idx + 1} for ${estate.name}`} className="w-full h-full object-cover" />
+                  {idx === 0 && (
+                    <span className="absolute bottom-1 left-1 bg-[#0B3B2B] text-white text-[8px] font-mono-data uppercase px-1 py-0.5 rounded">
+                      Main Photo
+                    </span>
+                  )}
                 </button>
               ))}
             </div>
