@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { ESTATES_DATA } from '../data/estatesData';
 import { getCMSEstates } from '../utils/cmsLoader';
-import { Search, X, MapPin } from 'lucide-react';
+import { MapPin, Search, X } from 'lucide-react';
 
-export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) {
-  const estatesData = getCMSEstates();
+export default function EstatesPage({ onSelectEstate, onNavigateToInspection }) {
+  // Use dynamic CMS estates merged with static defaults
+  const estates = getCMSEstates();
 
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -13,45 +15,34 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
   const regions = ['All', 'Magboro', 'Ibeju-Lekki'];
   const categories = ['All', 'Residential', 'Commercial'];
 
-  // Listen to hash changes to filter by corridor if clicked from sub-nav
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash.includes('magboro')) {
-      setSelectedRegion('Magboro');
-    } else if (hash.includes('ibeju-lekki')) {
-      setSelectedRegion('Ibeju-Lekki');
-    }
-  }, []);
-
-  const filteredEstates = estatesData.filter(est => {
-    const regionMatch = selectedRegion === 'All' || est.region === selectedRegion;
-    const categoryMatch = selectedCategory === 'All' || est.category === selectedCategory;
-    const priceMatch = est.numericPrice <= maxPrice;
-    const queryMatch = searchQuery === '' || 
-      est.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      est.location.toLowerCase().includes(searchQuery.toLowerCase());
-    return regionMatch && categoryMatch && priceMatch && queryMatch;
+  const filteredEstates = estates.filter(e => {
+    const matchesRegion = selectedRegion === 'All' || e.region === selectedRegion;
+    const matchesCategory = selectedCategory === 'All' || e.category === selectedCategory;
+    const matchesPrice = e.numericPrice <= maxPrice;
+    const matchesSearch = e.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          e.location.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesRegion && matchesCategory && matchesPrice && matchesSearch;
   });
 
   return (
-    <div className="py-16 sm:py-20 bg-[#FAF9F5]" id="directory">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+    <div className="py-20 bg-[#FAF9F5] text-[#121824]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-16">
         
-        {/* Page Title Header */}
-        <div className="max-w-2xl mb-12 sm:mb-14 space-y-3">
-          <span className="text-xs font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
-            Official Property Directory
+        {/* Asymmetric Header */}
+        <div className="max-w-3xl space-y-4">
+          <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
+            VERIFIED LAND PORTFOLIO
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif-display font-medium text-[#121824] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif-display font-medium leading-[1.12] text-[#121824] tracking-tight">
             Available Estates & Land Allocations
           </h1>
-          <p className="text-[#5E6A7B] text-sm sm:text-base leading-relaxed font-sans-body">
-            Explore our official portfolio of verified land plots and commercial parcels in Lagos and Ogun state growth corridors.
+          <p className="text-[#5E6A7B] text-base sm:text-lg leading-relaxed font-sans-body">
+            Explore litigation-free residential and commercial land allocations across Lagos State and Ogun State. Every parcel is verified by government charting.
           </p>
         </div>
 
-        {/* Clean Search & Filter Bar */}
-        <div className="border-t border-b border-[#E5E2DC] py-6 sm:py-8 mb-12 sm:mb-16 space-y-6">
+        {/* Filter Controls System */}
+        <div className="bg-white border border-[#E5E2DC] p-6 lg:p-8 space-y-6 shadow-sm">
           
           {/* Row 1: Search Input & Price Slider */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
@@ -62,6 +53,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
               <input
                 type="text"
                 placeholder="Search by estate name or location..."
+                aria-label="Search by estate name or location"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-9 py-2.5 text-xs font-sans-body bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
@@ -69,6 +61,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
               {searchQuery && (
                 <button 
                   onClick={() => setSearchQuery('')}
+                  aria-label="Clear search query"
                   className="absolute right-3 top-3 text-[#5E6A7B] hover:text-[#121824]"
                 >
                   <X className="w-3.5 h-3.5" />
@@ -87,6 +80,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
                 min="2000000"
                 max="70000000"
                 step="1000000"
+                aria-label="Maximum budget range slider"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 className="w-full accent-[#0B3B2B] cursor-pointer"
@@ -174,7 +168,7 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
                 <div className="relative h-56 sm:h-60 overflow-hidden bg-[#111318]">
                   <img 
                     src={est.image} 
-                    alt={est.name}
+                    alt={`${est.name} property landscape in ${est.location}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                   <div className="absolute top-3 left-3 bg-[#0B3B2B] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-0.5">
@@ -191,9 +185,9 @@ export default function EstatesPage({ onNavigateToInspection, onSelectEstate }) 
                   {/* Header: Title & Price Stacked Responsive Layout */}
                   <div className="space-y-2">
                     <div className="flex flex-col xl:flex-row xl:items-baseline justify-between gap-1 border-b border-[#E5E2DC]/50 pb-2">
-                      <h3 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors leading-snug">
+                      <h2 className="text-lg font-serif-display font-medium text-[#121824] group-hover:text-[#0B3B2B] transition-colors leading-snug">
                         {est.name}
-                      </h3>
+                      </h2>
                       <span className="text-sm xl:text-base font-serif-display font-semibold text-[#0B3B2B] shrink-0 font-mono-data">
                         {est.price}
                       </span>

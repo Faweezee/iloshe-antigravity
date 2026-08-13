@@ -111,9 +111,9 @@ export default function InspectionPage({ initialEstateName = '' }) {
               </div>
 
               <div className="space-y-3 max-w-lg mx-auto">
-                <h3 className="text-2xl font-serif-display font-medium text-[#121824]">
+                <h2 className="text-2xl font-serif-display font-medium text-[#121824]">
                   Inspection Request Confirmed
-                </h3>
+                </h2>
                 <p className="text-xs text-[#5E6A7B] leading-relaxed font-sans-body">
                   Thank you, <strong className="text-[#121824]">{submittedData?.name}</strong>. Your inspection booking for <strong className="text-[#0B3B2B]">{submittedData?.estate}</strong> on <strong className="text-[#121824]">{submittedData?.date} at {submittedData?.time}</strong> has been logged in our system.
                 </p>
@@ -150,13 +150,14 @@ export default function InspectionPage({ initialEstateName = '' }) {
                 
                 {/* Select Estate */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
+                  <label htmlFor="inspection-estate" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
                     Select Target Property *
                   </label>
                   <select
+                    id="inspection-estate"
                     value={formData.estate}
                     onChange={(e) => setFormData({ ...formData, estate: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
                     required
                   >
                     {ESTATES_DATA.map((est) => (
@@ -169,15 +170,16 @@ export default function InspectionPage({ initialEstateName = '' }) {
 
                 {/* Preferred Date with Strict min={today} Validation */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
+                  <label htmlFor="inspection-date" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
                     Preferred Inspection Date *
                   </label>
                   <input
+                    id="inspection-date"
                     type="date"
                     min={todayStr}
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
                     required
                   />
                 </div>
@@ -188,13 +190,14 @@ export default function InspectionPage({ initialEstateName = '' }) {
                 
                 {/* Time Slot */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
+                  <label htmlFor="inspection-time" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
                     Time Slot *
                   </label>
                   <select
+                    id="inspection-time"
                     value={formData.time}
                     onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
                   >
                     <option value="10:00 AM">10:00 AM — Morning Inspection</option>
                     <option value="01:00 PM">01:00 PM — Afternoon Inspection</option>
@@ -204,15 +207,16 @@ export default function InspectionPage({ initialEstateName = '' }) {
 
                 {/* Full Name */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
+                  <label htmlFor="inspection-name" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
                     Full Name *
                   </label>
                   <input
+                    id="inspection-name"
                     type="text"
                     placeholder="Enter your full name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
                     required
                   />
                 </div>
@@ -223,30 +227,32 @@ export default function InspectionPage({ initialEstateName = '' }) {
                 
                 {/* Phone Number */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
+                  <label htmlFor="inspection-phone" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
                     Phone Number (WhatsApp Preferred) *
                   </label>
                   <input
+                    id="inspection-phone"
                     type="tel"
                     placeholder="+234 800 000 0000"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
                     required
                   />
                 </div>
 
                 {/* Email Address */}
                 <div className="space-y-1.5">
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
+                  <label htmlFor="inspection-email" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
                     Email Address *
                   </label>
                   <input
+                    id="inspection-email"
                     type="email"
                     placeholder="email@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
+                    className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
                     required
                   />
                 </div>
@@ -255,15 +261,16 @@ export default function InspectionPage({ initialEstateName = '' }) {
 
               {/* Special Requests / Notes */}
               <div className="space-y-1.5">
-                <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
+                <label htmlFor="inspection-notes" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B]">
                   Special Requirements / Inspection Notes (Optional)
                 </label>
                 <textarea
+                  id="inspection-notes"
                   rows="3"
                   placeholder="E.g. I am a Diaspora buyer requesting a live WhatsApp video walk-through..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B]"
+                  className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
                 />
               </div>
 

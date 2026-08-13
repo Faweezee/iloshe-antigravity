@@ -79,7 +79,7 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
           <div className="relative h-[380px] sm:h-[480px] lg:h-[540px] overflow-hidden bg-[#111318] border border-[#E5E2DC] shadow-md">
             <img 
               src={activePhoto || estate.image} 
-              alt={estate.name} 
+              alt={`${estate.name} property photo in ${estate.location}`} 
               className="w-full h-full object-cover transition-all duration-300"
             />
             <div className="absolute bottom-4 right-4 bg-[#111318]/90 text-white text-xs font-serif-display font-semibold px-4 py-2 border border-white/20">
@@ -94,11 +94,12 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
                 <button
                   key={idx}
                   onClick={() => setActivePhoto(img)}
+                  aria-label={`View photo thumbnail ${idx + 1}`}
                   className={`w-28 h-20 shrink-0 overflow-hidden border-2 transition-all ${
                     activePhoto === img ? 'border-[#0B3B2B] opacity-100 scale-95' : 'border-[#E5E2DC] opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <img src={img} alt={`Gallery snapshot ${idx + 1}`} className="w-full h-full object-cover" />
+                  <img src={img} alt={`Gallery snapshot ${idx + 1} for ${estate.name}`} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -113,9 +114,9 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
             
             {/* Key Specs Matrix */}
             <div className="bg-white border border-[#E5E2DC] p-8 space-y-4 shadow-sm">
-              <h3 className="text-xs font-mono-data text-[#D96B27] uppercase tracking-widest font-semibold border-b border-[#E5E2DC] pb-3">
+              <h2 className="text-xs font-mono-data text-[#D96B27] uppercase tracking-widest font-semibold border-b border-[#E5E2DC] pb-3">
                 Property Specifications & Legal Parameters
-              </h3>
+              </h2>
               
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs pt-2">
                 <div>
@@ -141,9 +142,9 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
             {estate.pricingGrid && estate.pricingGrid.length > 0 && (
               <div className="bg-white border border-[#E5E2DC] p-8 space-y-4 shadow-sm">
                 <div className="border-b border-[#E5E2DC] pb-3">
-                  <h3 className="text-xs font-mono-data text-[#0B3B2B] uppercase tracking-widest font-semibold">
+                  <h2 className="text-xs font-mono-data text-[#0B3B2B] uppercase tracking-widest font-semibold">
                     Official Pricing & Installment Payment Schedule
-                  </h3>
+                  </h2>
                 </div>
 
                 <div className="overflow-x-auto">
@@ -173,10 +174,10 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
 
             {/* Overview & Investment Potential */}
             <div className="space-y-4">
-              <h3 className="text-xl font-serif-display font-medium text-[#121824]">
+              <h2 className="text-xl font-serif-display font-medium text-[#121824]">
                 Property Overview & Investment Value
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5E6A7B] leading-relaxed">
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5E6A7B] leading-relaxed whitespace-pre-line">
                 {estate.overview}
               </p>
             </div>
@@ -184,9 +185,9 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
             {/* Infrastructure & Amenities Checklist */}
             {estate.infrastructure && (
               <div className="space-y-4 bg-white border border-[#E5E2DC] p-8 shadow-sm">
-                <h3 className="text-xl font-serif-display font-medium text-[#121824]">
+                <h2 className="text-xl font-serif-display font-medium text-[#121824]">
                   Estate Infrastructure & Physical Allocation Features
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#5E6A7B]">
                   {estate.infrastructure.map((item, idx) => (
                     <div key={idx} className="flex items-center gap-2.5 py-1">
@@ -205,9 +206,9 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
                   <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
                     ESTATE SPECIFIC QUESTIONS
                   </span>
-                  <h3 className="text-xl font-serif-display font-medium text-[#121824]">
+                  <h2 className="text-xl font-serif-display font-medium text-[#121824]">
                     {estate.name} Frequently Asked Questions
-                  </h3>
+                  </h2>
                 </div>
 
                 <div className="space-y-3">
@@ -217,6 +218,7 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
                       <div key={idx} className="border-b border-[#E5E2DC]/70 pb-3">
                         <button
                           onClick={() => setActiveFaq(isOpen ? -1 : idx)}
+                          aria-expanded={isOpen}
                           className="w-full text-left py-2 flex justify-between items-center font-serif-display text-base text-[#121824] focus:outline-none"
                         >
                           <span>{faq.question}</span>
@@ -245,9 +247,9 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
                 <span className="text-[10px] font-mono-data text-[#D96B27] uppercase tracking-widest block font-semibold">
                   RESERVE YOUR PLOT
                 </span>
-                <h3 className="text-2xl font-serif-display font-medium text-[#121824]">
+                <h2 className="text-2xl font-serif-display font-medium text-[#121824]">
                   Schedule Inspection
-                </h3>
+                </h2>
                 <p className="text-xs text-[#5E6A7B] leading-relaxed">
                   Book a physical site visit to inspect plot beacons or request a live video walkthrough with our land coordinators.
                 </p>

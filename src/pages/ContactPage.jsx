@@ -77,7 +77,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7 font-sans-body">
             {submitted ? (
               <div className="py-12 space-y-4">
-                <h3 className="text-2xl font-serif-display font-medium text-[#121824]">Message Received</h3>
+                <h2 className="text-2xl font-serif-display font-medium text-[#121824]">Message Received</h2>
                 <p className="text-xs text-[#5E6A7B] leading-relaxed">
                   Thank you for reaching out to Iloshe Properties. Our advisory team will contact you shortly.
                 </p>
@@ -91,8 +91,9 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5 text-xs">
                 <div>
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Full Name</label>
+                  <label htmlFor="contact-fullname" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Full Name *</label>
                   <input
+                    id="contact-fullname"
                     type="text"
                     placeholder="e.g. Chief Adeleke Johnson"
                     value={formData.name}
@@ -104,8 +105,9 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Phone Number</label>
+                    <label htmlFor="contact-phone" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Phone Number *</label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       placeholder="08012345678"
                       value={formData.phone}
@@ -115,8 +117,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Email Address</label>
+                    <label htmlFor="contact-email" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Email Address *</label>
                     <input
+                      id="contact-email"
                       type="email"
                       placeholder="investor@domain.com"
                       value={formData.email}
@@ -128,8 +131,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Inquiry / Message</label>
+                  <label htmlFor="contact-message" className="block text-[10px] uppercase font-mono-data text-[#5E6A7B] mb-1">Inquiry / Message *</label>
                   <textarea
+                    id="contact-message"
                     rows={4}
                     placeholder="Specify property type, preferred area, or budget..."
                     value={formData.message}
