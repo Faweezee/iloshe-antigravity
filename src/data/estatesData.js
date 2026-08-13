@@ -2,7 +2,7 @@ export const ESTATES_DATA = [
   {
     id: "zenith-gardens-magboro",
     name: "Zenith Gardens",
-    tagline: "Accessible Dry Land Plots Just 15 Minutes Drive from Alausa Ikeja",
+    tagline: "Where the dream of owning land comes within reach.",
     location: "Shote Community, Magboro, Owode LCDA, Ogun State",
     region: "Magboro",
     category: "Residential",
@@ -34,7 +34,15 @@ export const ESTATES_DATA = [
         twelveMonths: "₦4,320,000"
       }
     ],
-    overview: "Zenith Gardens is located in Shote Community, Magboro of Owode LCDA, Ogun State — just a 15-minute drive from Alausa, Ikeja. Offering 100% dry land with Registered Survey title, it provides everyday investors and families an accessible pathway to land ownership with zero omonile risk.",
+    overview: `Just 15 minutes from Berger, Zenith Gardens sits quietly on the edge of opportunity, giving civil servants, small business owners, young professionals, and families a practical pathway to land ownership.
+
+Here, the dream isn't reserved for the few. It is a place where hard work can become a home, savings can become an investment, and a small beginning can grow into something lasting.
+
+Set within a developed and secure residential community, Zenith Gardens offers more than a plot of land. It offers peace of mind, accessibility, and a clear path to building your future, free from omonile interference.
+
+The city is expanding. The smart move is to secure your own corner of it.
+
+Zenith Gardens, Magboro. Own your ground. Build your future. Grow with the city.`,
     infrastructure: [
       "Perimeter Fencing & Smart Security Gatehouse",
       "Earth Access Roads & Drainage System",
@@ -70,8 +78,8 @@ export const ESTATES_DATA = [
   },
   {
     id: "iloshe-garden-abule-pan",
-    name: "Iloshe's Garden",
-    tagline: "Prime Residential Plots in Abule Pan with Verified Excision Title",
+    name: "Iloshe Gardens",
+    tagline: "Where nature, connectivity and opportunity meet.",
     location: "Abule Pan, Lagos State",
     region: "Ibeju-Lekki",
     category: "Residential",
@@ -103,7 +111,17 @@ export const ESTATES_DATA = [
         twelveMonths: "₦10,800,000"
       }
     ],
-    overview: "Iloshe's Garden is a prime residential community situated at Abule Pan, Lagos State. Featuring verified Excision title documentation, high elevation dry ground, and flexible 3, 6, and 12-month installment payment options.",
+    overview: `Along the ever-expanding Lekki-Epe Expressway axis of Ibeju-Lekki, Iloshe Gardens sits in a corridor where Lagos is steadily writing its next chapter.
+
+Close to landmarks that define the area’s growth and lifestyle appeal, you are within reach of the Lekki Conservation Centre, Pan-Atlantic University, Dangote Refinery and Eleko Beach.
+
+This is more than land on a map. It is a chance to secure your place in a neighbourhood shaped by infrastructure, commerce, tourism, education and industrial development.
+
+And with an Excision, your investment comes with a recognised title that adds confidence to your ownership journey.
+
+The roads are expanding. The neighbourhood is evolving. The future is drawing closer.
+
+Iloshe Gardens, Abule Pan. Own today. Grow with tomorrow.`,
     infrastructure: [
       "Gated Residential Community & Security Gatehouse",
       "Perimeter Fencing & Paved Access Roads",
@@ -114,7 +132,7 @@ export const ESTATES_DATA = [
   {
     id: "garden-of-praise-eleko",
     name: "Garden Of Praise",
-    tagline: "Premium High-Yield Land Eleko Junction By Pan African, Ibeju-Lekki",
+    tagline: "Where the future takes root, and opportunity begins to bloom.",
     location: "Eleko Junction, By Pan African, Ibeju-Lekki, Lagos State",
     region: "Ibeju-Lekki",
     category: "Commercial",
@@ -146,7 +164,13 @@ export const ESTATES_DATA = [
         twelveMonths: "₦37,800,000"
       }
     ],
-    overview: "Garden Of Praise is an elite real estate development located at Eleko Junction, By Pan African in Ibeju-Lekki, Lagos State. Backed by official Government Allocation title, it sits right at the commercial nerve center of the Lekki Free Trade Zone corridor.",
+    overview: `Nestled near Eleko Junction and the prestigious Pan-Atlantic University, Ibeju-Lekki, Lagos, Garden of Praise sits where vision meets value.
+
+Along the rapidly unfolding Lekki Free Trade Zone corridor, tomorrow is already taking shape today. New industries are rising, commerce is expanding, infrastructure is moving forward, and the landscape is quietly transforming into one of Lagos’ most promising growth corridors.
+
+Here, you are not simply acquiring a piece of land. You are planting a seed in the path of progress, with the advantage of secure, government-backed land titles and proximity to major regional developments.
+
+Garden of Praise. Own the ground where tomorrow will stand.`,
     infrastructure: [
       "Commercial & High-Density Residential Zoning",
       "Located By Pan African at Eleko Junction",

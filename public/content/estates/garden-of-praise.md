@@ -1,7 +1,7 @@
 ---
 id: "garden-of-praise-eleko"
 name: "Garden Of Praise"
-tagline: "Premium High-Yield Land Eleko Junction By Pan African, Ibeju-Lekki"
+tagline: "Where the future takes root, and opportunity begins to bloom."
 location: "Eleko Junction, By Pan African, Ibeju-Lekki, Lagos State"
 region: "Ibeju-Lekki"
 category: "Commercial"
@@ -32,4 +32,11 @@ infrastructure:
   - "Direct Expressway Proximity to Dangote Refinery & Deep Sea Port"
 ---
 
-Garden Of Praise is an elite real estate development located at Eleko Junction, By Pan African in Ibeju-Lekki, Lagos State. Backed by official Government Allocation title, it sits right at the commercial nerve center of the Lekki Free Trade Zone corridor.
+Nestled near Eleko Junction and the prestigious Pan-Atlantic University, Ibeju-Lekki, Lagos, Garden of Praise sits where vision meets value.
+
+Along the rapidly unfolding Lekki Free Trade Zone corridor, tomorrow is already taking shape today. New industries are rising, commerce is expanding, infrastructure is moving forward, and the landscape is quietly transforming into one of Lagos’ most promising growth corridors.
+
+Here, you are not simply acquiring a piece of land. You are planting a seed in the path of progress, with the advantage of secure, government-backed land titles and proximity to major regional developments.
+
+Garden of Praise. Own the ground where tomorrow will stand.
+---

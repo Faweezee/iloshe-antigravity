@@ -1,7 +1,7 @@
 ---
 id: "zenith-gardens-magboro"
 name: "Zenith Gardens"
-tagline: "Accessible Dry Land Plots Just 15 Minutes Drive from Alausa Ikeja"
+tagline: "Where the dream of owning land comes within reach."
 location: "Shote Community, Magboro, Owode LCDA, Ogun State"
 region: "Magboro"
 category: "Residential"
@@ -44,4 +44,12 @@ faqs:
     answer: "Yes, you can start building immediately after physical allocation and payment of the survey fee and development levy."
 ---
 
-Zenith Gardens is located in Shote Community, Magboro of Owode LCDA, Ogun State — just a 15-minute drive from Alausa, Ikeja. Offering 100% dry land with Registered Survey title, it provides everyday investors and families an accessible pathway to land ownership with zero omonile risk.
+Just 15 minutes from Berger, Zenith Gardens sits quietly on the edge of opportunity, giving civil servants, small business owners, young professionals, and families a practical pathway to land ownership.
+
+Here, the dream isn't reserved for the few. It is a place where hard work can become a home, savings can become an investment, and a small beginning can grow into something lasting.
+
+Set within a developed and secure residential community, Zenith Gardens offers more than a plot of land. It offers peace of mind, accessibility, and a clear path to building your future, free from omonile interference.
+
+The city is expanding. The smart move is to secure your own corner of it.
+
+Zenith Gardens, Magboro. Own your ground. Build your future. Grow with the city.

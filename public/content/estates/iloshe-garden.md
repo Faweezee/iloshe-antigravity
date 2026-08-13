@@ -1,7 +1,7 @@
 ---
 id: "iloshe-garden-abule-pan"
-name: "Iloshe's Garden"
-tagline: "Prime Residential Plots in Abule Pan with Verified Excision Title"
+name: "Iloshe Gardens"
+tagline: "Where nature, connectivity and opportunity meet."
 location: "Abule Pan, Lagos State"
 region: "Ibeju-Lekki"
 category: "Residential"
@@ -31,4 +31,14 @@ infrastructure:
   - "Central Electricity & Solar Street Lighting"
 ---
 
-Iloshe's Garden is a prime residential community situated at Abule Pan, Lagos State. Featuring verified Excision title documentation, high elevation dry ground, and flexible 3, 6, and 12-month installment payment options.
+Along the ever-expanding Lekki-Epe Expressway axis of Ibeju-Lekki, Iloshe Gardens sits in a corridor where Lagos is steadily writing its next chapter.
+
+Close to landmarks that define the area’s growth and lifestyle appeal, you are within reach of the Lekki Conservation Centre, Pan-Atlantic University, Dangote Refinery and Eleko Beach.
+
+This is more than land on a map. It is a chance to secure your place in a neighbourhood shaped by infrastructure, commerce, tourism, education and industrial development.
+
+And with an Excision, your investment comes with a recognised title that adds confidence to your ownership journey.
+
+The roads are expanding. The neighbourhood is evolving. The future is drawing closer.
+
+Iloshe Gardens, Abule Pan. Own today. Grow with tomorrow.
