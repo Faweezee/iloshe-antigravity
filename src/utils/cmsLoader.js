@@ -114,16 +114,16 @@ export function getCMSEstates() {
 
       const validPricingGrid = hasValidPricingGrid
         ? data.pricingGrid
-        : (defaultMatch.pricingGrid || null);
+        : (Array.isArray(data.pricingGrid) && data.pricingGrid.length === 0 ? [] : (defaultMatch.pricingGrid || []));
 
       const hasValidFaqs = Array.isArray(data.faqs) && 
         data.faqs.length > 0 && 
         typeof data.faqs[0] === 'object' && 
-        (data.faqs[0]?.question || data.faqs[0]?.text);
+        (data.faqs[0]?.question || data.faqs[0]?.answer || data.faqs[0]?.text);
 
       const validFaqs = hasValidFaqs
         ? data.faqs.map(f => ({ question: f.question, answer: f.answer || f.text }))
-        : (defaultMatch.faqs || null);
+        : (Array.isArray(data.faqs) && data.faqs.length === 0 ? [] : (defaultMatch.faqs || []));
 
       return {
         id: data.id || filename,

@@ -43,7 +43,7 @@ collections:
         ]}
       - { label: "Estate Specific FAQs", name: "faqs", widget: "list", required: false, fields: [
           { label: "Question", name: "question", widget: "string" },
-          { label: "Answer", name: "text", widget: "text" }
+          { label: "Answer", name: "answer", widget: "text" }
         ]}
       - { label: "Property Overview", name: "overview", widget: "markdown" }
       - { label: "Infrastructure List", name: "infrastructure", widget: "list" }
