@@ -18,12 +18,12 @@ export default function FixedRevealBanner() {
         {/* Subtle Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#111318]/90 via-[#111318]/40 to-transparent pointer-events-none" />
 
-        {/* Technical Editorial Caption Overlay — 'FEATURED ESTATE PARCEL' tag removed */}
+        {/* Technical Editorial Caption Overlay */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pb-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 text-[#FAF9F5]">
           <div className="space-y-1">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-medium text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif-display font-medium text-white tracking-tight">
               Zenith Gardens — Magboro Growth Corridor
-            </h3>
+            </h2>
           </div>
 
           <div className="text-xs font-mono-data text-slate-300 space-y-0.5 sm:text-right">
