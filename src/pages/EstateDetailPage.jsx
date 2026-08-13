@@ -93,7 +93,7 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
             </div>
           </div>
 
-          {/* Photo Thumbnails — Thumbnail #1 is always the Default Main Cover Photo */}
+          {/* Photo Thumbnails */}
           {galleryList.length > 0 && (
             <div className="flex items-center gap-3 overflow-x-auto pb-2">
               {galleryList.map((img, idx) => (
@@ -106,11 +106,6 @@ export default function EstateDetailPage({ estateId, estate: propEstate, onNavig
                   }`}
                 >
                   <img src={img} alt={`Gallery snapshot ${idx + 1} for ${estate.name}`} className="w-full h-full object-cover" />
-                  {idx === 0 && (
-                    <span className="absolute bottom-1 left-1 bg-[#0B3B2B] text-white text-[8px] font-mono-data uppercase px-1 py-0.5 rounded">
-                      Main Photo
-                    </span>
-                  )}
                 </button>
               ))}
             </div>
