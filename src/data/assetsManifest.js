@@ -74,7 +74,7 @@ export const ASSETS = {
 
   team: {
     leadership: {
-      src: "/assets/team/leadership.jpg",
+      src: "/assets/team/executiveleadership.jpeg",
       fallback: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
       alt: "Iloshe Properties Executive Leadership Team"
     },
@@ -87,7 +87,7 @@ export const ASSETS = {
 
   contact: {
     whatsapp: "2349112777778",
-    phones: ["+234 911 277 7778", "+234 911 337 0535", "+234 805 880 0112", "+234 808 273 7645"],
+    phones: ["+234 911 277 7778", "+234 808 273 7645"],
     email: "Info@ilosheproperties.com.ng",
     address: "167 Iju Road, beside Union Bank, Fagba Bus Stop, Lagos, Nigeria",
     hours: "Monday - Saturday: 8:00 AM - 6:00 PM"

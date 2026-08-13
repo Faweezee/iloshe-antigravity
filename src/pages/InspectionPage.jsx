@@ -233,7 +233,7 @@ export default function InspectionPage({ initialEstateName = '' }) {
                   <input
                     id="inspection-phone"
                     type="tel"
-                    placeholder="+234 800 000 0000"
+                    placeholder="+234 911 277 7778"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-4 py-3 bg-white border border-[#E5E2DC] text-[#121824] focus:outline-none focus:border-[#0B3B2B] focus:ring-1 focus:ring-[#0B3B2B]"
