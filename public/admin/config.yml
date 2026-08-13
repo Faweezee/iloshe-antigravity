@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main # Branch to update upon publishing content
+  name: github
+  repo: Faweezee/iloshe-antigravity
+  branch: main
+  base_url: https://iloshe-antigravity.vercel.app
+  auth_endpoint: api/auth
 
 # Local backend for offline developer testing
 local_backend: true
