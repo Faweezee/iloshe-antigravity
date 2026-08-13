@@ -100,10 +100,6 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
                 SURVEY CHARTED
               </div>
             </div>
-            <div className="p-3.5 bg-white text-xs font-mono-data text-[#5E6A7B] border-t border-[#E5E2DC] flex justify-between items-center">
-              <span>LAGOS SURVEYOR GENERAL RECORD</span>
-              <span className="text-[#0B3B2B] font-semibold">100% VERIFIED</span>
-            </div>
           </div>
         </div>
 
