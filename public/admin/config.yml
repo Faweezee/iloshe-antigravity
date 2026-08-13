@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Faweezee/iloshe-antigravity
+  repo: Faweezee/iloshe-site
   branch: main
   base_url: https://iloshe-antigravity.vercel.app
   auth_endpoint: api/auth
