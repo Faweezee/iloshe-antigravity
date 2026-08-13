@@ -88,14 +88,15 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
             </div>
           </div>
 
+          {/* Framed Editorial Portrait Photo */}
           <div className="lg:col-span-6 border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
-            <div className="relative h-[360px] sm:h-[420px] lg:h-[460px] overflow-hidden bg-[#111318] p-1 flex items-center justify-center">
+            <div className="relative h-[520px] sm:h-[580px] lg:h-[640px] overflow-hidden bg-[#111318]">
               <img 
                 src="/assets/team/iloshe-team-office.jpeg" 
                 alt="Iloshe Properties Advisory Team Office" 
-                className="w-full h-full object-contain object-center filter contrast-[1.02] group-hover:scale-[1.02] transition-transform duration-500"
+                className="w-full h-full object-cover object-center filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-1 z-10">
+              <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-1 z-10 shadow-md">
                 SURVEY CHARTED
               </div>
             </div>
