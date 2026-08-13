@@ -66,15 +66,15 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
           </div>
         </div>
 
-        {/* Technical Masterplan Photography Callout Strip */}
+        {/* Technical Office Photography Callout Strip */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-b border-[#E5E2DC] py-16 items-center">
           <div className="lg:col-span-6 space-y-5">
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#D96B27] block font-semibold">
               LEGAL TITLE & VERIFICATION SUPPORT
             </span>
-            <h3 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-serif-display font-medium text-[#121824] tracking-tight">
               Verified Documentation Guaranteed
-            </h3>
+            </h2>
             <p className="text-xs sm:text-sm text-[#5E6A7B] leading-relaxed font-sans-body">
               Every property in our directory is independently charted with state land registries, ensuring zero omonile disputes and immediate physical plot pegging.
             </p>
@@ -91,8 +91,8 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
           <div className="lg:col-span-6 border border-[#E5E2DC] bg-[#111318] overflow-hidden group">
             <div className="relative h-72 sm:h-80 overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" 
-                alt="Architectural masterplan layout and official land survey charting document" 
+                src="/assets/team/iloshe-team-office.jpeg" 
+                alt="Iloshe Properties Advisory Team Office" 
                 className="w-full h-full object-cover filter contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute top-3 right-3 bg-[#D96B27] text-white text-[10px] font-mono-data uppercase tracking-widest px-2.5 py-1">
@@ -125,6 +125,7 @@ export default function GuidePage({ onNavigateToInspection, onSelectArticle, onO
                 >
                   <button
                     onClick={() => setActiveFaq(isOpen ? -1 : idx)}
+                    aria-expanded={isOpen}
                     className="w-full text-left py-2 flex justify-between items-center font-serif-display text-lg text-[#121824] focus:outline-none"
                   >
                     <span>{faq.question}</span>
