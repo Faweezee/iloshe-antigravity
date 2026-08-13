@@ -4,6 +4,8 @@ import Footer from './components/layout/Footer';
 import InspectionModal from './components/layout/InspectionModal';
 import WhatsAppWidget from './components/layout/WhatsAppWidget';
 import { ASSETS } from './data/assetsManifest';
+import { ESTATES_DATA } from './data/estatesData';
+import { getCMSEstates } from './utils/cmsLoader';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -16,17 +18,32 @@ import EstateDetailPage from './pages/EstateDetailPage';
 import ArticleDetailPage from './pages/ArticleDetailPage';
 
 export default function App() {
-  // Helper to read initial page from URL hash (e.g. #/estates -> 'estates')
-  const getPageFromHash = () => {
-    const hash = window.location.hash.replace(/^#\/?/, '');
+  // Parse page and sub-resource ID from URL Hash (e.g., #/estates/iloshe-garden-abule-pan)
+  const parseHash = () => {
+    const rawHash = window.location.hash.replace(/^#\/?/, '');
+    const parts = rawHash.split('/');
+    const route = parts[0] || 'home';
+    const param = parts[1] || null;
+
+    if (route === 'estates' && param) {
+      return { page: 'estate-detail', id: param };
+    }
+    if (route === 'estate-detail') {
+      const searchId = new URLSearchParams(window.location.hash.split('?')[1] || '').get('id') || param;
+      return { page: 'estate-detail', id: searchId };
+    }
+
     const validPages = ['home', 'about', 'estates', 'services', 'guide', 'contact', 'inspection', 'estate-detail', 'article-detail'];
-    return validPages.includes(hash) ? hash : 'home';
+    return { page: validPages.includes(route) ? route : 'home', id: null };
   };
 
-  const [activePage, setActivePageState] = useState(getPageFromHash);
+  const initialRoute = parseHash();
+  const [activePage, setActivePageState] = useState(initialRoute.page);
+  const [activeEstateId, setActiveEstateId] = useState(initialRoute.id);
+  const [activeEstateDetail, setActiveEstateDetail] = useState(null);
+  
   const [inspectionModalOpen, setInspectionModalOpen] = useState(false);
   const [selectedEstateName, setSelectedEstateName] = useState('');
-  const [activeEstateDetail, setActiveEstateDetail] = useState(null);
   const [activeArticleDetail, setActiveArticleDetail] = useState(null);
 
   // Redirect to CMS Admin Portal if /admin or #/admin is accessed directly
@@ -38,20 +55,42 @@ export default function App() {
     }
   }, []);
 
-  // Sync state with URL hash & listen to browser back/forward & reload
+  // Update estate detail object whenever activeEstateId or CMS data changes
+  useEffect(() => {
+    if (activeEstateId) {
+      const allEstates = getCMSEstates();
+      const match = allEstates.find(e => e.id === activeEstateId) || ESTATES_DATA.find(e => e.id === activeEstateId);
+      if (match) {
+        setActiveEstateDetail(match);
+      }
+    }
+  }, [activeEstateId]);
+
+  // Sync state with URL hash & listen to browser reload / back / forward navigation
   const setActivePage = (pageId) => {
     setActivePageState(pageId);
-    window.location.hash = `/${pageId}`;
+    if (pageId !== 'estate-detail') {
+      setActiveEstateId(null);
+      window.location.hash = `/${pageId}`;
+    }
   };
 
   useEffect(() => {
     const handleHashChange = () => {
-      const page = getPageFromHash();
-      setActivePageState(page);
+      const routeInfo = parseHash();
+      setActivePageState(routeInfo.page);
+      if (routeInfo.id) {
+        setActiveEstateId(routeInfo.id);
+        const allEstates = getCMSEstates();
+        const match = allEstates.find(e => e.id === routeInfo.id) || ESTATES_DATA.find(e => e.id === routeInfo.id);
+        if (match) setActiveEstateDetail(match);
+      }
     };
 
     if (!window.location.hash) {
       window.location.hash = `/${activePage}`;
+    } else {
+      handleHashChange();
     }
 
     window.addEventListener('hashchange', handleHashChange);
@@ -65,10 +104,12 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 2. Direct Dedicated Page Route Navigation for Property Detail View
+  // 2. Direct Dedicated Page Route Navigation for Property Detail View (Preserves URL Hash for Refresh)
   const handleSelectEstate = (estate) => {
     setActiveEstateDetail(estate);
-    setActivePage('estate-detail');
+    setActiveEstateId(estate.id);
+    setActivePageState('estate-detail');
+    window.location.hash = `/estates/${estate.id}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -140,6 +181,7 @@ export default function App() {
         )}
         {activePage === 'estate-detail' && (
           <EstateDetailPage 
+            estateId={activeEstateId}
             estate={activeEstateDetail}
             onNavigateToInspection={handleNavigateToInspection}
             setActivePage={setActivePage}
