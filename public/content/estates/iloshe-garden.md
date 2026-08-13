@@ -29,6 +29,15 @@ infrastructure:
   - "Perimeter Fencing & Paved Access Roads"
   - "Verified Survey & Instant Physical Allocation"
   - "Central Electricity & Solar Street Lighting"
+faqs:
+  - question: "Where is Iloshe Gardens located?"
+    answer: "Iloshe Gardens is located at Abule Pan along the fast-developing Lekki-Epe expressway corridor in Lagos State."
+  - question: "What title does Iloshe Gardens possess?"
+    answer: "Iloshe Gardens possesses an Excision title recognised by the Lagos State Government."
+  - question: "What are the plot options and payment plans?"
+    answer: "Plot sizes include 300 SQM and 500 SQM with flexible Outright (1-3 Mos), 6-Month, and 12-Month payment plans."
+  - question: "When do I get physical allocation?"
+    answer: "Instant physical allocation and survey pegging occur immediately upon completing contract documentation."
 ---
 
 Along the ever-expanding Lekki-Epe Expressway axis of Ibeju-Lekki, Iloshe Gardens sits in a corridor where Lagos is steadily writing its next chapter.

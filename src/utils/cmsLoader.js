@@ -1,7 +1,7 @@
 import { ESTATES_DATA as defaultEstates } from '../data/estatesData';
 import { ARTICLES_DATA as defaultArticles } from '../data/guidesData';
 
-// Simple Frontmatter Parser for Markdown files
+// Enhanced Frontmatter & YAML Parser for Decap CMS Markdown files
 function parseFrontmatter(rawContent) {
   if (!rawContent || typeof rawContent !== 'string') return { data: {}, body: '' };
 
@@ -12,34 +12,63 @@ function parseFrontmatter(rawContent) {
   const body = match[2].trim();
   const data = {};
 
+  const lines = frontmatterStr.split(/\r?\n/);
   let currentKey = null;
-  let isList = false;
+  let currentArrayKey = null;
+  let currentObject = null;
 
-  frontmatterStr.split(/\r?\n/).forEach((line) => {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('#')) return;
+    if (!trimmed || trimmed.startsWith('#')) continue;
 
-    // List item: - "Value" or - photo: "Value"
-    if (trimmed.startsWith('- ') && currentKey && isList) {
-      let listVal = trimmed.replace(/^-\s*/, '');
-      if (listVal.startsWith('photo:')) {
-        listVal = listVal.replace(/^photo:\s*/, '');
-      }
-      listVal = listVal.replace(/^["']|["']$/g, '');
+    const indent = line.search(/\S/);
 
-      if (Array.isArray(data[currentKey])) {
-        data[currentKey].push(listVal);
+    // List item start: - key: val or - "string"
+    if (trimmed.startsWith('- ')) {
+      const itemContent = trimmed.slice(2).trim();
+
+      if (itemContent.includes(':')) {
+        // Object in list (e.g. - size: "500 SQM" or - question: "...")
+        const colonIdx = itemContent.indexOf(':');
+        const k = itemContent.slice(0, colonIdx).trim();
+        let v = itemContent.slice(colonIdx + 1).trim().replace(/^["']|["']$/g, '');
+
+        currentObject = { [k]: v };
+        if (!Array.isArray(data[currentArrayKey])) {
+          data[currentArrayKey] = [];
+        }
+        data[currentArrayKey].push(currentObject);
+      } else {
+        // String in list (e.g. - "Perimeter Fencing")
+        let strVal = itemContent.replace(/^["']|["']$/g, '');
+        if (strVal.startsWith('photo:')) {
+          strVal = strVal.replace(/^photo:\s*/, '').replace(/^["']|["']$/g, '');
+        }
+        if (!Array.isArray(data[currentArrayKey])) {
+          data[currentArrayKey] = [];
+        }
+        data[currentArrayKey].push(strVal);
+        currentObject = null;
       }
-      return;
+      continue;
     }
 
-    // Key-value pair: key: value
-    const colonIdx = line.indexOf(':');
-    if (colonIdx !== -1) {
-      const key = line.slice(0, colonIdx).trim();
-      let value = line.slice(colonIdx + 1).trim();
+    // Continuation line inside an object in a list (indented key: value)
+    if (indent > 2 && currentObject && trimmed.includes(':')) {
+      const colonIdx = trimmed.indexOf(':');
+      const k = trimmed.slice(0, colonIdx).trim();
+      let v = trimmed.slice(colonIdx + 1).trim().replace(/^["']|["']$/g, '');
+      currentObject[k] = v;
+      continue;
+    }
 
-      // Clean quotes
+    // Root key-value pair: key: value
+    if (trimmed.includes(':')) {
+      const colonIdx = trimmed.indexOf(':');
+      const key = trimmed.slice(0, colonIdx).trim();
+      let value = trimmed.slice(colonIdx + 1).trim();
+
       if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
         value = value.slice(1, -1);
       }
@@ -49,16 +78,17 @@ function parseFrontmatter(rawContent) {
       else if (!isNaN(Number(value)) && value !== '') value = Number(value);
 
       if (value === '') {
-        currentKey = key;
-        isList = true;
+        currentArrayKey = key;
         data[key] = [];
+        currentObject = null;
       } else {
         currentKey = key;
-        isList = false;
+        currentArrayKey = null;
+        currentObject = null;
         data[key] = value;
       }
     }
-  });
+  }
 
   return { data, body };
 }
@@ -89,10 +119,10 @@ export function getCMSEstates() {
       const hasValidFaqs = Array.isArray(data.faqs) && 
         data.faqs.length > 0 && 
         typeof data.faqs[0] === 'object' && 
-        data.faqs[0]?.question;
+        (data.faqs[0]?.question || data.faqs[0]?.text);
 
       const validFaqs = hasValidFaqs
-        ? data.faqs
+        ? data.faqs.map(f => ({ question: f.question, answer: f.answer || f.text }))
         : (defaultMatch.faqs || null);
 
       return {
@@ -165,7 +195,7 @@ export function getCMSTestimonials() {
         role: data.role || 'Property Investor',
         text: data.quote || body || '',
         location: data.location || 'Lagos State',
-        image: data.photo || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
+        image: data.photo || ''
       };
     });
 
@@ -175,21 +205,21 @@ export function getCMSTestimonials() {
         role: "Diaspora Investor (United Kingdom)",
         text: "Buying land in Lagos from London used to carry immense risk. Iloshe Properties managed everything with legal clarity. The site inspection was detailed, and my plot was allocated on schedule.",
         location: "Zenith Gardens, Magboro",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+        image: ""
       },
       {
         name: "Mrs. Blessing Okonkwo",
         role: "Commercial Enterprise CEO",
         text: "What set Iloshe apart was their flexible 12-month payment structure. I didn't have to strain business liquidity. Today I hold verified title documents safely.",
         location: "Garden Of Praise, Eleko Ibeju-Lekki",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+        image: ""
       },
       {
         name: "Engr. Tunde Bakare",
         role: "Infrastructure Consultant",
         text: "Their documentation team walked me through verifying land coordinates directly with the Lagos Surveyor General's office. Professionalism at its peak with zero hidden fees.",
         location: "Iloshe's Garden, Abule Pan",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+        image: ""
       }
     ];
 

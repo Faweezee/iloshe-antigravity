@@ -1,6 +1,6 @@
 # Iloshe Properties — Content Management System (CMS) User Guide
 
-Welcome to your official **Iloshe Properties Content Management System (CMS)** user guide. This document provides clear, step-by-step instructions for company management, land coordinators, and staff to update property listings, adjust pricing, publish blog articles, and add client testimonials — directly from any web browser without needing technical skills.
+Welcome to your official **Iloshe Properties Content Management System (CMS)** user guide. This document provides clear, step-by-step instructions for company management, land coordinators, and staff to update property listings, adjust pricing schedules, publish blog articles, and add client testimonials — directly from any web browser without needing technical skills.
 
 ---
 
@@ -15,38 +15,62 @@ https://ilosheproperties.com/admin/
 
 ### Managing Staff Accounts
 Account access is managed securely by your development team.
-- **Requesting Account Access:** Simply provide your email address to your developer, who will invite your account to the system.
-- **Logging In:** Click **"Login with GitHub"** on the admin portal page and log in using your authorized email address.
+- **Requesting Account Access:** Simply provide your email address to your developer, who will grant your account access to the portal.
+- **Logging In:** Click **"Login with GitHub"** on the admin portal page and log in using your authorized email credentials.
 
 ---
 
-## 2. Managing Estate Property Listings
+## 2. Managing Estate Property Listings & Payment Plans
 
-The **Estate Property Listings** section allows you to manage all active land developments displayed on your website.
+The **Estate Property Listings** section allows you to manage all active land developments displayed on your website. Every field on your public **Estate Details Page** — from legal titles and plot sizes to installment payment grids and infrastructure features — is 100% manageable directly from this CMS section.
 
-### How to Add or Update an Estate Listing:
+### Step-by-Step: Adding or Updating an Estate Listing
+
 1. Select **Estate Property Listings** from the left navigation menu.
-2. Click **+ New Estates** to create a new property (or select an existing estate from the list to update pricing/details).
-3. **Fill in the Property Details:**
-   - **Estate Name**: e.g., `Iloshe Imperial Haven`
-   - **Tagline**: e.g., `High-Yield Residential Plots in the Fast-Growing Epe Growth Corridor`
-   - **Location**: e.g., `Ketu-Epe Expressway, Lagos State`
-   - **Region Corridor**: Select `Epe`, `Magboro`, `Ibeju-Lekki`, `Ipaja`, `Ikorodu`, or `Ota`
-   - **Category**: Select `Residential` or `Commercial`
-   - **Display Price**: e.g., `₦5,500,000`
-   - **Numeric Price**: `5500000` *(used by search filters)*
-   - **Legal Title**: e.g., `Excision` or `Government Allocation`
-   - **Verification Badge**: e.g., `100% Charted & Verified`
-   - **Plot Size**: e.g., `300 SQM & 500 SQM`
-   - **Payment Plan**: e.g., `Outright (1-3 Mos), 6 Mos & 12 Mos Plans`
-   - **Initial Deposit**: e.g., `Flexible Monthly Installments`
-   - **Status Badge**: e.g., `Selling Fast` or `High Value Zone`
-   - **Cover Image**: Upload main property photograph (`.jpg`, `.png`, or `.webp`)
-   - **Gallery Images**: Add secondary site inspection and plot pegging photos.
-   - **Pricing Breakdown Grid**: Add payment plan entries for each plot size (1-3 Mos, 6 Mos, 12 Mos).
-   - **Infrastructure List**: Add key amenities (`Perimeter Fencing`, `Security Gatehouse`, `Earth Access Roads`).
-   - **Estate Specific FAQs**: Add custom questions and answers specific to this land development.
-4. Click **Publish Now** at the top of the page to publish live.
+2. Click **+ New Estates** to create a new development (or select an existing estate from the list to update pricing/details).
+3. **Fill in the Property Fields:**
+
+#### **A. General Information & Badges**
+- **Estate Name**: e.g., `Garden Of Praise` or `Zenith Gardens`
+- **Tagline**: e.g., `Where the future takes root, and opportunity begins to bloom.`
+- **Location**: e.g., `Eleko Junction, By Pan African, Ibeju-Lekki, Lagos State`
+- **Region Corridor**: Select `Ibeju-Lekki`, `Magboro`, `Epe`, `Ipaja`, `Ikorodu`, or `Ota`
+- **Category**: Select `Residential`, `Commercial`, or `Waterfront`
+- **Status Badge**: e.g., `Selling Fast` or `High Value Zone`
+- **Featured on Homepage**: Toggle `true` to feature this estate on the homepage directory grid.
+
+#### **B. Legal Title & Payment Specifications Matrix**
+- **Display Price Range**: e.g., `₦21,000,000 - ₦63,000,000`
+- **Numeric Price**: `21000000` *(used by search & budget filters)*
+- **Legal Title**: e.g., `Government Allocation`, `Excision`, or `Registered Survey`
+- **Verification Badge**: e.g., `100% Charted & Verified` or `Government Allocation`
+- **Plot Sizes**: e.g., `300 SQM & 500 SQM`
+- **Payment Terms Summary**: e.g., `Outright (1-3 Mos), 6 Mos & 12 Mos Plans`
+- **Initial Deposit Terms**: e.g., `Flexible Monthly Installments`
+
+#### **C. Official Pricing & Installment Payment Schedule Grid**
+You can add payment breakdown rows for every plot size offered:
+- **Click "+ Add Pricing Breakdown Grid"**
+  - **Plot Size**: e.g., `500 SQM`
+  - **1 - 3 Months (Outright)**: e.g., `₦35,000,000`
+  - **6 Months Plan**: e.g., `₦49,000,000`
+  - **12 Months Plan**: e.g., `₦63,000,000`
+- *(Add another row for `300 SQM` or custom plot dimensions as needed)*
+
+#### **D. Media Gallery & Photographs**
+- **Cover Image**: Upload main property cover photo (`.jpg`, `.png`, or `.webp`)
+- **Gallery Images**: Add secondary site inspection, survey pegging, and allocation photos.
+
+#### **E. Property Overview & Infrastructure Features**
+- **Property Overview**: Write or paste the estate's full narrative, location benefits, and investment potential.
+- **Infrastructure List**: Add key amenities (e.g., `Perimeter Fencing & Smart Security Gatehouse`, `Earth Access Roads & Drainage System`, `Instant Physical Allocation & Immediate Survey Pegging`).
+
+#### **F. Estate Specific FAQs**
+Add custom questions and answers for this specific land development:
+- **Question**: e.g., `What type of title does Garden of Praise possess?`
+- **Answer**: e.g., `Garden of Praise is backed by a secure Government Allocation title.`
+
+4. Click **Publish Now** at the top right to push all changes live to your website.
 
 ---
 
