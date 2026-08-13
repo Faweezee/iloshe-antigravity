@@ -30,15 +30,6 @@ infrastructure:
   - "Government Allocation Title Documentation"
   - "Instant Pegging & Physical Plot Allocation"
   - "Direct Expressway Proximity to Dangote Refinery & Deep Sea Port"
-faqs:
-  - question: "Where is Garden of Praise located?"
-    answer: "Garden of Praise is located at Eleko Junction by Pan-Atlantic University in Ibeju-Lekki, Lagos State."
-  - question: "What is the legal title backing Garden of Praise?"
-    answer: "The estate is backed by a secure Government Allocation title."
-  - question: "What commercial or residential developments are allowed?"
-    answer: "The land is zoned for both high-yield commercial enterprises and premium residential developments."
-  - question: "What is the allocation timeline?"
-    answer: "Physical allocation and pegging are performed immediately following contract execution and documentation."
 ---
 
 Nestled near Eleko Junction and the prestigious Pan-Atlantic University, Ibeju-Lekki, Lagos, Garden of Praise sits where vision meets value.

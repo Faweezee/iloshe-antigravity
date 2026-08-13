@@ -114,7 +114,7 @@ export function getCMSEstates() {
 
       const validPricingGrid = hasValidPricingGrid
         ? data.pricingGrid
-        : (Array.isArray(data.pricingGrid) && data.pricingGrid.length === 0 ? [] : (defaultMatch.pricingGrid || []));
+        : (data.pricingGrid !== undefined ? [] : (defaultMatch.pricingGrid || null));
 
       const hasValidFaqs = Array.isArray(data.faqs) && 
         data.faqs.length > 0 && 
@@ -123,7 +123,7 @@ export function getCMSEstates() {
 
       const validFaqs = hasValidFaqs
         ? data.faqs.map(f => ({ question: f.question, answer: f.answer || f.text }))
-        : (Array.isArray(data.faqs) && data.faqs.length === 0 ? [] : (defaultMatch.faqs || []));
+        : (data.faqs !== undefined ? [] : null);
 
       return {
         id: data.id || filename,
