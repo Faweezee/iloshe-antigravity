@@ -3,7 +3,7 @@ backend:
   repo: Faweezee/iloshe-site
   branch: main
   base_url: https://iloshe-site.vercel.app
-  auth_endpoint: api/auth
+  auth_endpoint: /api/auth
 
 # Local backend for offline developer testing
 local_backend: true
