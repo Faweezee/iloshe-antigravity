@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Faweezee/iloshe-site
   branch: main
-  base_url: https://iloshe-antigravity.vercel.app
+  base_url: https://iloshe-site.vercel.app
   auth_endpoint: api/auth
 
 # Local backend for offline developer testing
